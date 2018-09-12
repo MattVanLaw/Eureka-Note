@@ -5,7 +5,7 @@ import { Redirect, Route, withRouter } from 'react-router-dom';
 const Auth = ({ component: Component, path, loggedIn, exact}) => {
   const toRender = (props) => {
     if (loggedIn) {
-      return <Redirect to='/notes' />;
+      return <Redirect to='/' />;
     } else {
       return <Component {...props} />;
     }
@@ -25,9 +25,12 @@ const Protected = ({ component: Component, path, loggedIn, exact}) => {
 };
 
 const msp = state => {
-  const userId = state.session.id
+  const user = state.session?
+                state.session
+                :
+                {};
   return {
-    loggedIn: Boolean(userId),
+    loggedIn: Boolean(user.id),
   };
 };
 

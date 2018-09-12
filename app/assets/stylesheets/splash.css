@@ -1,0 +1,39 @@
+body {
+  background-color: green;
+}
+nav {
+  background: white;
+  font-family: Helvetica;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 52px 0;
+  z-index: 2;
+  width: 75%;
+  margin: auto;
+}
+
+.session-links {
+  display: flex;
+  align-items: center;
+}
+
+.session-links li {
+  margin-right: 10px;
+}
+.session-links a:hover {
+  color: #00c034;
+}
+.small {
+  font-size: 14px;
+}
+.login {
+  border: 2px solid #00a82d;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 37px;
+  padding: 2px 45px;
+}
