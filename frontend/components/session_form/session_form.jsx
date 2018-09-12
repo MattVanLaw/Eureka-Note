@@ -44,8 +44,9 @@ class SessionForm extends React.Component {
           <img
             className="nav-logo"
             src={window.lightbulb}/>
-          <h1>Eureka!</h1>
-          <div className="logo-dek">Exclaim whenever convenient</div>
+          <h1>Eureka!
+          <span className="subhead">Note</span></h1>
+          <div className="logo-dek">Exclaim loudly whenever convenient!</div>
           <input
             type="text"
             placeholder="Email address or username"
@@ -54,11 +55,12 @@ class SessionForm extends React.Component {
             type="password"
             placeholder="Password"
             onChange={(e) => this.update(e, "password")} />
+          {this.renderErrors()}
+
           <button className="submit-button">Continue</button>
-          <div>{this.props.otherDek}</div>
+          <div className="form-footer">{this.props.otherDek}</div>
           <Link to={this.props.otherLink}>{this.props.otherText}</Link>
         </form>
-        {this.renderErrors()}
       </div>
     );
   }

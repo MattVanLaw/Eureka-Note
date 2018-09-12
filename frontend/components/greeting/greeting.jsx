@@ -22,6 +22,7 @@ const Greeting = ({ currentUser, logout }) => {
   );
 
   //personalGreeting will eventually be worked into /notes
+  //TODO: OBLITERATE THIS VARIABLE
   const personalGreeting = () => (
     <header className="header-group">
       <h2 className="header-name">{currentUser.username}</h2>

@@ -1,0 +1,91 @@
+.form-container {
+  display: block;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+}
+.form {
+  display: flex;
+  background-color: #FFF;
+  left: 32%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 99px;
+  width: 314px;
+  border-radius: 2px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
+  margin: 2% auto 0px auto;
+  font-family: Roboto;
+}
+.form img {
+  height: 47px;
+  width: 55px;
+  margin-right: 5px;
+}
+.form h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  display: flex;
+  color: black;
+  margin-bottom: 5px;
+}
+.logo-dek {
+  margin-bottom: 44px;
+  font-weight: 400;
+}
+.form input {
+  border-radius: 7px;
+  border: 1px solid #e6e6e6;
+  padding: 12px 5px;
+  line-height: 1.1875;
+  font-size: 15px;
+  font-weight: lighter;
+  width: 314px;
+  margin: 3px;
+}
+.form input:focus {
+  outline: none !important;
+  border: none;
+  box-shadow: 0 0 5px rgb(98, 239, 178);
+}
+.form ul li {
+  color: #edb338;
+  margin-top: 6px;
+  width: 100%;
+}
+.form button {
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: #00a82d;
+  font-weight: lighter;
+  width: 326px;
+  padding: 2px;
+  color: #FFF;
+  line-height: 2.75;
+  font-size: 17px;
+  margin-top: 7px;
+  margin-bottom: 14px;
+}
+.form button:hover {
+  background-color: #008925;
+}
+.form-footer {
+  margin-top: 34px;
+  font-weight: lighter;
+  font-size: 14px;
+  color: #737373;
+}
+.form a {
+  text-decoration: none;
+  color: #00a82d;
+  line-height: 18px;
+}
+.form a:hover {
+  color: #008925;
+}
+/* Errors */
+.form li {
+  display: inline;
+  padding-right: 10px;
+}
