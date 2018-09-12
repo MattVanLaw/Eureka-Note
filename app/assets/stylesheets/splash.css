@@ -1,6 +1,6 @@
-body {
+/* body {
   background-color: green;
-}
+} */
 nav {
 }
 .navbar-container {
@@ -44,49 +44,60 @@ nav {
 .login:hover {
   border-color: #00c034;
 }
-
+.nav-logo {
+  height: 33px;
+  width: 38px;
+  margin-right: 5px;
+}
 h1 {
   font-size: 1.8em;
   font-weight: 700;
+  display: flex;
 }
 .subhead {
   color: #0000003d;
 }
 .main-call-to-action-container {
   position: relative;
-  top: 137px;
-  padding: 79px 0;
+  top: 124px;
+  padding: 168px 0;
   margin: auto;
-  height: 400px;
+  height: 350px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='59' height='59' fill-opacity='0.04' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-color: #16a20d;
 }
 
 .main-call-to-action {
   margin: auto;
-  width: 900px;
+  width: 93%;
   height: inherit;
 }
 
 .main-call-to-action .row {
   display: flex;
+  justify-content: space-between;
 }
 
 .main-call-to-action img {
-  width: 300px;
-  height: 300px;
+  width: 523px;
+  height: 327px;
+  margin-right: 20px;
 }
 .copy {
   color: #fff;
+  margin-left: 57px;
 }
 .copy h2 {
   font-size: 56px;
   line-height: 72px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 .copy p {
   font-size: 24px;
   line-height: 40px;
   margin-bottom: 35px;
+  width: 600px;
   /* font-weight: PLACE LIGHT VERSION OF FONT; */
 }
 .call-to-action-button {

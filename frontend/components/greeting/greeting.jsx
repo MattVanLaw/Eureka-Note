@@ -5,7 +5,13 @@ const Greeting = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <div className="navbar-container">
       <div className="navbar">
-        <Link to="/"><h1>Eureka!<span className="subhead">Note</span></h1></Link>
+        <Link to="/">
+          <h1><img
+            className="nav-logo"
+            src={window.lightbulb}/>
+          Eureka!
+          <span className="subhead">Note</span></h1>
+        </Link>
         <ul className="session-links">
           <li><Link to="/signup">Sign up</Link></li>
           <li className="or">&nbsp;or&nbsp;</li>

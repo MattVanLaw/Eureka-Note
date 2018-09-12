@@ -5,13 +5,15 @@ const Section = (props) => (
     <div className="main-call-to-action">
       <div className="row">
         <div className="copy">
-          <h2>The easiest way to find that <em>Eureka!</em> moment</h2>
+          <h2>The easiest way<br/>to a <em>Eureka!</em> moment</h2>
           <p>Eureka!Note helps you capture and prioritize ideas,
           projects, and to-do lists, so none of your genius is forgotten.</p>
+        <Link className="call-to-action-button" to="/signup">Sign Up For Free</Link>
         </div>
-        <img src="http://pngimage.net/wp-content/uploads/2018/05/eureka-png-4.png"/>
+        <img
+          className="nav-logo"
+          src={window.eureka}/>
       </div>
-      <Link className="call-to-action-button" to="/signup">Sign Up For Free</Link>
     </div>
   </section>
 );
