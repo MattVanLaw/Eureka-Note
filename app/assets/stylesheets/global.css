@@ -1,4 +1,7 @@
 a {
-  color: #00a82d;
   text-decoration: none;
+  color: black;
+}
+ul a {
+  color: #00a82d;
 }

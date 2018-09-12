@@ -2,16 +2,20 @@ body {
   background-color: green;
 }
 nav {
+}
+.navbar-container {
+  z-index: 2;
   background: white;
   font-family: Helvetica;
+  position: fixed;
+  width: 100%;
 }
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  padding: 52px 0;
-  z-index: 2;
+  padding: 42.5px 0;
   width: 75%;
   margin: auto;
 }
@@ -27,7 +31,7 @@ nav {
 .session-links a:hover {
   color: #00c034;
 }
-.small {
+.or {
   font-size: 14px;
 }
 .login {
@@ -36,4 +40,61 @@ nav {
   font-size: 13px;
   line-height: 37px;
   padding: 2px 45px;
+}
+.login:hover {
+  border-color: #00c034;
+}
+
+h1 {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+.subhead {
+  color: #0000003d;
+}
+.main-call-to-action-container {
+  position: relative;
+  top: 137px;
+  padding: 79px 0;
+  margin: auto;
+  height: 400px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 100 100'%3E%3Crect x='0' y='0' width='59' height='59' fill-opacity='0.04' fill='%23ffffff'/%3E%3C/svg%3E");
+}
+
+.main-call-to-action {
+  margin: auto;
+  width: 900px;
+  height: inherit;
+}
+
+.main-call-to-action .row {
+  display: flex;
+}
+
+.main-call-to-action img {
+  width: 300px;
+  height: 300px;
+}
+.copy {
+  color: #fff;
+}
+.copy h2 {
+  font-size: 56px;
+  line-height: 72px;
+  margin-bottom: 20px;
+}
+.copy p {
+  font-size: 24px;
+  line-height: 40px;
+  margin-bottom: 35px;
+  /* font-weight: PLACE LIGHT VERSION OF FONT; */
+}
+.call-to-action-button {
+  color: #00a82d;
+  background-color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 18px 45px;
+  border-radius: 5px;
 }
