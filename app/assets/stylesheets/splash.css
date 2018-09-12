@@ -40,7 +40,7 @@ nav {
   border-radius: 3px;
   font-size: 13px;
   line-height: 37px;
-  padding: 0px 35px;
+  padding: 0px 39.5px;
 }
 .login li {
   margin-right: 0px;
@@ -113,4 +113,7 @@ h1 {
   text-transform: uppercase;
   padding: 18px 45px;
   border-radius: 5px;
+}
+.call-to-action-button:hover {
+  background-color: #efeded;
 }
