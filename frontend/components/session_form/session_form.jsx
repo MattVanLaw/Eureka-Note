@@ -39,12 +39,13 @@ class SessionForm extends React.Component {
 
   render() {
     return(
-      <div className="login-form-container">
-        <form onSubmit={(e) => this.handleSubmit(e)} className="login-form">
-          <Link to="/">Eureka!Note</Link>
-          <br/>
-          Find your Eureka! moment.
-          <br/>
+      <div className="form-container">
+        <form onSubmit={(e) => this.handleSubmit(e)} className="form">
+          <img
+            className="nav-logo"
+            src={window.lightbulb}/>
+          <h1>Eureka!</h1>
+          <div className="logo-dek">Exclaim whenever convenient</div>
           <input
             type="text"
             placeholder="Email address or username"
@@ -53,7 +54,9 @@ class SessionForm extends React.Component {
             type="password"
             placeholder="Password"
             onChange={(e) => this.update(e, "password")} />
-          <button className="submit-button">{this.props.formType}</button>
+          <button className="submit-button">Continue</button>
+          <div>{this.props.otherDek}</div>
+          <Link to={this.props.otherLink}>{this.props.otherText}</Link>
         </form>
         {this.renderErrors()}
       </div>

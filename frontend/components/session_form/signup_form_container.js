@@ -9,6 +9,9 @@ const msp = ({ errors }) => {
     errors: errors.session,
     formType: 'Sign up',
     navLink: <Link to="/login">login instead</Link>,
+    otherLink: "/login",
+    otherText: "Sign in",
+    otherDek: "Already have an account?"
   };
 };
 

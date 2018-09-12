@@ -2,6 +2,7 @@
   background-color: green;
 } */
 nav {
+  font-family: 'Roboto', sans-serif;
 }
 .navbar-container {
   z-index: 2;
@@ -16,7 +17,7 @@ nav {
   justify-content: space-between;
   background: #fff;
   padding: 42.5px 0;
-  width: 75%;
+  width: 85%;
   margin: auto;
 }
 
@@ -39,7 +40,10 @@ nav {
   border-radius: 3px;
   font-size: 13px;
   line-height: 37px;
-  padding: 2px 45px;
+  padding: 0px 35px;
+}
+.login li {
+  margin-right: 0px;
 }
 .login:hover {
   border-color: #00c034;
@@ -53,6 +57,7 @@ h1 {
   font-size: 1.8em;
   font-weight: 700;
   display: flex;
+  color: black;
 }
 .subhead {
   color: #0000003d;
