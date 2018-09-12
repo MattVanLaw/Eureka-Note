@@ -5,7 +5,20 @@ import Root from './components/root';
 import * as Util from './actions/session_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const store = configureStore();
+  let store;
+
+  if (window.currentUser) {
+    const preloadedState = {
+      session: { id: window.currentUser.id },
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser }
+      }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
 
   //TESTS START
   window.getState = store.getState;
@@ -17,3 +30,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const root  = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
 });
+//TODO: Qs
+//automatically reroute on signup to root?
