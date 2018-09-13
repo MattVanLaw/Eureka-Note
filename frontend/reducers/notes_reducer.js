@@ -5,7 +5,7 @@ import {
 } from '../actions/note_actions';
 import merge from 'lodash/merge';
 
-const NoteReducer = (state = {}, action) => {
+const NotesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_NOTES:
