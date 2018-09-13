@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux';
-import usersReducer  from './users_reducer';
+import UsersReducer        from './users_reducer';
+import NotesReducer        from './notes_reducer';
+import NotebooksReducer    from './notebooks_reducer'
 
 const entitiesReducer = combineReducers({
-  users: usersReducer,
+  users: UsersReducer,
+  notes: NotesReducer,
+  notebooks: NotebooksReducer,
 });
 
 export default entitiesReducer;
-/*
-  will also hold
-    -notes
-    -notebooks
-    -tags
-  reducers
-*/
+// will also hold TagsReducer

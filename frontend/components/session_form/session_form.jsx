@@ -44,7 +44,6 @@ class SessionForm extends React.Component {
       username_or_email: "demo",
       password: "demodemo"
     });
-    debugger
     this.props.processForm(user);
   }
   render() {
