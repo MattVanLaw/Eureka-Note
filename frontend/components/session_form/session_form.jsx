@@ -59,18 +59,19 @@ class SessionForm extends React.Component {
           <div className="logo-dek">
             Exclaim loudly whenever convenient!
           </div>
-          <Route exact path="/login" component={() => (
+          <Route exact path="/login"
+            component={() => (
               <button onClick={(e) => this.handleDemoSubmit(e)}
                       className="demo-button">Demo</button>
-                  )}/>
-
-                <Route exact path="/login"
-                  component={() => (
-                    <h3 className="form-or">
-                      <span>or</span>
-                    </h3>
-                  )}/>
-
+                  )}
+          />
+          <Route exact path="/login"
+            component={() => (
+              <h3 className="form-or">
+                <span>or</span>
+              </h3>
+            )}
+          />
           <input
             type="text"
             placeholder={this.props.placeholder}

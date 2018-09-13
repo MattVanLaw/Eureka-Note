@@ -37,18 +37,20 @@
   margin-bottom: 44px;
   font-weight: 400;
 }
+button {
+  cursor: pointer;
+  border-radius: 7px;
+  outline: none;
+}
 .demo-button {
   height: 42px;
-  border-radius: 7px;
   border: solid 1px #d0d0d0;
-  cursor: pointer;
   background-color: #ffffff;
   text-align: center;
   padding: 2px 140px;
   font-size: 15px;
   color: #6a6a6a;
   display: inline-block;
-  outline: none;
 }
 .demo-button:hover {
   background-color: #f8f8f8;
@@ -82,8 +84,6 @@
   box-shadow: 0 0 0 1px #dff2e6, 0 0 4px 0 #dff2e6;
 }
 .form .submit-button {
-  cursor: pointer;
-  border-radius: 7px;
   background-color: #00a82d;
   font-weight: lighter;
   width: 326px;
@@ -93,7 +93,6 @@
   font-size: 17px;
   margin-top: 7px;
   margin-bottom: 14px;
-  outline: none;
 }
 .form .submit-button:hover {
   background-color: #008925;

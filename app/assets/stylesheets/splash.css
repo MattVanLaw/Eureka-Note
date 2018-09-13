@@ -7,7 +7,6 @@ nav {
 .navbar-container {
   z-index: 2;
   background: #FFF;
-  font-family: Helvetica;
   position: fixed;
   width: 100%;
 }
