@@ -11,7 +11,8 @@ const msp = ({ errors }) => {
     navLink: <Link to="/login">login instead</Link>,
     otherLink: "/login",
     otherText: "Sign in",
-    otherDek: "Already have an account?"
+    otherDek: "Already have an account?",
+    placeholder: "Email",
   };
 };
 

@@ -1,8 +1,12 @@
 class Api::UsersController < ApplicationController
   def create
-    @user = User.new(user_params)
+    user_hash = {
+      email: user_params[:username_or_email],
+      password: user_params[:password]
+    }
+    @user = User.new(user_hash)
     #TODO manually assign username based on email
-    @user.username = user_params[:email].split("@").first
+    @user.username = user_params[:username_or_email].split("@").first
     #TODO check that username is unique, or iterate or something
     if @user.save
       login(@user)
@@ -15,6 +19,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password) #remove username
+    params.require(:user).permit(:username_or_email, :password)
   end
 end

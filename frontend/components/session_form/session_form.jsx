@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      username_or_email: "",
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
-
+  // method for demo login.
   render() {
     return(
       <div className="form-container">
@@ -49,8 +49,8 @@ class SessionForm extends React.Component {
           <div className="logo-dek">Exclaim loudly whenever convenient!</div>
           <input
             type="text"
-            placeholder="Email address or username"
-            onChange={(e) => this.update(e, "email")} />
+            placeholder={this.props.placeholder}
+            onChange={(e) => this.update(e, "username_or_email")} />
           <input
             type="password"
             placeholder="Password"

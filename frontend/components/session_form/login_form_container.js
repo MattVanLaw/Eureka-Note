@@ -11,7 +11,8 @@ const msp = ({ errors }) => {
     navLink: <Link to="/signup">sign up instead</Link>,
     otherLink: "/signup",
     otherText: "Create account",
-    otherDek: "Don't have an account?"
+    otherDek: "Don't have an account?",
+    placeholder: "Email address or username",
   };
 };
 

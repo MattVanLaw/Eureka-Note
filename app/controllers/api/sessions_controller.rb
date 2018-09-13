@@ -2,7 +2,7 @@ class Api::SessionsController < ApplicationController
   def create
     #TODO validate on username or email. do two finds and use the one that works
     @user = User.find_by_credentials(
-      params[:user][:username],
+      params[:user][:username_or_email],
       params[:user][:password]
     )
 
