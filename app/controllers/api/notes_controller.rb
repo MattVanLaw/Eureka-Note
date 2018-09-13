@@ -10,6 +10,8 @@ class Api::NotesController < ApplicationController
 
   def create
     note = current_user.notes.new(note_params)
+    note[:title] = 'Untitled' unless note[:title]
+
     unless note.save
       render json: @note.errors.full_messages, status: 422
     end
