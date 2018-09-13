@@ -5,7 +5,6 @@ class Api::UsersController < ApplicationController
       password: user_params[:password]
     }
     @user = User.new(user_hash)
-    #TODO manually assign username based on email
     @user.username = user_params[:username_or_email].split("@").first
     #TODO check that username is unique, or iterate or something
     if @user.save

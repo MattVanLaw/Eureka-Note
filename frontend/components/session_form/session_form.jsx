@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -37,6 +38,15 @@ class SessionForm extends React.Component {
     );
   }
   // method for demo login.
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, {
+      username_or_email: "demo",
+      password: "demodemo"
+    });
+    debugger
+    this.props.processForm(user);
+  }
   render() {
     return(
       <div className="form-container">
@@ -46,7 +56,21 @@ class SessionForm extends React.Component {
             src={window.lightbulb}/>
           <h1>Eureka!
           <span className="subhead">Note</span></h1>
-          <div className="logo-dek">Exclaim loudly whenever convenient!</div>
+          <div className="logo-dek">
+            Exclaim loudly whenever convenient!
+          </div>
+          <Route exact path="/login" component={() => (
+              <button onClick={(e) => this.handleDemoSubmit(e)}
+                      className="demo-button">Demo</button>
+                  )}/>
+
+                <Route exact path="/login"
+                  component={() => (
+                    <h3 className="form-or">
+                      <span>or</span>
+                    </h3>
+                  )}/>
+
           <input
             type="text"
             placeholder={this.props.placeholder}
@@ -55,9 +79,8 @@ class SessionForm extends React.Component {
             type="password"
             placeholder="Password"
             onChange={(e) => this.update(e, "password")} />
-          {this.renderErrors()}
-
           <button className="submit-button">Continue</button>
+          {this.renderErrors()}
           <div className="form-footer">{this.props.otherDek}</div>
           <Link to={this.props.otherLink}>{this.props.otherText}</Link>
         </form>

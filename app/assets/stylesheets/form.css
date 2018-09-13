@@ -37,6 +37,36 @@
   margin-bottom: 44px;
   font-weight: 400;
 }
+.demo-button {
+  height: 42px;
+  border-radius: 7px;
+  border: solid 1px #d0d0d0;
+  cursor: pointer;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 2px 140px;
+  font-size: 15px;
+  color: #6a6a6a;
+  display: inline-block;
+  outline: none;
+}
+.demo-button:hover {
+  background-color: #f8f8f8;
+}
+.form-or {
+  color: #ababab;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #ababab;
+  line-height: 0.1em;
+  margin: 20px 0 20px;
+}
+.form-or span {
+  background: #fff;
+  padding: 0 7px;
+  font-weight: 300;
+  font-size: 14px;
+}
 .form input {
   border-radius: 7px;
   border: 1px solid #e6e6e6;
@@ -51,12 +81,7 @@
   border: 1px solid #dff2e6;
   box-shadow: 0 0 0 1px #dff2e6, 0 0 4px 0 #dff2e6;
 }
-.form ul li {
-  color: #edb338;
-  margin-top: 6px;
-  width: 100%;
-}
-.form button {
+.form .submit-button {
   cursor: pointer;
   border-radius: 7px;
   background-color: #00a82d;
@@ -68,8 +93,9 @@
   font-size: 17px;
   margin-top: 7px;
   margin-bottom: 14px;
+  outline: none;
 }
-.form button:hover {
+.form .submit-button:hover {
   background-color: #008925;
 }
 .form-footer {
@@ -87,7 +113,12 @@
   color: #008925;
 }
 /* Errors */
+.form ul li {
+  color: #edb338;
+  margin-top: 6px;
+  width: 100%;
+}
 .form li {
-  display: inline;
+  list-style: square;
   padding-right: 10px;
 }

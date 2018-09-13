@@ -17,7 +17,7 @@ nav {
   justify-content: space-between;
   background: #fff;
   padding: 42.5px 0;
-  width: 85%;
+  width: 87%;
   margin: auto;
 }
 
@@ -28,6 +28,7 @@ nav {
 
 .session-links li {
   margin-right: 10px;
+  font-weight: 300;
 }
 .session-links a:hover {
   color: #00c034;
@@ -49,13 +50,14 @@ nav {
   border-color: #00c034;
 }
 .nav-logo {
-  height: 33px;
+  height: 38px;
   width: 38px;
   margin-right: 5px;
 }
 h1 {
-  font-size: 1.8em;
-  font-weight: 700;
+  font-family: 'Merriweather', serif;
+  font-size: 1.9em;
+  font-weight: 900;
   display: flex;
   color: black;
 }
