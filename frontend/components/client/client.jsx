@@ -1,7 +1,7 @@
 import React    from 'react';
 import { Link } from 'react-router-dom';
-import MenuContainer from './notes_index_components/menu/menu_container';
-
+import MenuContainer from './menu/menu_container';
+import NotesIndex    from './notes_index/notes_index'
 class Client extends React.Component {
   constructor(props) {
     super(props);
@@ -16,12 +16,8 @@ class Client extends React.Component {
     return (
       <header className="header-group">
         <MenuContainer />
-        <section className="all-notes">
+        <NotesIndex notes={this.props.notes} />
 
-        </section>
-        <article className="note-show">
-
-        </article>
       </header>)
   }
 }

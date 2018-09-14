@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { logout }  from './../../../../actions/session_actions';
-import { createNote } from './../../../../actions/note_actions';
+import { logout }  from './../../../actions/session_actions';
+import { createNote } from './../../../actions/note_actions';
 import Menu        from './menu'
 
 const msp = state => {
