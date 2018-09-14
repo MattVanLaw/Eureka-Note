@@ -1,6 +1,8 @@
 class Api::NotesController < ApplicationController
   def index
-    @notes = Note.all
+    @notes = Note.where(author_id: current_user.id)
+    @notebooks = current_user.notebooks
+    @user = current_user
   end
 
   def show

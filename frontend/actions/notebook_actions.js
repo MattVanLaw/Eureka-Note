@@ -1,4 +1,4 @@
-import * as NotebookApiUtil from '../util/notebook_api_util';
+import * as NotebookApiUtil from './../util/notebook_api_util';
 
 export const RECEIVE_ALL_NOTEBOOKS = "RECEIVE_ALL_NOTEBOOKS";
 export const RECEIVE_NOTEBOOK = "RECEIVE_NOTEBOOK";

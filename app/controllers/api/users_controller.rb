@@ -8,8 +8,8 @@ class Api::UsersController < ApplicationController
     @user.username = user_params[:username_or_email].split("@").first
     #TODO check that username is unique, or iterate or something
     if @user.save
-      # Remove unique server validation. Only model
-      Notebook.create(title: '<Inbox>3', author_id: @user.id)
+      #FYI notebook titles can be duplicated willy nilly
+      Notebook.create(title: '<Inbox>', author_id: @user.id)
       login(@user)
       render 'api/users/show'
     else

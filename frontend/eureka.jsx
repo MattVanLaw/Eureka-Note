@@ -3,7 +3,7 @@ import ReactDOM        from 'react-dom';
 import configureStore  from './store/store';
 import Root from './components/root';
 import * as Util from './actions/session_actions';
-
+import * as NBUtil from './util/notebook_api_util';
 document.addEventListener("DOMContentLoaded", () => {
   let store;
 
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.login = Util.login;
   window.signup = Util.signup;
+  window.fetchNotebooks = NBUtil.fetchNotebooks;
   //TESTS END
 
   const root  = document.getElementById('root');

@@ -1,2 +1,2 @@
-json.extract! @notes, :id, :title, :body
-json.extract! @notebooks
+json.array! @notes, :id, :body
+json.array! @notebooks, :id, :title
