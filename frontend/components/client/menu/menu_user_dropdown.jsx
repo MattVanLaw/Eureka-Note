@@ -12,8 +12,12 @@ const UserDropdown = ({currentUser, logout}) => {
         </div>
         <div className="dropdown">
           <div className="dropdown-account">Account</div>
+          <div className="user-row">
+            <span className="initial-drop">{currentUser.username[0].toUpperCase()}</span>
+            <span className="user-drop">{currentUser.username}</span>
+          </div>
           <ul>
-            <li className="dropdown-username"></li>
+            <li className="rule"></li>
             <li onClick={() => logout()} className="dropdown-item">
               Sign out {currentUser.username}
             </li>
