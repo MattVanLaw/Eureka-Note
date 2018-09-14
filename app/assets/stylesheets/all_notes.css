@@ -1,0 +1,9 @@
+.all-notes {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-left: 241px;
+}
+.all-notes-header {
+  z-index: 1;
+}

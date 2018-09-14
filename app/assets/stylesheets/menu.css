@@ -1,0 +1,68 @@
+.menu-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 241px;
+  line-height: 1.5;
+  background: #1a1a1a;
+  color: #ccc;
+  height: 100%;
+  z-index: 3;
+}
+.username-container {
+  width: 221px;
+  margin-left: 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+.initial {
+  font-family: 'Jacques Francois Shadow', cursive;
+  border-radius: 50%;
+  padding: 1px;
+  color: blue;
+  display: block;
+  background: #84b444;
+  transform: scale(1.403, 0.8);
+  font-size: 20px;
+}
+.username-container img {
+  width: 13px;
+  height: 14px;
+  position: relative;
+  top: 2.1px;
+}
+.user {
+  margin: 0 6px 0 15px;
+  font-size: 13px;
+  text-align: left;
+  color: #ccc;
+  line-height: 19px;
+  text-overflow: ellipsis;
+  font-weight: 300;
+}
+.user:hover {
+  color: #ffffff;
+}
+.dropdown {
+  background: #ffffff;
+  position: absolute;
+  left: 19px;
+  top: 55px;
+  border-radius: 3px;
+  padding: 12px 0px 12px 21px;
+  color: grey;
+  z-index: 5;
+  font-size: 14px;
+  width: 247px;
+  box-shadow: 0 0 0 1px rgba(99, 114, 130, .16);
+}
+.dropdown-account {
+  font-size: 13px;
+  color: #b3b3b3;
+  font-weight: 300;
+}
+.dropdown li:hover {
+  color: #555555;
+  background-color: #f5f5f5;
+}
