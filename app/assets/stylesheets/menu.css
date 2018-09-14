@@ -126,3 +126,11 @@ ul .rule:hover {
   font-weight: 300;
   transform: scale(1.5, 1.5);
 }
+.menu-container a {
+  color: #e6e6e6;
+  padding: 5px 10px 5px 21px;
+  margin: 10px 0;
+}
+.selected-link {
+  background-color: #404040;
+}

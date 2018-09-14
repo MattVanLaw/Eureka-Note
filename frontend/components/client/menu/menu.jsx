@@ -1,5 +1,6 @@
 import React from 'react';
 import UserDropdown from './menu_user_dropdown';
+import { NavLink } from 'react-router-dom'
 
 class Menu extends React.Component {
   constructor(props) {
@@ -39,7 +40,10 @@ class Menu extends React.Component {
           <span className="create-plus-container">
             <span className="create-plus">+</span>
           </span> New Note
-          </div>
+        </div>
+        <NavLink
+          to="/client/notebooks"
+          activeClassName="selected-link">Notebooks</NavLink>
       </aside>
     )
   }
