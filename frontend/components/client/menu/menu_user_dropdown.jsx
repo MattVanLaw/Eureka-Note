@@ -1,3 +1,5 @@
+import React from 'react';
+
 const UserDropdown = ({currentUser, logout}) => {
   return (
     <div className="user-dropdown-container">

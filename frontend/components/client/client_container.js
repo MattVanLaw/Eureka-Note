@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { logout }  from './../../actions/session_actions';
-import NotesIndex  from './notes_index';
+import Client  from './client';
 import {
   fetchNotes,
   createNote,
@@ -27,5 +27,5 @@ const mdp = dispatch => ({
   logout: () => dispatch(logout()),
 });
 
-const NotesIndexContainer = connect(msp, mdp)(NotesIndex);
-export default NotesIndexContainer;
+const ClientContainer = connect(msp, mdp)(Client);
+export default ClientContainer;

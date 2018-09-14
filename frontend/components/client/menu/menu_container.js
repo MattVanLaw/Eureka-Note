@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
+import { logout }  from './../../../../actions/session_actions';
+import { createNote } from './../../../../actions/note_actions';
 import Menu        from './menu'
-import { logout }  from './../../../actions/session_actions';
-import { createNote } from './../../../actions/note_actions';
 
 const msp = state => {
   const currentUser = state.entities.users[state.session.id];
@@ -17,4 +17,5 @@ const mdp = dispatch => {
   };
 };
 
-const MenuContainer = connect(msp, mdp)(Menu)
+const MenuContainer = connect(msp, mdp)(Menu);
+export default MenuContainer;

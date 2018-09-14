@@ -1,7 +1,7 @@
 import React    from 'react';
 import { Link } from 'react-router-dom';
 
-const Greeting = ({ currentUser, logout }) => (
+const Splash = ({ currentUser, logout }) => (
   <div className="navbar-container">
     <div className="navbar">
       <Link to="/">
@@ -20,4 +20,4 @@ const Greeting = ({ currentUser, logout }) => (
   </div>
 );
 
-export default Greeting;
+export default Splash;

@@ -1,0 +1,7 @@
+// <header>
+//   <div><i>expand arrow</i>
+//    | {this.props.notebooks
+//           .map(notebook => <p>{notebook.title}</p>)}
+//   <i>...</i>
+//   </div>
+// </header>
