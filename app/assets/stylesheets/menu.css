@@ -12,9 +12,10 @@
 .username-container {
   width: 221px;
   margin-left: 24px;
-  height: 56px;
+  height: 66px;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .initial {
   font-family: 'Jacques Francois Shadow', cursive;
@@ -98,6 +99,30 @@
   display: block;
   border-top: 1px solid #ededed;
 }
-.rule:hover {
-
+ul .rule:hover {
+  background: #ffffff;
+}
+.create-note {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0 19px;
+  color: white;
+  font-size: 14px;
+}
+.create-plus-container {
+  padding: 0px 9px;
+  border-radius: 50%;
+  background: #08a908;
+  margin-right: 13px;
+}
+.create-plus {
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  font-weight: 300;
+  transform: scale(1.5, 1.5);
 }

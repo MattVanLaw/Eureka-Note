@@ -1,30 +1,28 @@
 import React from 'react';
 
-const UserDropdown = ({currentUser, logout}) => {
-  return (
-    <div className="user-dropdown-container">
-      <div className="user-account">
-        <div className="username-container">
-          <span className="initial">{currentUser.username[0].toUpperCase()}</span>
-          <span className="user">{currentUser.username}</span>
-          <img
-            src={window.dropArrow}/>
-        </div>
-        <div className="dropdown">
-          <div className="dropdown-account">Account</div>
-          <div className="user-row">
-            <span className="initial-drop">{currentUser.username[0].toUpperCase()}</span>
-            <span className="user-drop">{currentUser.username}</span>
+class UserDropdown extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return (
+      <div className="user-dropdown-container">
+          <div className="dropdown">
+            <div className="dropdown-account">Account</div>
+            <div className="user-row">
+              <span className="initial-drop">{this.props.currentUser.username[0].toUpperCase()}</span>
+              <span className="user-drop">{this.props.currentUser.username}</span>
+            </div>
+            <ul>
+              <li className="rule"></li>
+              <li onClick={() => this.props.logout()} className="dropdown-item">
+                Sign out {this.props.currentUser.username}
+              </li>
+            </ul>
           </div>
-          <ul>
-            <li className="rule"></li>
-            <li onClick={() => logout()} className="dropdown-item">
-              Sign out {currentUser.username}
-            </li>
-          </ul>
-        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 export default UserDropdown;
