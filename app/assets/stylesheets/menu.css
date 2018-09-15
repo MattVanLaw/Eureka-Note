@@ -11,21 +11,29 @@
 }
 .username-container {
   width: 221px;
-  margin-left: 24px;
-  height: 66px;
+  margin-left: 18px;
+  height: 60px;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
+.initial-container {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFEB3B;
+  border-radius: 50%;
+}
 .initial {
   font-family: 'Jacques Francois Shadow', cursive;
-  border-radius: 50%;
-  padding: 1px;
-  color: blue;
+  color: red;
   display: block;
-  background: #84b444;
-  transform: scale(1.503, 1);
-  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 23px;
+  transform: scale(1.2,1);
 }
 .username-container img {
   width: 13px;
@@ -105,10 +113,12 @@ ul .rule:hover {
 .create-note {
   display: flex;
   align-items: center;
-  justify-content: left;
-  margin: 0 19px;
+  margin: 0 17px;
   color: white;
   font-size: 14px;
+}
+.create-note svg {
+  margin-right: 13px;
 }
 .create-plus-container {
   padding: 0px 9px;
@@ -129,8 +139,14 @@ ul .rule:hover {
 .menu-container a {
   color: #e6e6e6;
   padding: 5px 10px 5px 21px;
-  margin: 10px 0;
+  font-size: 14px;
 }
 .selected-link {
   background-color: #404040;
+}
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 20px;
 }
