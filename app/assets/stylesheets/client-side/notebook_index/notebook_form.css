@@ -1,0 +1,66 @@
+.all-notebooks form {
+  position: absolute;
+  z-index: 5;
+  background: white;
+  top: 100%;
+  left: 40%;
+  min-width: 500px;
+  width: 39%;
+  max-width: 700px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 15px rgba(0, 0, 0, .2);
+  border-radius: 4px;
+}
+.notebook-form-main {
+  padding: 20px 25px 25px 25px;
+}
+.notebook-form-main div {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #555555;
+  margin-bottom: 15px;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.notebook-form-main p {
+
+}
+.notebook-form-main label {
+  display: block;
+}
+.notebook-form-main input {
+
+}
+.notebook-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 25px;
+  line-height: 1.5;
+}
+.notebook-form-buttons div {
+  margin: 0 10px 0 0;
+  border-radius: 4px;
+  line-height: 1;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: transparent;
+  color: #b3b3b3;
+  border: 1px solid #ededed;
+  padding: 10px 15px;
+}
+.notebook-form-buttons button {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  border: none;
+  background-color: #00a82d;
+  font-size: 14px;
+}
+.notebook-form-buttons button[disabled] {
+  cursor: default;
+  background-color: #dcdfe3;
+}

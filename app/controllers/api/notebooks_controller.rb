@@ -1,6 +1,6 @@
 class Api::NotebooksController < ApplicationController
   def index
-    @notebooks = Notebook.all
+    @notebooks = Notebook.where(author_id: current_user.id)
   end
 
   def show
@@ -11,7 +11,7 @@ class Api::NotebooksController < ApplicationController
   end
 
   def create
-    notebook = current_user.notebooks.new(notebook_params)
+    notebook = current_user.notebooks.new(notebook_params) #BUG not sure
     unless notebook.save
       render json: @notebook.errors.full_messages, status: 422
     end

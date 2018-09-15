@@ -9,6 +9,7 @@
   font-size: 15.5px;
   color: #333333;
   justify-content: space-between;
+  letter-spacing: 0.3px;
 }
 .all-notebooks-title {
   display: block;
@@ -36,6 +37,45 @@
   border-bottom: 1px solid #ededed;
   padding: 8.5px 10px;
 }
+.header-stats {
+  display: flex;
+}
+.header-stats div {
+  margin-left: 145px;
+}
 .notebooks-index-item {
+  color: #313131;
+}
+.notebooks-index-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 9.5px 0 9.5px 32px;
+  cursor: grab;
+}
+.notebook-specs {
+  display: flex;
+  color: #777777;
+}
+.notebook-specs div {
+  margin-left: 188px;
+}
+#middlest-spec {
+  margin-left: 111px;
+}
+.even-nb {
+  background-color: #f8f8f8;;
+}
+.notebooks-index-row i {
+  font-size: 12px;
+  color: #777777;
+}
+.notebook-show-link {
+  color: #313131;
+}
+.notebook-show-link:hover {
+  text-decoration: underline;
+}
+.notebook-show-link:visited {
   color: #313131;
 }

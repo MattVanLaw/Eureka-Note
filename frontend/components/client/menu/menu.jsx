@@ -1,6 +1,6 @@
 import React from 'react';
 import UserDropdown from './menu_user_dropdown';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Menu extends React.Component {
   constructor(props) {
@@ -9,13 +9,18 @@ class Menu extends React.Component {
       displayDropdown: false,
     };
     this.displayDropdown = this.displayDropdown.bind(this);
+    this.closeDropdown = this.closeDropdown.bind(this);
   }
   displayDropdown() {
     this.setState({
       displayDropdown: !this.state.displayDropdown,
     });
   }
-
+  closeDropdown() {
+    this.setState({
+      displayDropdown: false
+    });
+  }
   render() {
     const defaultNote = {
       author_id: this.props.currentUser.id,
@@ -49,15 +54,15 @@ class Menu extends React.Component {
             </g>
           </svg>
 
-          New Note
+          <span>New Note</span>
         </div>
         <div className="nav-links">
-          <NavLink
-            to="/client/notes"
-            activeClassName="selected-link">All Notes</NavLink>
-          <NavLink
-            to="/client/notebooks"
-            activeClassName="selected-link">Notebooks</NavLink>
+          <Link to="/client/notes">
+            <i className="fas fa-file-alt"></i>&nbsp;&nbsp;&nbsp;All Notes
+          </Link>
+          <Link to="/client/notebooks">
+            <i className="fas fa-book"></i>&nbsp;&nbsp;&nbsp;Notebooks
+          </Link>
         </div>
       </aside>
     )
