@@ -6,9 +6,11 @@ import SignupFormContainer from './session_form/signup_form_container';
 import Section             from './sections/section';
 import ClientContainer from './client/client_container';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
+import Modal from './modal.jsx';
 
 const App = () => (
   <div>
+    <Modal />
     <nav>
       <ProtectedRoute path="/client" component={ClientContainer} />
       <Route exact path="/" component={SplashContainer} />

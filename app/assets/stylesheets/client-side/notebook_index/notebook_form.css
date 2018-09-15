@@ -13,17 +13,24 @@
 .notebook-form-main {
   padding: 20px 25px 25px 25px;
 }
-.notebook-form-main div {
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #555555;
-  margin-bottom: 15px;
-}
 .header-container {
   display: flex;
+  color: #555555;
+  text-align: center;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+.notebook-form-main div {
+  font-weight: 500;
+  line-height: 1.5;
+}
+.notebook-form-main i {
+  color: #777777;
+}
+.notebook-form-main i:hover {
+  color: black;
 }
 .notebook-form-main p {
 
@@ -63,4 +70,23 @@
 .notebook-form-buttons button[disabled] {
   cursor: default;
   background-color: #dcdfe3;
+}
+
+/* Modal Biz below */
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
 }

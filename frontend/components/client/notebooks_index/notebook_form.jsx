@@ -13,6 +13,7 @@ class NotebookForm extends React.Component {
       name: e.target.value
     });
   };
+
   render() {
     const validName = this.state.name.length !== 0;
     return(

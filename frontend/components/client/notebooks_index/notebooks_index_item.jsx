@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const NotebookIndexItem = (props) => {
   //TODO try to grab length of notes, with notes with a fetchNotebook
