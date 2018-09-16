@@ -85,14 +85,14 @@
   font-family: 'Jacques Francois Shadow', cursive;
   border-radius: 50%;
   padding: 1px;
-  color: blue;
-  background: #84b444;
+  color: red;
+  background: #FFEB3B;
   transform: scale(1.503, 1);
   font-size: 19px;
   margin-left: 4px;
 }
 .user-drop {
-  margin-left: 10px;
+  margin-left: 14px;
   color: #000000;
   font-size: 16px;
   font-weight: 300;

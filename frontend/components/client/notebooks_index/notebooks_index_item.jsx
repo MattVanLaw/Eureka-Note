@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 const NotebookIndexItem = (props) => {
-  //TODO try to grab length of notes, with notes with a fetchNotebook
-  //to hit the notebook show page, which should push the right stuff to
-  //state...
   const createdAt = new Date(props.notebook.created_at);
   const updatedAt = new Date(props.notebook.updated_at);
   const even = props.indexNumber % 2 === 0;
