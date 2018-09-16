@@ -48,7 +48,7 @@ const receiveNotebook = notebook => {
   };
 };
 
-const removeNote = notebookId => {
+const removeNotebook = notebookId => {
   return {
     type: REMOVE_NOTEBOOK,
     notebookId,

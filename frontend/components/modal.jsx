@@ -13,6 +13,9 @@ const Modal = ({modal, closeModal}) => {
     case 'createNotebook':
       component = <NotebookFormContainer />;
       break;
+    case 'updateNotebook':
+      component = <NotebookUpdateForm />;
+      break;
     default:
       return null;
   }

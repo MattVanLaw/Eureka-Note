@@ -48,6 +48,9 @@
   align-items: center;
   font-size: 16px;
 }
+.form input:focus {
+  border: 1px solid white;
+}
 .notebook-form-buttons {
   display: flex;
   justify-content: flex-end;
@@ -103,4 +106,7 @@
   max-width: 700px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 15px rgba(0, 0, 0, .2);
   border-radius: 4px;
+}
+.modal-child input {
+  outline: none;
 }

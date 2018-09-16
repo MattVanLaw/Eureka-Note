@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = Util.login;
   window.signup = Util.signup;
   window.fetchNotebooks = NBUtil.fetchNotebooks;
+  window.createNotebook = NBUtil.createNotebook;
   //TESTS END
 
   const root  = document.getElementById('root');

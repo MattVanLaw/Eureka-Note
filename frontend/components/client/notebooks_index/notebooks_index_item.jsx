@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import IndexItemMenuContainer from './index_item_menu_container';
+import { fetchNotebooks } from './../../../actions/notebook_actions';
 
 const NotebookIndexItem = (props) => {
   const createdAt = new Date(props.notebook.created_at);
   const updatedAt = new Date(props.notebook.updated_at);
   const even = props.indexNumber % 2 === 0;
-  if (createdAt.toDateString() === "Invalid Date") return null;
-  //BUG: quick fix ^^
+  // if (createdAt.toDateString() === "Invalid Date") return null;
+
   return (
     <div className={`notebooks-index-row ${even? "even-nb" : ''}`}>
 
@@ -20,6 +22,8 @@ const NotebookIndexItem = (props) => {
         <div id="middlest-spec">{updatedAt.toDateString()}</div>
         <div><i className="fas fa-ellipsis-h"></i></div>
       </div>
+      <IndexItemMenuContainer
+        notebookId={props.notebook.id} />
     </div>
   );
 };

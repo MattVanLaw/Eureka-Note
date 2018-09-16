@@ -11,10 +11,10 @@ class Api::NotebooksController < ApplicationController
   end
 
   def create
-    notebook = Notebook.new(notebook_params)
-    notebook.author_id = current_user.id
-    if notebook.save!
-      render :index
+    @notebook = Notebook.create(notebook_params)
+    @notebook.author_id = current_user.id
+    if @notebook.save!
+      render :show
     end
     #render errors?
   end

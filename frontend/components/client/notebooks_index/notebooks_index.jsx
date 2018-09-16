@@ -4,11 +4,11 @@ import NotebookFormContainer from './notebook_form_container';
 import { connect } from 'react-redux';
 import { openModal } from './../../../actions/modal_actions';
 
+
 class NotebooksIndex extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return(
       <section className="all-notebooks">
@@ -32,12 +32,14 @@ class NotebooksIndex extends React.Component {
           </div>
         </div>
         <ul>
-          {this.props.notebooks.map((notebook, idx) => (
-            <NotebooksIndexItem
-                indexNumber={idx + 1}
-                key={notebook.id}
-                notebook={notebook}/>)
-          )}
+          {this.props.notebooks.map((notebook, idx) => {
+            return(<NotebooksIndexItem
+              indexNumber={idx + 1}
+              key={notebook.id}
+              notebook={notebook}/>)
+
+          })
+          }
         </ul>
       </section>
     );
@@ -46,7 +48,7 @@ class NotebooksIndex extends React.Component {
 const mdp = dispatch => {
   return {
     openModal: (string) => dispatch(openModal(string)),
-  }
-}
+  };
+};
 
 export default connect(null, mdp)(NotebooksIndex);
