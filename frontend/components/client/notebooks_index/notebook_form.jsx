@@ -4,26 +4,33 @@ class NotebookForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      title: "",
     };
     this.updateName = this.updateName.bind(this);
+    this.handleCreation = this.handleCreation.bind(this);
   }
   updateName(e) {
     this.setState({
-      name: e.target.value
+      title: e.target.value
     });
   };
-
+  handleCreation(e, notebook) {
+    e.preventDefault();
+    this.props.createNotebook(notebook)
+        .then(() => this.props.fetchNotebooks());
+    this.props.closeModal();
+  }
   render() {
-    const validName = this.state.name.length !== 0;
+    const validName = this.state.title.length !== 0;
     return(
-      <form onSubmit={() => this.props.createNotebook(this.state)}>
+      <form>
         <div className="notebook-form-main">
           <div className="header-container">
             <div>Create new notebook</div>
-            <i className="fas fa-times"></i>
+            <i onClick={() => this.props.closeModal()} className="fas fa-times"></i>
           </div>
-          <p>Notebooks are useful for grouping notes around a common topic.</p>
+          <p>Notebooks are useful for grouping epiphany moments around a common theme,
+            like &ldquo;Space&rdquo; or &ldquo;Taco Bell&rdquo;</p>
           <label>Name</label>
           <input
             onChange={(e) => this.updateName(e)}
@@ -33,8 +40,9 @@ class NotebookForm extends React.Component {
         <div className="notebook-form-buttons">
           <div>Cancel</div>
           <button
+            onClick={(e) => this.handleCreation(e, this.state)}
             type="button"
-            disabled={!this.state.name}
+            disabled={!this.state.title}
             className={ validName ? "submit-button" : "" }>
             Continue
           </button>

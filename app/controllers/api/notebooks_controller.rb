@@ -11,10 +11,12 @@ class Api::NotebooksController < ApplicationController
   end
 
   def create
-    notebook = current_user.notebooks.new(notebook_params) #BUG not sure
-    unless notebook.save
-      render json: @notebook.errors.full_messages, status: 422
+    notebook = Notebook.new(notebook_params)
+    notebook.author_id = current_user.id
+    if notebook.save!
+      render :index
     end
+    #render errors?
   end
 
   def edit

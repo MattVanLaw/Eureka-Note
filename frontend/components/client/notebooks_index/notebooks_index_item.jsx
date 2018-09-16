@@ -9,6 +9,8 @@ const NotebookIndexItem = (props) => {
   const createdAt = new Date(props.notebook.created_at);
   const updatedAt = new Date(props.notebook.updated_at);
   const even = props.indexNumber % 2 === 0;
+  if (createdAt.toDateString() === "Invalid Date") return null;
+  //BUG: quick fix ^^
   return (
     <div className={`notebooks-index-row ${even? "even-nb" : ''}`}>
 

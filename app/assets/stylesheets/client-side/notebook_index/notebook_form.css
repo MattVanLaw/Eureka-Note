@@ -1,14 +1,4 @@
 .all-notebooks form {
-  position: absolute;
-  z-index: 5;
-  background: white;
-  top: 100%;
-  left: 40%;
-  min-width: 500px;
-  width: 39%;
-  max-width: 700px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 15px rgba(0, 0, 0, .2);
-  border-radius: 4px;
 }
 .notebook-form-main {
   padding: 20px 25px 25px 25px;
@@ -33,13 +23,30 @@
   color: black;
 }
 .notebook-form-main p {
-
+  font-size: 13px;
+  color: #777777;
+  max-width: 500px;
+  margin: 0 0 18px;
+  font-weight: 300;
 }
 .notebook-form-main label {
   display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #7a8083;
 }
 .notebook-form-main input {
-
+  overflow: hidden;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  height: 40px;
+  background: rgba(255, 255, 255, .7);
+  width: 96.5%;
+  padding: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
 }
 .notebook-form-buttons {
   display: flex;
@@ -47,6 +54,7 @@
   align-items: center;
   padding: 20px 25px;
   line-height: 1.5;
+  border-top: 1px solid #ededed;
 }
 .notebook-form-buttons div {
   margin: 0 10px 0 0;
@@ -79,7 +87,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(42, 51, 60, .4);
   z-index: 10;
 }
 
@@ -88,5 +96,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 5;
   background: white;
+  min-width: 500px;
+  width: 39%;
+  max-width: 700px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 2px 15px rgba(0, 0, 0, .2);
+  border-radius: 4px;
 }

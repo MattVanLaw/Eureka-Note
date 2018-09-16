@@ -12,5 +12,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-//  Will also include ui
