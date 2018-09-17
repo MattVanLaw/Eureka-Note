@@ -40,7 +40,7 @@ class NotebookIndexItem extends React.Component {
             }
           </div>
           <Link className="notebook-show-link"
-            to={`/client/notebook/${this.props.notebook.title}`}>
+            to={`/client/notebooks/${this.props.notebook.id}`}>
             <i className="fas fa-book"></i>
             {this.props.notebook.title}
           </Link>

@@ -1,0 +1,29 @@
+.notebook-show {
+  position: absolute;
+  left: 240px;
+  min-height: 100%;
+  width: 375px;
+  background-color: #f8f8f8;
+}
+.notebook-show header {
+  padding: 43px 18px 0 25px;
+}
+.notebook-show .notebook-title {
+  color: #333333;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+}
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 45px 0 10px;
+}
+.toolbar-left .show-note-count {
+  font-size: 13px;
+  font-weight: 300;
+  color: #a6a6a6;
+}
+.toolbar-right {
+  color: #777777;
+}

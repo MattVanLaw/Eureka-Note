@@ -118,9 +118,14 @@ ul .rule:hover {
   margin-top: 65px;
   color: white;
   font-size: 14px;
+  cursor: pointer;
 }
 .create-note svg {
   margin-right: 8px;
+  transition: left 0.20s ease-out, transform 0.20s ease-out;
+}
+.create-note svg:hover {
+  transform: scale(1.1,1.1);
 }
 .create-note span {
   margin-top: 2px;

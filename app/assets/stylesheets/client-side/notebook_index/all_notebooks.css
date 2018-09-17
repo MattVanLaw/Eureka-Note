@@ -99,6 +99,7 @@
 }
 .notebook-show-link {
   color: #313131;
+  font-size: 14px;
 }
 .notebook-show-link:hover {
   text-decoration: underline;
