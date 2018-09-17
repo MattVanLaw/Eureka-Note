@@ -16,6 +16,7 @@ export const updateNotebook = notebook => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/notebooks/${notebook.id}`,
+    data: { notebook }
   });
 };
 

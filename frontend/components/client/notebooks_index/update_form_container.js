@@ -11,7 +11,9 @@ const msp = state => {
 }
 const mdp = dispatch => {
   return {
-    action: (notebook) => dispatch(updateNotebook(notebook)),
+    action: (notebook) => {
+      return dispatch(updateNotebook(notebook))
+    },
     closeModal: () => dispatch(closeModal()),
     fetchNotebooks: () => dispatch(fetchNotebooks()),
   };

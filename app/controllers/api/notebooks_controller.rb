@@ -25,7 +25,9 @@ class Api::NotebooksController < ApplicationController
 
   def update
     @notebook = Notebook.find(params[:id])
-    @notebook.update(notebook_params)
+    if @notebook.update(notebook_params)
+      render :show
+    end
   end
 
   def destroy

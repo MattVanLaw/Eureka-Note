@@ -5,25 +5,27 @@ class NotebookForm extends React.Component {
     super(props);
     this.state = {
       title: "",
+
     };
-    this.updateName = this.updateName.bind(this);
+    this.updateTitle = this.updateTitle.bind(this);
     this.handleAction = this.handleAction.bind(this);
   }
-  updateName(e) {
+  updateTitle(e) {
     this.setState({
       title: e.target.value,
+      id: this.props.notebook.id || null
     });
   };
-  handleAction(e, notebook) {
+  handleAction(e, state) {
     e.preventDefault();
-    this.props.action(notebook)
+    this.props.action(state)
         .then(() => this.props.fetchNotebooks());
     this.props.closeModal();
   }
   render() {
-    const validName = this.state.title.length !== 0;
+    const validTitle = this.state.title.length !== 0;
     return(
-      <form>
+      <form onSubmit={(e) => this.handleAction(e, this.state)}>
         <div className="notebook-form-main">
           <div className="header-container">
             <div>Create new notebook</div>
@@ -33,18 +35,18 @@ class NotebookForm extends React.Component {
             like &ldquo;Space&rdquo; or &ldquo;Taco Bell&rdquo;</p>
           <label>Name</label>
           <input
-            onChange={(e) => this.updateName(e)}
+            name="title"
+            onChange={(e) => this.updateTitle(e)}
             type="text"
             placeholder={this.props.notebook.title ? this.props.notebook.title : "Notebook name"}/>
         </div>
         <div className="notebook-form-buttons">
-          <div>Cancel</div>
+          <div onClick={() => this.props.closeModal()}>Cancel</div>
           <button
             onClick={(e) => this.handleAction(e, this.state)}
-            value={this.state.title}
             type="button"
             disabled={!this.state.title}
-            className={ validName ? "submit-button" : "" }>
+            className={ validTitle ? "submit-button" : "" }>
             Continue
           </button>
         </div>

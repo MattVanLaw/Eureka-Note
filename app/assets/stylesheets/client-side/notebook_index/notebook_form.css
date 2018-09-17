@@ -58,6 +58,7 @@
   padding: 20px 25px;
   line-height: 1.5;
   border-top: 1px solid #ededed;
+  cursor: pointer;
 }
 .notebook-form-buttons div {
   margin: 0 10px 0 0;

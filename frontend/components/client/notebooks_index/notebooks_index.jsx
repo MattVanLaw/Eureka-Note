@@ -50,7 +50,7 @@ class NotebooksIndex extends React.Component {
 }
 const mdp = dispatch => {
   return {
-    openModal: (string) => dispatch(openModal(string)),
+    openModal: (string, notebook) => dispatch(openModal(string, notebook)),
   };
 };
 

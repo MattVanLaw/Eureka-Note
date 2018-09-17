@@ -15,7 +15,7 @@ const Modal = ({modal, closeModal}) => {
       component = <NotebookCreateFormContainer />;
       break;
     case 'updateNotebook':
-      component = <NotebookUpdateFormContainer />;
+      component = <NotebookUpdateFormContainer notebook={modal.notebook}/>;
       break;
     default:
       return null;
