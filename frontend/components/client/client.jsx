@@ -25,7 +25,8 @@ class Client extends React.Component {
             component={() => <NotesIndex notes={this.props.notes} />}
           />
           <ProtectedRoute path="/client/notebooks"
-            component={() => <NotebooksIndex notebooks={this.props.notebooks} />}
+            component={() => <NotebooksIndex notes={this.props.notes} 
+            notebooks={this.props.notebooks} />}
           />
         </Switch>
       </header>)

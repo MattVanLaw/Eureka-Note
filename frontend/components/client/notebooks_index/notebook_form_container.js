@@ -3,14 +3,20 @@ import { connect }    from 'react-redux';
 import { createNotebook } from './../../../actions/notebook_actions';
 import { closeModal } from './../../../actions/modal_actions';
 import { fetchNotebooks } from './../../../actions/notebook_actions';
+
+const msp = (state, ownProps) => {
+  return {
+    notebook: {id: null, title: ""},
+  }
+}
 const mdp = dispatch => {
   return {
-    createNotebook: (notebook) => dispatch(createNotebook(notebook)),
+    action: (notebook) => dispatch(createNotebook(notebook)),
     closeModal: () => dispatch(closeModal()),
     fetchNotebooks: () => dispatch(fetchNotebooks()),
   };
 };
 
-const NotebookFormContainer = connect(null, mdp)(NotebookForm);
+const NotebookCreateFormContainer = connect(msp, mdp)(NotebookForm);
 
-export default NotebookFormContainer;
+export default NotebookCreateFormContainer;

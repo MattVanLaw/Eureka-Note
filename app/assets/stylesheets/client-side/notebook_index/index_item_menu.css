@@ -1,0 +1,21 @@
+.index-item-menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0px;
+  background-color: #e3e2e2;
+  font-size: 13px;
+}
+.index-item-menu li {
+  margin: 0 10px 0 13px;
+  color: #313131;
+  cursor: pointer;
+}
+.index-item-menu li:last-child {
+  color: #ff3131
+}
+.index-item-menu li:last-child:hover {
+  color: red;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  text-decoration-color: black;
+}

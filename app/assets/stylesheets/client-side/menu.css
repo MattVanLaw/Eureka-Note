@@ -27,8 +27,9 @@
   border-radius: 50%;
 }
 .initial {
-  font-family: 'Jacques Francois Shadow', cursive;
+  font-family: Helvetica, cursive;
   color: red;
+  text-shadow: 1px 1px blue;
   display: block;
   text-align: center;
   vertical-align: middle;

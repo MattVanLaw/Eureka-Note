@@ -11,7 +11,9 @@ class UserDropdown extends React.Component {
           <div className="dropdown">
             <div className="dropdown-account">Account</div>
             <div className="user-row">
-              <span className="initial-drop">{this.props.currentUser.username[0].toUpperCase()}</span>
+              <span className="initial-container">
+                <span className="initial">{this.props.currentUser.username[0].toUpperCase()}</span>
+              </span>
               <span className="user-drop">{this.props.currentUser.username}</span>
             </div>
             <ul>

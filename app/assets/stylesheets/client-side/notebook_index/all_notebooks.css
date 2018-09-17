@@ -50,25 +50,52 @@
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  padding: 9.5px 0 9.5px 32px;
+  padding: 9.5px 0 9.5px 20px;
   cursor: grab;
+}
+.notebooks-index-row:hover {
+  background-color: #f5f5f5;
+}
+.note-count {
+  cursor: pointer;
+  margin: 0 5px;
+  color: #b3b3b3;
+  font-weight: 300;
 }
 .notebook-specs {
   display: flex;
   color: #777777;
 }
 .notebook-specs div {
-  margin-left: 188px;
+  margin-left: 180px;
 }
 #middlest-spec {
-  margin-left: 111px;
+  margin-left: 141px;
 }
 .even-nb {
-  background-color: #f8f8f8;;
+  background-color: #f8f8f8;
 }
 .notebooks-index-row i {
-  font-size: 12px;
   color: #777777;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.fa-ellipsis-h {
+  font-size: 12px;
+}
+.notebook-title {
+  display: flex;
+}
+.carrot-container {
+  width: 20px;
+}
+.notebooks-index-row .fa-caret-right,
+.notebooks-index-row .fa-caret-down, {
+  font-size: 17px;
+}
+.notebooks-index-row .fa-book {
+  color: #313131;
+  font-size: 14px;
 }
 .notebook-show-link {
   color: #313131;

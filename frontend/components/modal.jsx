@@ -1,20 +1,21 @@
 import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
-import NotebookFormContainer
+import NotebookCreateFormContainer
 from './client/notebooks_index/notebook_form_container';
-
+import NotebookUpdateFormContainer
+from './client/notebooks_index/update_form_container';
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
     return null;
   }
   let component;
-  switch (modal) {
+  switch (modal.modal) { //overload payload to give notebook
     case 'createNotebook':
-      component = <NotebookFormContainer />;
+      component = <NotebookCreateFormContainer />;
       break;
     case 'updateNotebook':
-      component = <NotebookUpdateForm />;
+      component = <NotebookUpdateFormContainer />;
       break;
     default:
       return null;

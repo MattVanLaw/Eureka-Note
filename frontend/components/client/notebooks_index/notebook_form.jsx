@@ -7,16 +7,16 @@ class NotebookForm extends React.Component {
       title: "",
     };
     this.updateName = this.updateName.bind(this);
-    this.handleCreation = this.handleCreation.bind(this);
+    this.handleAction = this.handleAction.bind(this);
   }
   updateName(e) {
     this.setState({
-      title: e.target.value
+      title: e.target.value,
     });
   };
-  handleCreation(e, notebook) {
+  handleAction(e, notebook) {
     e.preventDefault();
-    this.props.createNotebook(notebook)
+    this.props.action(notebook)
         .then(() => this.props.fetchNotebooks());
     this.props.closeModal();
   }
@@ -35,12 +35,13 @@ class NotebookForm extends React.Component {
           <input
             onChange={(e) => this.updateName(e)}
             type="text"
-            placeholder="Notebook name"/>
+            placeholder={this.props.notebook.title ? this.props.notebook.title : "Notebook name"}/>
         </div>
         <div className="notebook-form-buttons">
           <div>Cancel</div>
           <button
-            onClick={(e) => this.handleCreation(e, this.state)}
+            onClick={(e) => this.handleAction(e, this.state)}
+            value={this.state.title}
             type="button"
             disabled={!this.state.title}
             className={ validName ? "submit-button" : "" }>

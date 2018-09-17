@@ -15,7 +15,7 @@ export const fetchNotebook = id => {
 export const updateNotebook = notebook => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/notebooks/${id}`,
+    url: `/api/notebooks/${notebook.id}`,
   });
 };
 

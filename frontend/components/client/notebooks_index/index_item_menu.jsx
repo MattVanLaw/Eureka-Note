@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class IndexItemMenu extends React.Component {
   constructor(props) {
@@ -6,6 +6,7 @@ class IndexItemMenu extends React.Component {
     this.state = {
       display: false,
     }
+    this.handleEdit = this.handleEdit.bind(this);
   }
   toggleDisplay() {
     this.setState({
@@ -15,7 +16,7 @@ class IndexItemMenu extends React.Component {
 
   handleEdit() {
     //open new form modal
-    //close first window
+    this.props.openModal('updateNotebook', this.props.notebook);
   }
   handleDelete(notebookId) {
     this.toggleDisplay();

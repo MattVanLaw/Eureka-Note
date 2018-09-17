@@ -1,10 +1,10 @@
-# json.notes do
-#   @notebook.notes.each do |note|
-#     json.set! note.id do
-#       json.extract! note, :id, :title
-#     end
-#   end
-# end
-# json.extract! @notebook, :id, :title
+json.extract! @notebook, :id, :title, :note_ids
 
-json.(@notebook, :id, :title)
+
+json.notes do
+  @notebook.notes.each do |note|
+    json.set! note.id do
+      json.partial! 'api/notes/note', note: note
+    end
+  end
+end

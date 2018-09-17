@@ -11,10 +11,12 @@ class Api::NotesController < ApplicationController
   end
 
   def create
-    note = current_user.notes.new(note_params)
-    note[:title] = 'Untitled' unless note[:title]
+    @note = Note.create(note_params)
+    @note[:author_id] = current_user.id
+    @note[:notebook_id] = 4 #BUG Hard coded for now
+    @note[:title] = 'Untitled' unless note[:title]
 
-    unless note.save
+    unless @note.save
       render json: @note.errors.full_messages, status: 422
     end
   end
