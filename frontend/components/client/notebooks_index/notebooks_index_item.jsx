@@ -44,7 +44,7 @@ class NotebookIndexItem extends React.Component {
             <i className="fas fa-book"></i>
             {this.props.notebook.title}
           </Link>
-          <span className="note-count">({this.props.notes.length})</span>
+          <span className="note-count">({this.props.notebook.note_ids.length})</span>
         </div>
         <div className="notebook-specs">
           <div>{createdStr.slice(0, createdStr.length - 5)}</div>
@@ -57,7 +57,11 @@ class NotebookIndexItem extends React.Component {
       </div>
       { this.state.carrot ?
         <NotebookNotes
-          noteTitles={this.props.notes.map(note => note.title)}
+          notes={this.props.notes.map(note => {
+            if (this.props.notebook.note_ids.includes(note.id)) {
+              return note;
+            }
+          })}
         /> : null
       }
       { this.state.display ?

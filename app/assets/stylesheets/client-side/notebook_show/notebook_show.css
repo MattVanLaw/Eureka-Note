@@ -2,11 +2,13 @@
   position: absolute;
   left: 240px;
   min-height: 100%;
-  width: 375px;
+  width: 345px;
   background-color: #f8f8f8;
+  border-right: 1px solid #e6e6e6;
 }
 .notebook-show header {
   padding: 43px 18px 0 25px;
+  border-bottom: 1px solid #e6e6e6;
 }
 .notebook-show .notebook-title {
   color: #333333;
@@ -17,7 +19,7 @@
 .header-toolbar {
   display: flex;
   justify-content: space-between;
-  margin: 45px 0 10px;
+  margin: 60px 0 10px;
 }
 .toolbar-left .show-note-count {
   font-size: 13px;
@@ -26,4 +28,36 @@
 }
 .toolbar-right {
   color: #777777;
+}
+.toolbar-right .fa-ellipsis-h {
+  cursor: pointer;
+  transform: scale(.9, .9);
+}
+.notebook-show-context-menu {
+  background: white;
+  position: absolute;
+  width: 200px;
+  border: 1px solid grey;
+  top: 5px;
+  left: 125px;
+}
+.notebook-show-context-menu {
+  background: #ffffff;
+  position: absolute;
+  box-shadow: 0 0 0 1px rgba(99, 114, 130, .16), 0 4px 12px rgba(27, 39, 51, .08);
+  width: 168px;
+  border: none;
+  border-radius: 3px;
+  top: 48px;
+  padding: 12px 0;
+  left: 172px;
+}
+.notebook-show-context-menu div,
+.notebook-show-context-menu a {
+  text-decoration: none;
+  padding: 6px 30px 6px 20px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  cursor: pointer;
 }

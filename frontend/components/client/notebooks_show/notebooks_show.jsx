@@ -3,16 +3,22 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { fetchNotebook, fetchNotebooks }
 from './../../../actions/notebook_actions';
+import NotesIndexItem from './../notes_index/notes_index_item';
+import ShowContextMenu from './context_menu';
 
 class NotebookShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      display: false,
+    };
   }
   componentDidMount() {
     this.props.fetchNotebook(this.props.notebookId);
   }
   componentWillReceiveProps(nextProp) {
     // this.props.fetchNotebook(this.props.notebookId);
+    this.state.display
   }
 
   render () {
@@ -30,14 +36,25 @@ class NotebookShow extends React.Component {
                   {notesLength} {notesLength < 1 ? "Notes" : "Note"}
                 </div>
               </div>
-              <div className="toolbar-right">
-              <i onClick={() => this.toggleMenu()}
-                      className="fas fa-ellipsis-h"></i>
+              <div
+                onClick={() => this.setState({ display: !this.state.display })}
+                className="toolbar-right">
+              <i className="fas fa-ellipsis-h"></i>
               </div>
             </div>
           </header>
+          {
+            this.state.display ?
+              <ShowContextMenu notebook={this.props.notebook}/>
+                :
+              null
+          }
           <section className="note-index-items">
-            {this.props.notes.map(note => note.title)}
+            {
+              this.props.notes.map((note, key) => {
+                return <NotesIndexItem key={key} note={note} />
+              })
+            }
           </section>
         </div>
 

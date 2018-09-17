@@ -33,11 +33,8 @@ class NotebooksIndex extends React.Component {
         </div>
         <ul>
           {this.props.notebooks.map((notebook, idx) => {
-            const notes = this.props.notes
-              .filter(note => notebook.note_ids.includes(note.id));
-
             return(<NotebooksIndexItem
-              notes={notes}
+              notes={this.props.notes}
               openModal={this.props.openModal}
               indexNumber={idx + 1}
               key={notebook.id}

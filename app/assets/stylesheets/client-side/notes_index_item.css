@@ -1,0 +1,32 @@
+.notes-index-item-container {
+  box-sizing: border-box;
+  max-width: 345px;
+  height: 120px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #e6e6e6;
+  padding: 15px 24px 15px 25px;
+}
+.notes-index-item-container:hover {
+  background-color: #f2f2f2;
+}
+.notes-index-item-title {
+  color: #333333;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.notes-index-item-dek {
+  font-size: 13px;
+  color: #4d4d4d;
+  font-weight: 300;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.note-update-date {
+  font-size: 12px;
+  font-weight: 300;
+  color: #a6a6a6;
+}
+.selected-note-index-item {
+  background-color: #f2f2f2;
+}
