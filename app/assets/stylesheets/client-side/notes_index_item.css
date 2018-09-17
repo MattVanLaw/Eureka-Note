@@ -5,6 +5,7 @@
   border: 1px solid rgba(0, 0, 0, 0);
   border-bottom: 1px solid #e6e6e6;
   padding: 15px 24px 15px 25px;
+  cursor: pointer;
 }
 .notes-index-item-container:hover {
   background-color: #f2f2f2;
