@@ -18,6 +18,7 @@ class Notebook < ApplicationRecord
 
   has_many :notes,
   foreign_key: :notebook_id,
-  class_name: :Note
+  class_name: :Note,
+  dependent: :destroy
 
 end

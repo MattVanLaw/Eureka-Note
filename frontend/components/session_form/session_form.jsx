@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
-
+import { login }   from '../../actions/session_actions';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
       username_or_email: "demo",
       password: "demodemo"
     });
-    this.props.processForm(user);
+    this.props.login(user);
   }
   render() {
     return(
@@ -58,19 +58,11 @@ class SessionForm extends React.Component {
           <div className="logo-dek">
             Exclaim loudly whenever convenient!
           </div>
-          <Route exact path="/login"
-            component={() => (
-              <button onClick={(e) => this.handleDemoSubmit(e)}
-                      className="demo-button">Demo</button>
-                  )}
-          />
-          <Route exact path="/login"
-            component={() => (
-              <h3 className="form-or">
-                <span>or</span>
-              </h3>
-            )}
-          />
+          <button onClick={(e) => this.handleDemoSubmit(e)}
+                  className="demo-button">Demo</button>
+          <h3 className="form-or">
+            <span>or</span>
+          </h3>
           <input
             type="text"
             placeholder={this.props.placeholder}

@@ -111,6 +111,9 @@
 ul .rule:hover {
   background: #ffffff;
 }
+ul .dropdown-item {
+  cursor: pointer;
+}
 .create-note {
   display: flex;
   align-items: center;

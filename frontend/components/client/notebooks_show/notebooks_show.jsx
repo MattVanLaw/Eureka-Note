@@ -45,7 +45,9 @@ class NotebookShow extends React.Component {
           </header>
           {
             this.state.display ?
-              <ShowContextMenu notebook={this.props.notebook}/>
+              <ShowContextMenu
+                onClick={(e) => e.stopPropagation()}
+                notebook={this.props.notebook}/>
                 :
               null
           }

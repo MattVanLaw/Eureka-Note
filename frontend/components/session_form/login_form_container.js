@@ -19,6 +19,7 @@ const msp = ({ errors }) => {
 const mdp = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
+    login: user => dispatch(login(user)),
   };
 };
 

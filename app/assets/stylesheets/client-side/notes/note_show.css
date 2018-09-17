@@ -1,0 +1,27 @@
+.note-show-container {
+  background-color: purple;
+  z-index: 9000;
+  position: absolute;
+  top: 0px;
+  min-height: 100%;
+  left: 346px;
+  width: calc(100vw - 586px);
+}
+.note-show-header {
+
+}
+.note-show-buffer {
+
+}
+.text-box-container {
+
+}
+.text-box-container input {
+
+}
+.text-box-container textarea {
+
+}
+.tag-footer {
+
+}
