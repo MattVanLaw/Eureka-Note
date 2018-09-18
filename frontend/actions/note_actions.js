@@ -3,6 +3,7 @@ import * as NoteApiUtil from '../util/note_api_util';
 export const RECEIVE_ALL_NOTES = "RECEIVE_ALL_NOTES";
 export const RECEIVE_NOTE = "RECEIVE_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
+export const UPDATE_NOTE = "UPDATE_NOTE";
 
 export const fetchNotes = () => dispatch => {
   return NoteApiUtil
@@ -19,7 +20,7 @@ export const fetchNote = id => dispatch => {
 export const updateNote = note => dispatch => {
   return NoteApiUtil
           .updateNote(note)
-          .then(note => dispatch(receiveNote(note)));
+          .then(note => dispatch(receiveUpdatedNote(note)));
 };
 
 export const createNote = note => dispatch => {
@@ -42,6 +43,13 @@ const receiveAllNotes = notes => {
     notes,
   };
 };
+
+const receiveUpdatedNote = note => {
+  return {
+    type: UPDATE_NOTE,
+    note,
+  }
+}
 
 const receiveNote = note => {
   return {
