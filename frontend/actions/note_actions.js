@@ -25,7 +25,9 @@ export const updateNote = note => dispatch => {
 export const createNote = note => dispatch => {
   return NoteApiUtil
           .createNote(note)
-          .then(note => dispatch(receiveNote(note)));
+          .then(note => {
+            return dispatch(receiveNote(note))
+          });
 };
 
 export const deleteNote = noteId => dispatch => {

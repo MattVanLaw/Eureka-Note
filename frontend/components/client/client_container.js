@@ -9,7 +9,7 @@ import {
 } from './../../actions/note_actions';
 import { fetchNotebooks } from './../../actions/notebook_actions';
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   const user = state.entities.users[state.session.id];
   return {
     currentUser: user,

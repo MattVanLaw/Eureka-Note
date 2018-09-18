@@ -16,6 +16,7 @@ export const updateNote = note => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/notes/${id}`,
+    data: { note },
   });
 };
 

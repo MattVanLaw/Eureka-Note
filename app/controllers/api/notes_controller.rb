@@ -11,14 +11,15 @@ class Api::NotesController < ApplicationController
   end
 
   def create
-    @note = Note.create(note_params)
+    @note = Note.new
     @note[:author_id] = current_user.id
-    @note[:notebook_id] = 4 #BUG Hard coded for now
-    @note[:title] = 'Untitled' unless note[:title]
-
+    @note[:notebook_id] = params[:note][:id].to_i
+    @note[:title] = 'Untitled'
+    @note[:body] = ""
     unless @note.save
       render json: @note.errors.full_messages, status: 422
     end
+    render :index
   end
 
   def edit
@@ -36,6 +37,6 @@ class Api::NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:title, :body)
+    params.require(:note).permit(:title, :body, :id)
   end
 end

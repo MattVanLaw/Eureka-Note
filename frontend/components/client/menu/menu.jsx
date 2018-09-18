@@ -1,6 +1,6 @@
 import React from 'react';
 import UserDropdown from './menu_user_dropdown';
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 class Menu extends React.Component {
   constructor(props) {
@@ -22,16 +22,16 @@ class Menu extends React.Component {
     });
   }
   render() {
-    const defaultNote = {
-      author_id: this.props.currentUser.id,
-      notebook_id: 1, //BUG Hard Coded for now
-    }
+    const pathParts = this.props.location.pathname.split("/");
+    const notebookId = parseInt(pathParts[pathParts.length - 1]);
     return (
       <aside className="menu-container">
         <div className="user-account">
           <div onClick={() => this.displayDropdown()} className="username-container">
               <span className="initial-container">
-                <span className="initial">{this.props.currentUser.username[0].toUpperCase()}</span>
+                <span className="initial">
+                  {this.props.currentUser.username[0].toUpperCase()}
+                </span>
               </span>
               <span className="user">{this.props.currentUser.username}</span>
             <img src={window.dropArrow}/>
@@ -43,7 +43,8 @@ class Menu extends React.Component {
               currentUser={this.props.currentUser}
               logout={this.props.logout} /> : null
         }
-        <div className="create-note" onClick={() => createNote(defaultNote)}>
+        <div className="create-note"
+             onClick={() => this.props.createNote({id: notebookId})}>
 
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="qa-CREATE_NOTE">
             <g fill="none" fillRule="evenodd">
@@ -68,4 +69,4 @@ class Menu extends React.Component {
     )
   }
 }
-export default Menu;
+export default withRouter(Menu);

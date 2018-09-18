@@ -26,7 +26,7 @@ class NotebookShow extends React.Component {
     return(
       <section className="notebook-show">
         <div className="index">
-          <header>
+          <header className="notebook-show-header">
             <div className="notebook-title">
               {this.props.notebook.title}
             </div>

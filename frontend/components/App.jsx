@@ -17,10 +17,8 @@ const App = () => (
       <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <div className="giant-flex">
-        <ProtectedRoute path="/client/notebooks/:id"
-                        component={() => <NotebookShow />}/>
-      </div>
+      <ProtectedRoute path="/client/notebooks/:id"
+                      component={NotebookShow}/>
     </nav>
     <Route exact path="/" component={Section} />
   </div>

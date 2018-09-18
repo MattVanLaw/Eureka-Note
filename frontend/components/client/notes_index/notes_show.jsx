@@ -5,11 +5,19 @@ const NoteShow = ({ note }) => {
   return (
     <section className="note-show-container">
       <header className="note-show-header">
-
+        <div className="header-item-container">
+          <i className="fas fa-arrows-alt-h"></i>
+          <i className="fas fa-ellipsis-h"></i>
+        </div>
       </header>
       <div className="note-show-buffer"></div>
       <div className="text-box-container">
-        <input name="title" value={note.title} type="text" placeholder="Title"/>
+        <input
+          autoFocus
+          name="title"
+          type="text"
+          value={note.title}
+          placeholder="Title"/>
         <textarea placeholder="start writing..."></textarea>
       </div>
       <footer className="tag-footer">

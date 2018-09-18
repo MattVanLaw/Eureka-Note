@@ -1,4 +1,3 @@
-json.key_format! camelize: :lower
 json.extract! @notebook, :id, :title, :note_ids
 
 

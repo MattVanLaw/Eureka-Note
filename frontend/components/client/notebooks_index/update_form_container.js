@@ -1,6 +1,6 @@
 import NotebookForm   from './notebook_form';
 import { connect }    from 'react-redux';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
 import { updateNotebook } from './../../../actions/notebook_actions';
 import { closeModal } from './../../../actions/modal_actions';
 import { fetchNotebooks } from './../../../actions/notebook_actions';

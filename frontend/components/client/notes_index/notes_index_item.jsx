@@ -20,7 +20,7 @@ class NotesIndexItem extends React.Component {
           {`${this.props.note.body.slice(0, 75)}...`}
         </div>
         <div className="note-update-date">
-          {formatTime(this.props.note.updatedAt)}
+          {formatTime(this.props.note.updated_at)}
         </div>
         {
           this.props.viewId === this.props.note.id ?

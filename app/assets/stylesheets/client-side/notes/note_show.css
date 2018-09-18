@@ -1,26 +1,65 @@
 .note-show-container {
-  background-color: purple;
+  background-color: #ffffff;
   z-index: 9000;
   position: absolute;
   top: 0px;
   min-height: 100%;
-  left: 346px;
-  width: calc(100vw - 586px);
+  left: 345px;
+  width: calc(100vw - 600px);
+  cursor: default;
 }
 .note-show-header {
-
+  height: 54px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  margin: 0 20px;
+}
+.header-item-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #a6a6a6;
+}
+.fa-arrows-alt-h {
+  font-weight: 600;
+  font-size: 12px;
+  transform: rotate(45deg) scale(1.9,1);
+}
+.header-item-container .fa-ellipsis-h {
+  align-items: center;
 }
 .note-show-buffer {
-
+  padding: 20px 0;
 }
 .text-box-container {
 
 }
 .text-box-container input {
+  display: block;
+  width: 100%;
+  padding: 8px 4px 0px 40px;
+  font-size: 34px;
+  font-weight: 300;
+  border: none;
+  width: calc(100vw - 645px);
+}
+.text-box-container input:focus {
+  border: none;
+  outline: none;
+}
+.text-box-container input::placeholder {
 
 }
 .text-box-container textarea {
-
+  font-size: 14px;
+  padding: 12px 40px 16px;
+  width: calc(100vw - 683px);
+  border: none;
+}
+.text-box-container textarea:focus {
+  border: none;
+  outline: none;
 }
 .tag-footer {
 

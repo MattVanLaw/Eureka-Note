@@ -19,7 +19,6 @@ class NotebookForm extends React.Component {
   handleAction(e, state) {
     e.preventDefault();
     this.props.action(state)
-        .then(() => this.props.fetchNotebooks());
     this.props.closeModal();
   }
   render() {
