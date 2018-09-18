@@ -32,7 +32,8 @@ class NoteShow extends React.Component {
   }
   render() {
     return (
-      <section onClick={(e) => e.stopPropagation()} className="note-show-container">
+      <section onClick={(e) => e.stopPropagation()}
+               className={`note-show-container ${ this.state.expand ? 'note-show-expand' : ''}`}>
         <header className="note-show-header">
           <div className='header-item-container'>
             <i onClick={() => this.setState({ expand: !this.state.expand })}

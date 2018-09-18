@@ -78,7 +78,7 @@
   width: 81px;
 }
 .note-show-expand {
-  left: 0;
+  left: -241px;
   width: calc(100vw - 248px);
 }
 .tag-footer {
