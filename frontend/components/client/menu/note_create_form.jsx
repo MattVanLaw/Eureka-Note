@@ -14,7 +14,6 @@ class NoteCreateForm extends React.Component {
   }
 
   handleSubmit(e, notebook) {
-    debugger
     e.preventDefault();
     this.props.createNote(this.state).then(() => this.props.closeModal());
   }

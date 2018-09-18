@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 class Menu extends React.Component {
   constructor(props) {
     super(props)
-    debugger
     this.state = {
       displayDropdown: false,
     };
@@ -27,7 +26,6 @@ class Menu extends React.Component {
   }
   handleCreate(notebookId) {
     const path = this.props.location.pathname;
-    debugger
 
     if (path === "/client/notebooks" || path === "/client/notes") {
       this.props.openModal('createNote', this.props.notebooks);
