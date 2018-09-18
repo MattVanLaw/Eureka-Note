@@ -1,6 +1,6 @@
 class Api::NotesController < ApplicationController
   def index
-    @notes = Note.where(author_id: current_user.id)
+    @notes = Note.where(author_id: current_user.id).sort_by &:updated_at
     @notebooks = current_user.notebooks
     @user = current_user
   end
@@ -13,7 +13,12 @@ class Api::NotesController < ApplicationController
   def create
     @note = Note.new
     @note[:author_id] = current_user.id
-    @note[:notebook_id] = params[:note][:id].to_i
+    id = params[:note][:id].to_i
+    if (id == 0)
+      @note[:notebook_id] = params[:note][:notebook_id]
+    else
+      @note[:notebook_id] = id
+    end
     @note[:title] = 'Untitled'
     @note[:body] = ""
     if @note.save
@@ -41,6 +46,6 @@ class Api::NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:title, :body)
+    params.require(:note).permit(:title, :body, :notebook_id)
   end
 end

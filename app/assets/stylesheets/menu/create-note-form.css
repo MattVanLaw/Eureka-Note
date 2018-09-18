@@ -1,0 +1,84 @@
+.note-create-form-container {
+  box-sizing: border-box;
+  height: 450px;
+  padding: 25px;
+  width: 600px;
+  background: #ffffff;
+  border-radius: 4px;
+}
+.note-create-form {
+
+}
+.form-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 19px;
+  color: #555555;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.form-title .fa-book {
+  font-weight: 600;
+  font-size: 18px;
+  color: #555555;
+  margin-right: 14px;
+}
+.form-title span div {
+  margin-left: 14px;
+}
+.true-title {
+  margin-left: 12px;
+  font-weight: 400;
+  letter-spacing: .2px;
+}
+.select-notebook-container {
+  overflow-y: auto;
+  max-height: 300px;
+}
+.select-notebook {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 0px 8px 47px;
+  font-size: 14px;
+}
+.select-notebook:hover {
+  background-color: #f5f5f5;
+}
+.select-notebook span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 20px;
+  border-top: 1px solid #e4e4e4;
+}
+.submit-button {
+  cursor: pointer;
+  background-color: #00a82d;
+  border: none;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.cancel-button {
+  cursor: pointer;
+  background-color: transparent;
+  color: #b3b3b3;
+  border: 1px solid #ededed;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-weight: 400;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.selected-notebook {
+  background-color: #f0f1f1;
+}

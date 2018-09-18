@@ -25,6 +25,7 @@
   font-weight: 600;
   font-size: 12px;
   transform: rotate(45deg) scale(1.9,1);
+  cursor: pointer;
 }
 .header-item-container .fa-ellipsis-h {
   align-items: center;
