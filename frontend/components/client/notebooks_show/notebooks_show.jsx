@@ -17,10 +17,6 @@ class NotebookShow extends React.Component {
   componentDidMount() {
     this.props.fetchNotebook(this.props.notebookId);
   }
-  componentWillReceiveProps(nextProp) {
-    // this.props.fetchNotebook(this.props.notebookId);
-    this.state.display
-  }
   collapse() {
     this.setState({ display: false });
   }

@@ -17,7 +17,7 @@ class Api::NotesController < ApplicationController
     @note[:title] = 'Untitled'
     @note[:body] = ""
     if @note.save
-      render :index
+      render :show
     else
       render json: @note.errors.full_messages, status: 422
     end

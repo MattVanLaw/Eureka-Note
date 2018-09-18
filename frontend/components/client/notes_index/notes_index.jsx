@@ -6,6 +6,7 @@ const NotesIndex = props => {
     <div>
       <MenuContainer />
       <section className="all-notes">
+        <div>I'm alive!!!!</div>
         <div className="all-notes-header">All Notes</div>
         <div className="all-notes-toolbar">
           {props.notes.length} Note(s)

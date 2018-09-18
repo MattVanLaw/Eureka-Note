@@ -24,7 +24,6 @@ class Menu extends React.Component {
   }
   handleCreate(notebookId) {
     this.props.createNote({id: notebookId})
-        .then(() => this.props.fetchNotebooks());
   }
   render() {
     const pathParts = this.props.location.pathname.split("/");

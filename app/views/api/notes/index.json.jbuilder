@@ -1,1 +1,5 @@
-json.array! @notes, :id, :title, :body, :notebook_id, :updated_at
+@notes.each do |note|
+  json.set! note.id do
+    json.partial! 'api/notes/note', note: note
+  end
+end

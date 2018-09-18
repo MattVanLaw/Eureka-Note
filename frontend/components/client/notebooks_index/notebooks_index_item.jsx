@@ -47,9 +47,9 @@ class NotebookIndexItem extends React.Component {
           <span className="note-count">({this.props.notebook.note_ids.length})</span>
         </div>
         <div className="notebook-specs">
-          <div>{createdStr.slice(0, createdStr.length - 5)}</div>
+          <div>{updatedStr.slice(0, updatedStr.length - 5)}</div>
           <div id="middlest-spec">
-            {updatedStr.slice(0, createdStr.length - 5)}
+            {createdStr.slice(0, createdStr.length - 5)}
           </div>
           <div><i onClick={() => this.toggleMenu()}
                   className="fas fa-ellipsis-h"></i></div>

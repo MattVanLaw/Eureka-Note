@@ -15,7 +15,6 @@ const mdp = dispatch => {
   return {
     logout: () => dispatch(logout()),
     createNote: note => dispatch(createNote(note)),
-    fetchNotebooks: () => dispatch(fetchNotebooks()),
   };
 };
 

@@ -67,6 +67,20 @@
   border: none;
   outline: none;
 }
+.note-show-menu {
+  padding: 0 50px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgba(99, 114, 130, .16), 0 4px 12px rgba(27, 39, 51, .08);
+  position: absolute;
+  border: none;
+  right: 0px;
+  top: 22px;
+  width: 81px;
+}
+.note-show-expand {
+  left: 0;
+  width: calc(100vw - 248px);
+}
 .tag-footer {
 
 }
