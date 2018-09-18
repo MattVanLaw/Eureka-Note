@@ -4,9 +4,9 @@
   min-height: 100%;
   width: 345px;
   background-color: #f8f8f8;
+  border-right: 1px solid #e6e6e6;
 }
 .index {
-  border-right: 1px solid #e6e6e6;
   overflow: auto;
 }
 .notebook-show-header {
