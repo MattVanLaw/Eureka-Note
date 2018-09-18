@@ -11,17 +11,19 @@ class NoteShow extends React.Component {
       id: this.props.note.id,
       openMenu: false,
       expand: false,
+      interval: null,
     }
     this.update = this.update.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
   componentDidMount() {
-    let interval = setInterval((e) => this.props.updateNote(this.state), 10000);
+    const interval = setInterval((e) => this.props.updateNote(this.state), 10000);
+    this.setState({ interval: interval });
   }
   componentWillUnmount() {
     this.props.updateNote(this.state);
-    clearInterval(interval);
+    clearInterval(this.state.interval);
   }
 
   update(e, field) {
