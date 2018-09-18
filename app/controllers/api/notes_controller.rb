@@ -16,10 +16,11 @@ class Api::NotesController < ApplicationController
     @note[:notebook_id] = params[:note][:id].to_i
     @note[:title] = 'Untitled'
     @note[:body] = ""
-    unless @note.save
+    if @note.save
+      render :index
+    else
       render json: @note.errors.full_messages, status: 422
     end
-    render :index
   end
 
   def edit

@@ -1,6 +1,6 @@
 .all-notebooks {
   margin-left: 270px;
-  width: 100%;
+  width: calc(100vw - 298px);
   padding-right: 30px;
 }
 .notebooks-toolbar {

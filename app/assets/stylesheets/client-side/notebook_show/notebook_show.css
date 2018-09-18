@@ -4,7 +4,10 @@
   min-height: 100%;
   width: 345px;
   background-color: #f8f8f8;
+}
+.index {
   border-right: 1px solid #e6e6e6;
+  overflow: auto;
 }
 .notebook-show-header {
   padding: 43px 18px 0 25px;
@@ -60,4 +63,8 @@
   font-size: 14px;
   font-weight: 300;
   cursor: pointer;
+}
+
+.note-index-items {
+  max-height: 100vh;
 }

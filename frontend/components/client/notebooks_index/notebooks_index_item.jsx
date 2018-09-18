@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import IndexItemMenuContainer from './index_item_menu_container';
 import { fetchNotebooks } from './../../../actions/notebook_actions';
@@ -76,4 +76,4 @@ class NotebookIndexItem extends React.Component {
   }
 }
 
-export default NotebookIndexItem;
+export default withRouter(NotebookIndexItem);

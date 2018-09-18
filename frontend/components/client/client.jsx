@@ -19,7 +19,7 @@ class Client extends React.Component {
   render () {
     return (
       <header className="header-group">
-        <MenuContainer />
+        
         <Switch>
           <ProtectedRoute path="/client/notes"
             component={() => <NotesIndex notes={this.props.notes} />}

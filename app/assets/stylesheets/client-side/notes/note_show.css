@@ -1,6 +1,5 @@
 .note-show-container {
   background-color: #ffffff;
-  z-index: 9000;
   position: absolute;
   top: 0px;
   min-height: 100%;
@@ -28,6 +27,13 @@
 }
 .header-item-container .fa-ellipsis-h {
   align-items: center;
+}
+.convenience-clickbox {
+  position: absolute;
+  right: 11px;
+  top: 12px;
+  padding: 15px;
+  cursor: pointer;
 }
 .note-show-buffer {
   padding: 20px 0;

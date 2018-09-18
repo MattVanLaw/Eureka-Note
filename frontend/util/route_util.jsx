@@ -5,7 +5,7 @@ import { Redirect, Route, withRouter } from 'react-router-dom';
 const Auth = ({ component: Component, path, loggedIn, exact}) => {
   const toRender = (props) => {
     if (loggedIn) {
-      return <Redirect to='/client' />;
+      return <Redirect to='/client/notebooks' />;
     } else {
       return <Component {...props} />;
     }

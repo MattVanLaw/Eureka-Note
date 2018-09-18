@@ -3,10 +3,11 @@ import React from 'react'
 const NoteShow = ({ note }) => {
   //input value will be notebook title when it exists and is not untitled
   return (
-    <section className="note-show-container">
+    <section onClick={(e) => e.stopPropagation()} className="note-show-container">
       <header className="note-show-header">
         <div className="header-item-container">
           <i className="fas fa-arrows-alt-h"></i>
+          <div className="convenience-clickbox"></div>
           <i className="fas fa-ellipsis-h"></i>
         </div>
       </header>

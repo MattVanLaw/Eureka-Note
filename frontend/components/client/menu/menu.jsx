@@ -1,6 +1,6 @@
 import React from 'react';
 import UserDropdown from './menu_user_dropdown';
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link, Redirect } from 'react-router-dom'
 
 class Menu extends React.Component {
   constructor(props) {
@@ -10,6 +10,7 @@ class Menu extends React.Component {
     };
     this.displayDropdown = this.displayDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
   }
   displayDropdown() {
     this.setState({
@@ -21,13 +22,19 @@ class Menu extends React.Component {
       displayDropdown: false
     });
   }
+  handleCreate(notebookId) {
+    this.props.createNote({id: notebookId})
+        .then(() => this.props.fetchNotebooks());
+  }
   render() {
     const pathParts = this.props.location.pathname.split("/");
     const notebookId = parseInt(pathParts[pathParts.length - 1]);
     return (
       <aside className="menu-container">
-        <div className="user-account">
-          <div onClick={() => this.displayDropdown()} className="username-container">
+        <div tabIndex="0" onBlur={ this.closeDropdown } className="user-account">
+          <div
+
+            onClick={() => this.displayDropdown()} className="username-container">
               <span className="initial-container">
                 <span className="initial">
                   {this.props.currentUser.username[0].toUpperCase()}
@@ -36,15 +43,16 @@ class Menu extends React.Component {
               <span className="user">{this.props.currentUser.username}</span>
             <img src={window.dropArrow}/>
           </div>
-        </div>
-        {
-          this.state.displayDropdown ?
+          {
+            this.state.displayDropdown ?
             <UserDropdown
               currentUser={this.props.currentUser}
               logout={this.props.logout} /> : null
-        }
+            }
+        </div>
+        { this.state.render ? <div></div> : null }
         <div className="create-note"
-             onClick={() => this.props.createNote({id: notebookId})}>
+             onClick={() => this.handleCreate(notebookId)}>
 
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="qa-CREATE_NOTE">
             <g fill="none" fillRule="evenodd">

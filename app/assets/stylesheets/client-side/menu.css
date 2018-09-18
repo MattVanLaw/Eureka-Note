@@ -17,6 +17,10 @@
   align-items: center;
   cursor: pointer;
 }
+.username-container:focus {
+  outline: none;
+  border:none;
+}
 .initial-container {
   width: 28px;
   height: 28px;
