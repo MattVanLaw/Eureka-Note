@@ -6,6 +6,7 @@
   left: 345px;
   width: calc(100vw - 600px);
   cursor: default;
+  transition: left 0.2s ease-out;
 }
 .note-show-header {
   height: 54px;

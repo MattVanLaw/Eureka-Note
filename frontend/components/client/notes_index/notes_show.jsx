@@ -1,23 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteNote } from './../../../actions/note_actions';
+import { deleteNote, updateNote } from './../../../actions/note_actions';
 
 class NoteShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Untitled',
+      title: this.props.note.title,
+      body: this.props.note.body,
+      id: this.props.note.id,
       openMenu: false,
       expand: false,
     }
-    this.updateTitle = this.updateTitle.bind(this);
+    this.update = this.update.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
-  //input value will be notebook title when it exists and is not untitled
-  updateTitle(e) {
+  componentDidMount() {
+    setInterval((e) => this.props.updateNote(this.state), 10000);
+  }
+  componentWillUnmount() {
+    this.props.updateNote(this.state);
+  }
+
+  update(e, field) {
     this.setState({
-      title: e.target.value,
+      [field]: e.target.value,
     });
   }
   openMenu() {
@@ -58,12 +66,15 @@ class NoteShow extends React.Component {
         <div className="text-box-container">
           <input
             autoFocus
-            onChange={(e) => this.updateTitle(e)}
+            onChange={(e) => this.update(e, "title")}
             name="title"
             type="text"
-            value={this.props.note.title}
+            value={this.state.title}
             placeholder="Title"/>
-          <textarea placeholder="start writing..."></textarea>
+          <textarea
+            onChange={(e) => this.update(e, "body")}
+            value={this.state.body}
+            placeholder="start writing..."></textarea>
         </div>
         <footer className="tag-footer">
         </footer>
@@ -72,10 +83,17 @@ class NoteShow extends React.Component {
   }
 }
 
+const msp = state => {
+  return {
+    notes: state.entities.notes,
+  }
+}
+
 const mdp = dispatch => {
   return {
-    deleteNote: id => dispatch(deleteNote(id)),
+    deleteNote: id   => dispatch(deleteNote(id)),
+    updateNote: note => dispatch(updateNote(note)),
   };
 };
 
-export default connect(null, mdp)(NoteShow);
+export default connect(msp, mdp)(NoteShow);

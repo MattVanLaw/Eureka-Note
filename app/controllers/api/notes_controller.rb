@@ -28,7 +28,10 @@ class Api::NotesController < ApplicationController
   end
 
   def update
-    Note.find(params[:id]).update(note_params)
+    id = params[:note][:id].to_i
+    @note = Note.find(id)
+    @note.update(note_params)
+    render :show
   end
 
   def destroy
@@ -38,6 +41,6 @@ class Api::NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:title, :body, :id)
+    params.require(:note).permit(:title, :body)
   end
 end

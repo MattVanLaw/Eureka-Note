@@ -15,7 +15,7 @@ export const fetchNote = id => {
 export const updateNote = note => {
   return $.ajax({
     method: 'PATCH',
-    url: `/api/notes/${id}`,
+    url: `/api/notes/${note.id}`,
     data: { note },
   });
 };

@@ -5,7 +5,7 @@ import IndexItemMenuContainer from './index_item_menu_container';
 import { fetchNotebooks } from './../../../actions/notebook_actions';
 import NotebookNotes from './notebook_notes';
 
-class NotebookIndexItem extends React.Component {
+class NotebooksIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,9 +47,9 @@ class NotebookIndexItem extends React.Component {
           <span className="note-count">({this.props.notebook.note_ids.length})</span>
         </div>
         <div className="notebook-specs">
-          <div>{updatedStr.slice(0, updatedStr.length - 5)}</div>
+          <div>{updatedStr === "Invalid Date" ? "" : updatedStr.slice(0, updatedStr.length - 5)}</div>
           <div id="middlest-spec">
-            {createdStr.slice(0, createdStr.length - 5)}
+            {createdStr === "Invalid Date" ? "" : createdStr.slice(0, createdStr.length - 5)}
           </div>
           <div><i onClick={() => this.toggleMenu()}
                   className="fas fa-ellipsis-h"></i></div>
@@ -57,11 +57,10 @@ class NotebookIndexItem extends React.Component {
       </div>
       { this.state.carrot ?
         <NotebookNotes
-          notes={this.props.notes.map(note => {
-            if (this.props.notebook.note_ids.includes(note.id)) {
-              return note;
-            }
-          })}
+          notes={
+          this.props.notes
+               .filter(note => this.props.notebook.note_ids.includes(note.id))
+          }
         /> : null
       }
       { this.state.display ?
@@ -76,4 +75,4 @@ class NotebookIndexItem extends React.Component {
   }
 }
 
-export default withRouter(NotebookIndexItem);
+export default withRouter(NotebooksIndexItem);
