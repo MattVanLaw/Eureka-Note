@@ -1,10 +1,13 @@
 import React from 'react';
 import UserDropdown from './menu_user_dropdown';
-import { withRouter, Link, Redirect } from 'react-router-dom'
+import { withRouter, Link, Redirect, Route } from 'react-router-dom'
+import { connect } from 'react-redux';
+
 
 class Menu extends React.Component {
   constructor(props) {
     super(props)
+    debugger
     this.state = {
       displayDropdown: false,
     };
@@ -23,7 +26,14 @@ class Menu extends React.Component {
     });
   }
   handleCreate(notebookId) {
-    this.props.createNote({id: notebookId})
+    const path = this.props.location.pathname;
+    debugger
+
+    if (path === "/client/notebooks" || path === "/client/notes") {
+      this.props.openModal('createNote', this.props.notebooks);
+    } else {
+      this.props.createNote({id: notebookId});
+    }
   }
   render() {
     const pathParts = this.props.location.pathname.split("/");
@@ -49,7 +59,6 @@ class Menu extends React.Component {
               logout={this.props.logout} /> : null
             }
         </div>
-        { this.state.render ? <div></div> : null }
         <div className="create-note"
              onClick={() => this.handleCreate(notebookId)}>
 
@@ -76,4 +85,16 @@ class Menu extends React.Component {
     )
   }
 }
-export default withRouter(Menu);
+
+// const msp = state => {
+//   return {
+//     notebooks: Object.values(state.entities.notebooks),
+//   }
+// }
+//
+// const mdp = dispatch => {
+//   return {
+//     openModal: (string, paydirt) => dispatch(openModal(string, paydirt)),
+//   }
+// }
+export default Menu;

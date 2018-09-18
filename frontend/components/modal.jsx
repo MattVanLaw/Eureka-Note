@@ -5,6 +5,8 @@ import NotebookCreateFormContainer
 from './client/notebooks_index/notebook_form_container';
 import NotebookUpdateFormContainer
 from './client/notebooks_index/update_form_container';
+import NoteCreateForm from './client/menu/note_create_form';
+
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
     return null;
@@ -16,6 +18,9 @@ const Modal = ({modal, closeModal}) => {
       break;
     case 'updateNotebook':
       component = <NotebookUpdateFormContainer notebook={modal.notebook}/>;
+      break;
+    case 'createNote':
+      component = <NoteCreateForm notebooks={modal.notebook}/>;
       break;
     default:
       return null;
