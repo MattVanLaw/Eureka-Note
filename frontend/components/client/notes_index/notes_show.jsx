@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { deleteNote, updateNote } from './../../../actions/note_actions';
+import TaggingBar from './../tags/tagging_bar';
 
 class NoteShow extends React.Component {
   constructor(props) {
@@ -18,12 +19,12 @@ class NoteShow extends React.Component {
     this.closeMenu = this.closeMenu.bind(this);
   }
   componentDidMount() {
-    const interval = setInterval((e) => this.props.updateNote(this.state), 10000);
-    this.setState({ interval: interval });
+    // const interval = setInterval((e) => this.props.updateNote(this.state), 10000);
+    // this.setState({ interval: interval });
   }
   componentWillUnmount() {
-    this.props.updateNote(this.state);
-    clearInterval(this.state.interval);
+    // this.props.updateNote(this.state);
+    // clearInterval(this.state.interval);
   }
 
   update(e, field) {
@@ -42,9 +43,6 @@ class NoteShow extends React.Component {
     });
   }
   render() {
-    const tags = this.props.tags;
-    const tag_ids = this.props.note.tag_ids;
-    const noteTags = tags.filter(tag => tag_ids.includes(tag.id));
     return (
       <section onClick={(e) => e.stopPropagation()}
                className={`note-show-container ${ this.state.expand ? 'note-show-expand' : ''}`}>
@@ -82,22 +80,7 @@ class NoteShow extends React.Component {
             value={this.state.body}
             placeholder="start writing..."></textarea>
         </div>
-        <footer className="tag-footer-container">
-          <div className="tag-footer">
-            <i className="fas fa-tag"></i>
-            {noteTags.map((tag, key) => {
-              return(
-                <div
-                  key={key}
-                  className="note-tag-item">
-                  {tag.name}
-                  <img className="note-tag-arrow" src={window.dropArrow} />
-                </div>
-              );
-            })}
-            <input type="text" value="current tags"/>
-          </div>
-        </footer>
+        <TaggingBar note={this.props.note} tags={this.props.tags} />
       </section>
     );
   }
@@ -114,7 +97,6 @@ const mdp = dispatch => {
   return {
     deleteNote: id   => dispatch(deleteNote(id)),
     updateNote: note => dispatch(updateNote(note)),
-    createTag:  tag  => dispatch(createTag(tag)),
   };
 };
 

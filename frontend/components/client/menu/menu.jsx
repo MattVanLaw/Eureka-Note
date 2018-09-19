@@ -40,7 +40,6 @@ class Menu extends React.Component {
       <aside className="menu-container">
         <div tabIndex="0" onBlur={ this.closeDropdown } className="user-account">
           <div
-
             onClick={() => this.displayDropdown()} className="username-container">
               <span className="initial-container">
                 <span className="initial">

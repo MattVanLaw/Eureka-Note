@@ -1,12 +1,12 @@
 class Api::NotesController < ApplicationController
   def index
-    @notes = Note.where(author_id: current_user.id)
+    @notes = Note.where(author_id: current_user.id).includes(:tags)
     @notebooks = current_user.notebooks
     @user = current_user
   end
 
   def show
-    @note = Note.find(params[:id])
+    @note = Note.find(params[:id]).includes(:tags)
     render json: 'Note not found', status: 404 unless @note
   end
 

@@ -3,7 +3,8 @@ import {
   RECEIVE_NOTE,
   REMOVE_NOTE,
   UPDATE_NOTE,
-} from '../actions/note_actions';
+} from './../actions/note_actions';
+import { RECEIVE_TAG } from './../actions/tag_actions';
 import merge from 'lodash/merge';
 
 const NotesReducer = (state = {}, action) => {

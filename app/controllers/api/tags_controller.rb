@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags = Tag.all.includes(:notes)
     # .order('name ASC').group_by{ |d| d.name[0] }
   end
 
@@ -10,11 +10,16 @@ class Api::TagsController < ApplicationController
   end
 
   def create
-    @tag = Tag.new(tag_params)
-    if @tag.save
-      render :show
-    else
-      render json: @tag.errors.full_messages, status: 422
+    debugger
+
+    @tag = Tag.where(name: tag_params[:name])[0]
+    unless @tag
+      @tag = Tag.new(tag_params)
+      if @tag.save
+        render :show
+      else
+        render json: @tag.errors.full_messages, status: 422
+      end
     end
   end
 
@@ -24,15 +29,15 @@ class Api::TagsController < ApplicationController
     render :show
   end
 
-  def add_tagging
-    @tagging = Tagging.new(tagging_params)
-    if @tagging.save
-      render json: {
-        note_id: tagging_params[:note_id],
-        tag_id: tagging_params[:tag_id]
-      }
-    end
-  end
+  # def add_tagging
+  #   @tagging = Tagging.new(tagging_params)
+  #   if @tagging.save
+  #     render json: {
+  #       note_id: tagging_params[:note_id],
+  #       tag_id: tagging_params[:tag_id]
+  #     }
+  #   end
+  # end
 
   def remove_tagging
     @tagging = Tagging.find_by(note_id: tagging_params[:note_id], tag_id: tagging_params[:tag_id])
@@ -50,7 +55,7 @@ class Api::TagsController < ApplicationController
   private
   def tag_params
     params.require(:tag)
-          .permit(:name, taggings_attributes: [ :id, :note_id, :tag_id ])
+          .permit(:name, taggings_attributes: [ :note_id ])
   end
 
   def tagging_params

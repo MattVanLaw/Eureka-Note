@@ -1,0 +1,25 @@
+.tag-menu-container {
+  box-shadow: 0 0 0 1px rgba(99, 114, 130, .16);
+  z-index: 4;
+  padding: 12px 0px;
+  background: #ffffff;
+  position: absolute;
+  border: none;
+  width: 150px;
+  bottom: 44px;
+  color: #666;
+  font-size: 14px;
+  border-radius: 3px;
+}
+.tag-menu {
+
+}
+.tag-menu div {
+  padding: 6px 0;
+  bottom: 35px;
+  left: 90px;
+  cursor: pointer;
+}
+.tag-menu div:hover {
+  background-color: #f5f5f5;
+}

@@ -19,7 +19,7 @@ export const updateTag = tag => {
 export const createTag = tag => {
   return $.ajax({
     method: "POST",
-    url: 'api/notes',
+    url: 'api/tags',
     data: { tag },
   });
 };
