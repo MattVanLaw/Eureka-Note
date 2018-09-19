@@ -3,16 +3,19 @@
 # Table name: notes
 #
 #  id          :bigint(8)        not null, primary key
-#  title       :string           not null
 #  body        :text
 #  author_id   :integer          not null
 #  notebook_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  title       :string
 #
 
 class Note < ApplicationRecord
   validates :title, presence: true
+
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
   belongs_to :author,
   foreign_key: :author_id,
