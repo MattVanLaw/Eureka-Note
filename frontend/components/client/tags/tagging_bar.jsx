@@ -11,7 +11,6 @@ import Tag from './tag.jsx';
 class TaggingBar extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.state = {
       name: "",
       taggings_attributes: [

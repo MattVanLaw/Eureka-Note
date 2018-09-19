@@ -20,6 +20,11 @@ const NotesReducer = (state = {}, action) => {
       const newState = merge({}, state);
       delete newState[action.noteId];
       return newState;
+    case RECEIVE_TAG:
+      const newerState = merge({}, state);
+      const note = newerState[action.tag.note_ids[0]];
+      const newNote = note.tag_ids.push(action.tag.id);
+      return newerState;
     default:
       return state;
   }

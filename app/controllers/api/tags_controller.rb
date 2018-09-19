@@ -10,8 +10,6 @@ class Api::TagsController < ApplicationController
   end
 
   def create
-    debugger
-
     @tag = Tag.where(name: tag_params[:name])[0]
     unless @tag
       @tag = Tag.new(tag_params)
