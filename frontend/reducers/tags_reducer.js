@@ -19,6 +19,7 @@ const TagsReducer = (state = {}, action) => {
       delete newState[action.tagId];
       return newState;
     case(REMOVE_TAGGING):
+      return action.tagging.tags;
     case(RECEIVE_TAGGING):
       return action.tagging.tags;
     default:

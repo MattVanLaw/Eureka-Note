@@ -11,14 +11,19 @@ class Tag extends React.Component {
       display: false,
     };
   }
+
+  handleSelect() {
+
+  }
+
   render () {
     return(
       <div tabIndex="0"
-           onBlur={() => this.setState({ display: false})}
-           className="note-tag-item">
+           onBlur={() => this.setState({ display: false })}
+           className={`note-tag-item ${ this.state.display ? "selected-tag" : "" }`}>
         {this.props.tag.name}
         <img
-          onClick={() => this.setState({ display: true })}
+          onClick={() => this.setState({ display: !this.state.display })}
           className="note-tag-arrow"
           src={window.dropArrow} />
         {

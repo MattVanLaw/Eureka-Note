@@ -23,3 +23,7 @@
 .tag-menu div:hover {
   background-color: #f5f5f5;
 }
+.selected-tag {
+  background-color: #00a82d;
+  color: #ffffff;
+}

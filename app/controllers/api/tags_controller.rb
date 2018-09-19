@@ -39,7 +39,6 @@ class Api::TagsController < ApplicationController
 
   def remove_tagging
     @tagging = Tagging.find_by(note_id: tagging_params[:note_id], tag_id: tagging_params[:tag_id])
-
     if @tagging.destroy
       render json: {
         note_id: tagging_params[:note_id],

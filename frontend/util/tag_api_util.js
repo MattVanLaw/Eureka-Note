@@ -27,7 +27,7 @@ export const createTag = tag => {
 export const deleteTag = id => {
   return $.ajax({
     method: "DELETE",
-    url: `api/notes/${id}`,
+    url: `api/tags/${id}`,
   });
 };
 
@@ -42,7 +42,7 @@ export const addTagging = tagging => {
 export const deleteTagging = tagging => {
   return $.ajax({
     method: "DELETE",
-    url: 'api/remove_tagging',
-    data: tagging
+    url: '/api/remove_tagging',
+    data: { tagging }
   });
 };

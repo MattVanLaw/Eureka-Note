@@ -103,7 +103,9 @@
   margin-right: 10px;
 }
 .tag-footer .fa-tag {
-
+  transform: rotate(45deg);
+  font-size: 19px;
+  margin-top: 4px;
 }
 .note-tag-item {
   max-width: 310px;

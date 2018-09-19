@@ -41,7 +41,6 @@ class TaggingBar extends React.Component {
           })}
           <input
             type="text"
-            value={this.state.name}
             onChange={(e) => this.update(e, "name")}
             onKeyPress = {e => {
               if (e.key === 'Enter') {
@@ -53,8 +52,6 @@ class TaggingBar extends React.Component {
     );
   }
 }
-
-//needs createTag
 
 const mdp = dispatch => {
   return {

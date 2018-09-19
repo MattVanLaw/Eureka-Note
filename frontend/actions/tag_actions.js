@@ -26,22 +26,22 @@ export const createTag = tag => dispatch => {
           });
 };
 
-export const deleteNote = tagId => dispatch => {
+export const deleteTag = tagId => dispatch => {
   return TagApiUtil
           .deleteTag(tagId)
           .then(tag => dispatch(removeTag(tagId)));
 };
 
 export const addTagging = tagging => dispatch => {
-  return APIUtil
+  return TagApiUtil
           .addTagging(tagging)
           .then(newTagging => dispatch(receiveTagging(newTagging)));
 };
 
 export const deleteTagging = tagging => dispatch => {
-  return APIUtil
+  return TagApiUtil
           .deleteTagging(tagging)
-          .then(newTagging => dispatch(receiveTagging(newTagging)));
+          .then(newTagging => dispatch(removeTagging(tagging)));
 };
 
 const receiveAllTags = tags => {
