@@ -42,6 +42,9 @@ class NoteShow extends React.Component {
     });
   }
   render() {
+    const tags = this.props.tags;
+    const tag_ids = this.props.note.tag_ids;
+    const noteTags = tags.filter(tag => tag_ids.includes(tag.id));
     return (
       <section onClick={(e) => e.stopPropagation()}
                className={`note-show-container ${ this.state.expand ? 'note-show-expand' : ''}`}>
@@ -79,7 +82,21 @@ class NoteShow extends React.Component {
             value={this.state.body}
             placeholder="start writing..."></textarea>
         </div>
-        <footer className="tag-footer">
+        <footer className="tag-footer-container">
+          <div className="tag-footer">
+            <i className="fas fa-tag"></i>
+            {noteTags.map((tag, key) => {
+              return(
+                <div
+                  key={key}
+                  className="note-tag-item">
+                  {tag.name}
+                  <img className="note-tag-arrow" src={window.dropArrow} />
+                </div>
+              );
+            })}
+            <input type="text" value="current tags"/>
+          </div>
         </footer>
       </section>
     );
@@ -87,8 +104,9 @@ class NoteShow extends React.Component {
 }
 
 const msp = state => {
+  const notes = state.entities.notes;
   return {
-    notes: state.entities.notes,
+    tags: Object.values(state.entities.tags),
   }
 }
 
@@ -96,6 +114,7 @@ const mdp = dispatch => {
   return {
     deleteNote: id   => dispatch(deleteNote(id)),
     updateNote: note => dispatch(updateNote(note)),
+    createTag:  tag  => dispatch(createTag(tag)),
   };
 };
 

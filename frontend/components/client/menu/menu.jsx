@@ -78,21 +78,13 @@ class Menu extends React.Component {
           <Link to="/client/notebooks">
             <i className="fas fa-book"></i>&nbsp;&nbsp;&nbsp;Notebooks
           </Link>
+          <Link to="/client/tags">
+            <i className="fas fa-tag"></i>&nbsp;&nbsp;&nbsp;Tags
+          </Link>
         </div>
       </aside>
     )
   }
 }
 
-// const msp = state => {
-//   return {
-//     notebooks: Object.values(state.entities.notebooks),
-//   }
-// }
-//
-// const mdp = dispatch => {
-//   return {
-//     openModal: (string, paydirt) => dispatch(openModal(string, paydirt)),
-//   }
-// }
 export default Menu;

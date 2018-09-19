@@ -1,6 +1,6 @@
 class Api::NotesController < ApplicationController
   def index
-    @notes = Note.where(author_id: current_user.id).sort_by &:updated_at
+    @notes = Note.where(author_id: current_user.id)
     @notebooks = current_user.notebooks
     @user = current_user
   end

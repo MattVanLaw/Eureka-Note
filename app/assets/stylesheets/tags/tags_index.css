@@ -1,0 +1,42 @@
+.tag-index-container {
+  position: absolute;
+  left: 271px;
+  width: calc(100vw - 301px);
+  min-height: 220px;
+}
+.tag-index-title {
+  font-size: 19.5px;
+  font-weight: 400;
+  color: #333333;
+  padding: 25px 0;
+  letter-spacing: -.3px;
+  border-bottom: 2px solid #5b6b70;
+}
+.tag-index-item-container {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tag-index-wrapper {
+  margin-bottom: 35px;
+}
+.tag-index-item {
+  cursor: pointer;
+  font-size: 13px;
+  color: #333333;
+  font-weight: 400;
+  padding: 2px 10px;
+  display: inline;
+  margin-left: -9px;
+}
+.tag-initial {
+  margin-bottom: 9px;
+  font-size: 15px;
+  color: #333333;
+  font-weight: 600;
+}
+.tag-index-item:hover {
+  background-color: #f0f1f1;
+  border-radius: 12px;
+}

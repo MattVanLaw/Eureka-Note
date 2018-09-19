@@ -17,7 +17,8 @@ const msp = state => {
 const mdp = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    createNote: note => dispatch(createNote(note)),
+    createNote: note => {
+      return dispatch(createNote(note))},
     openModal: (string, paydirt) => dispatch(openModal(string, paydirt)),
   };
 };
