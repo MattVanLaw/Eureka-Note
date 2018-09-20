@@ -16,8 +16,6 @@ const App = () => (
   <div>
     <Modal />
     <nav>
-      <Route path="/testy/mctest" component={Editor}/>
-
       <ProtectedRoute path="/client" component={ClientContainer} />
       <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

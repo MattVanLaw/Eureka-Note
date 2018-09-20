@@ -11,7 +11,7 @@ class NotesIndexItem extends React.Component {
   render() {
     let cleanText = this.props.note.body.replace(/<[^>]+>/g, '');
     if (cleanText.length > 80) cleanText = cleanText.slice(0, 80) + "...";
-
+    const notesPage = this.props.location.pathname === "/client/notes";
     return(
       <div onClick={() => this.props.receiveView(this.props.note.id)}
            className="notes-index-item-container">
@@ -28,7 +28,7 @@ class NotesIndexItem extends React.Component {
           this.props.viewId === this.props.note.id ?
             <Quill note={this.props.note} />
               :
-            <Quill note={this.props.topNote} />
+            notesPage ? null : <Quill note={this.props.topNbNote} />
         }
       </div>
     );
@@ -39,7 +39,8 @@ const msp = (state, ownProps) => {
   const currentNbId = parseInt(ownProps.match.params.id);
   return {
     viewId: state.ui.view,
-    topNote: Object.values(state.entities.notes)
+    notes: Object.values(state.entities.notes),
+    topNbNote: Object.values(state.entities.notes)
                    .filter(note => note.notebook_id === currentNbId)[0],
   };
 };
