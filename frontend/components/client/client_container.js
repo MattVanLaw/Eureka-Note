@@ -9,7 +9,7 @@ import {
 } from './../../actions/note_actions';
 import { fetchNotebooks } from './../../actions/notebook_actions';
 import { fetchTags } from './../../actions/tag_actions';
-
+import { formatDateTime, formatTime } from "./../../util/date_util";
 const msp = (state, ownProps) => {
   const user = state.entities.users[state.session.id];
   return {

@@ -26,8 +26,7 @@ class NotesIndexItem extends React.Component {
         </div>
         {
           this.props.viewId === this.props.note.id ?
-            <Quill note={this.props.note} /> :
-            (this.props.topNbNote ? <Quill note={this.props.topNbNote} /> : null)  
+            <Quill note={this.props.note} /> : null  
         }
       </div>
     );

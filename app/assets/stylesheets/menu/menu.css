@@ -165,6 +165,10 @@ ul .dropdown-item {
   justify-content: space-evenly;
   margin-top: 20px;
 }
+.nav-link-active {
+  background-color: #404040;
+  color: #e6e6e6;
+}
 .nav-links a:hover {
   background-color: #404040;
   color: #e6e6e6;

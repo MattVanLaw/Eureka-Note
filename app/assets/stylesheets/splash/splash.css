@@ -121,3 +121,15 @@ h1 {
 .call-to-action-button:hover {
   background-color: #efeded;
 }
+footer {
+  position: absolute;
+  bottom: -32px;
+  background: white;
+  width: 100%;
+  padding: 4px;
+  text-align: center;
+}
+footer a {
+  color: #00a82d;
+  font-weight: 400;
+}

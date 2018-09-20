@@ -1,6 +1,6 @@
 import React from 'react';
 import UserDropdown from './menu_user_dropdown';
-import { withRouter, Link, Redirect, Route } from 'react-router-dom'
+import { withRouter, NavLink, Link, Redirect, Route } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 
@@ -71,15 +71,15 @@ class Menu extends React.Component {
           <span>New Note</span>
         </div>
         <div className="nav-links">
-          <Link to="/client/notes">
+          <NavLink to="/client/notes" activeClassName="nav-link-active">
             <i className="fas fa-file-alt"></i>&nbsp;&nbsp;&nbsp;All Notes
-          </Link>
-          <Link to="/client/notebooks">
+          </NavLink>
+          <NavLink to="/client/notebooks" activeClassName="nav-link-active">
             <i className="fas fa-book"></i>&nbsp;&nbsp;&nbsp;Notebooks
-          </Link>
-          <Link to="/client/tags">
+          </NavLink>
+          <NavLink to="/client/tags" activeClassName="nav-link-active">
             <i className="fas fa-tag"></i>&nbsp;&nbsp;&nbsp;Tags
-          </Link>
+          </NavLink>
         </div>
       </aside>
     )

@@ -50,9 +50,9 @@ class SessionForm extends React.Component {
     return(
       <div className="form-container">
         <form onSubmit={(e) => this.handleSubmit(e)} className="form">
-          <img
-            className="nav-logo"
-            src={window.lightbulb}/>
+          <Link to="/">
+            <img className="nav-logo" src={window.lightbulb}/>
+          </Link>
           <h1>Eureka!
           <span className="subhead">Note</span></h1>
           <div className="logo-dek">

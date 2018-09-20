@@ -5,7 +5,6 @@ class NotebookForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-
     };
     this.updateTitle = this.updateTitle.bind(this);
     this.handleAction = this.handleAction.bind(this);
@@ -37,7 +36,8 @@ class NotebookForm extends React.Component {
             name="title"
             onChange={(e) => this.updateTitle(e)}
             type="text"
-            placeholder={this.props.notebook.title ? this.props.notebook.title : "Notebook name"}/>
+            placeholder={this.props.notebook.title ?
+              this.props.notebook.title : "Notebook name"}/>
         </div>
         <div className="notebook-form-buttons">
           <div onClick={() => this.props.closeModal()}>Cancel</div>
