@@ -1,15 +1,17 @@
 import React from 'react';
 import { formatDateTime, formatTime } from "./../../../util/date_util";
-import NoteShow from './notes_show';
+import Quill from './quill';
 import { connect } from 'react-redux';
 import { receiveView } from './../../../actions/view_actions';
-//Make a class, add state to track selected. default false. onclick set true
-//pull up notesindexitemshow component
+import { withRouter } from 'react-router-dom';
 class NotesIndexItem extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
+    let cleanText = this.props.note.body.replace(/<[^>]+>/g, '');
+    if (cleanText.length > 80) cleanText = cleanText.slice(0, 80) + "...";
+
     return(
       <div onClick={() => this.props.receiveView(this.props.note.id)}
            className="notes-index-item-container">
@@ -17,23 +19,28 @@ class NotesIndexItem extends React.Component {
           {this.props.note.title}
         </div>
         <div className="notes-index-item-dek">
-          {`${this.props.note.body.slice(0, 75)}...`}
+          {`${cleanText}`}
         </div>
         <div className="note-update-date">
           {formatTime(this.props.note.updated_at)}
         </div>
         {
           this.props.viewId === this.props.note.id ?
-            <NoteShow note={this.props.note} /> : null
+            <Quill note={this.props.note} />
+              :
+            <Quill note={this.props.topNote} />
         }
       </div>
     );
   }
 };
 
-const msp = state => {
+const msp = (state, ownProps) => {
+  const currentNbId = parseInt(ownProps.match.params.id);
   return {
     viewId: state.ui.view,
+    topNote: Object.values(state.entities.notes)
+                   .filter(note => note.notebook_id === currentNbId)[0],
   };
 };
 
@@ -43,4 +50,4 @@ const mdp = dispatch => {
   };
 };
 
-export default connect(msp, mdp)(NotesIndexItem);
+export default withRouter(connect(msp, mdp)(NotesIndexItem));

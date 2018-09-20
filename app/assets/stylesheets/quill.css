@@ -1,0 +1,131 @@
+.quill-text-box-container input {
+  display: block;
+  padding: 8px 4px 0px 38px;
+  font-size: 34px;
+  font-weight: 300;
+  border: none;
+  width: calc(100vw - 645px);
+  position: absolute;
+  top: 107px;
+  left: 3px;
+}
+.quill {
+
+}
+.quill .ql-toolbar {
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  margin: 4px 40px 0 38px;
+  padding: 8px 8px 5px 8px;
+}
+.ql-editor {
+  cursor: text;
+  line-height: 1.42;
+  height: 100%;
+  outline: none;
+  overflow-y: auto;
+  margin-top: 60px;
+  padding: 12px 43px;
+  text-align: left;
+  white-space: pre-wrap;
+  min-height: 100%;
+  word-wrap: break-word;
+  border: none;
+  font-family: Roboto;
+}
+.quill-text-box-container input:focus {
+  outline: none;
+}
+.ql-container.ql-snow {
+  border: none;
+}
+.ql-snow .ql-picker.ql-header {
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0;
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+  padding: 0;
+}
+
+/* Set dropdown font-families */
+.ql-font-roboto {
+  font-family: Roboto;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-label::before {
+  content: "Default";
+  font-size: 12.5px;
+  font-weight: 400;
+  width: 105px;
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="roboto"]::before {
+  content: "Default";
+  font-size: 12px;
+  font-family: Roboto;
+}
+span.ql-font-roboto {
+  font-family: Roboto;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="jean"]::before {
+  content: "Jean";
+  font-family: 'Montserrat', sans-serif;
+}
+span.ql-font-jean {
+  font-family: 'Montserrat', sans-serif;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="comic"]::before {
+  content: "Comic";
+  font-family: 'Bangers', cursive;
+}
+span.ql-font-comic {
+  font-family: 'Bangers', cursive;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="tyler"]::before {
+  content: "Tyler";
+  font-family: 'Averia Serif Libre', cursive;
+}
+span.ql-font-tyler {
+  font-family: 'Averia Serif Libre', cursive;
+}
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="elvish"]::before {
+  content: "Elvish";
+  font-family: 'Uncial Antiqua', cursive;
+}
+span.ql-font-elvish {
+  font-family: 'Uncial Antiqua', cursive;
+}
+.ql-snow.ql-toolbar button[value="checked"]::before {
+  content: "✔️";
+  position: absolute;
+  top: 68px;
+  left: 456px;
+}
+.ql-editor ul[data-checked=true] > li::before,
+.ql-editor ul[data-checked=false] > li::before {
+  font-size: 26px;
+}
+.ql-snow .ql-color-picker {
+  width: 18px;
+  margin-top: 2px;
+  margin-left: 8px;
+}
+.ql-snow.ql-toolbar button,
+.ql-snow .ql-toolbar button {
+  padding: 0px;
+}
+.ql-snow.ql-toolbar button svg,
+.ql-snow .ql-toolbar button svg {
+  width: 13px;
+  margin-top: -6px;
+  transform: scale(1,1.15);
+}
+svg[viewBox="0 0 18 18"] {
+  width: 17px;
+  margin-top: .49px;
+}
+button[class="ql-clean"] {
+  position: absolute;
+  right: 37px;
+  top: 70px;
+}

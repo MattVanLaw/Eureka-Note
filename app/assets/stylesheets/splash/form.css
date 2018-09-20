@@ -22,8 +22,7 @@
   margin: 4% auto 0px auto;
 }
 .form img {
-  height: 47px;
-  width: 55px;
+  transform: scale(1.3,1.3);
   margin-right: 5px;
 }
 .form h1 {

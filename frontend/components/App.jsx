@@ -10,10 +10,14 @@ import NotesIndex from './client/notes_index/notes_index';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import Modal from './modal.jsx';
 
+import Editor from './editor';
+
 const App = () => (
   <div>
     <Modal />
     <nav>
+      <Route path="/testy/mctest" component={Editor}/>
+
       <ProtectedRoute path="/client" component={ClientContainer} />
       <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
