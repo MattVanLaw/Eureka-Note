@@ -41,10 +41,12 @@ class TaggingBar extends React.Component {
           })}
           <input
             type="text"
+            value={this.state.name}
             onChange={(e) => this.update(e, "name")}
             onKeyPress = {e => {
               if (e.key === 'Enter') {
-                this.props.createTag(this.state)
+                this.props.createTag(this.state);
+                this.setState({ name: ""});
               }
             }}/>
         </div>
