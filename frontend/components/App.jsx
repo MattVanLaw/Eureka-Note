@@ -10,7 +10,6 @@ import NotesIndex from './client/notes_index/notes_index';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import Modal from './modal.jsx';
 
-import Editor from './editor';
 
 const App = () => (
   <div>

@@ -3,7 +3,7 @@ import { formatDateTime, formatTime } from "./../../../util/date_util";
 import Quill from './quill';
 import { connect } from 'react-redux';
 import { receiveView } from './../../../actions/view_actions';
-import { withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 class NotesIndexItem extends React.Component {
   constructor(props) {
     super(props);
@@ -26,9 +26,8 @@ class NotesIndexItem extends React.Component {
         </div>
         {
           this.props.viewId === this.props.note.id ?
-            <Quill note={this.props.note} />
-              :
-            notesPage ? null : <Quill note={this.props.topNbNote} />
+            <Quill note={this.props.note} /> :
+            (this.props.topNbNote ? <Quill note={this.props.topNbNote} /> : null)  
         }
       </div>
     );
