@@ -27,7 +27,7 @@ class Menu extends React.Component {
   handleCreate(notebookId) {
     const path = this.props.location.pathname;
 
-    if (path === "/client/notebooks" || path === "/client/notes") {
+    if (path === "/client/notebooks" || path === "/client/notes" || path === "/client/tags") {
       this.props.openModal('createNote', this.props.notebooks);
     } else {
       this.props.createNote({id: notebookId});

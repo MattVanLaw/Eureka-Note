@@ -33,6 +33,7 @@ class NotebookForm extends React.Component {
             like &ldquo;Space&rdquo; or &ldquo;Taco Bell&rdquo;</p>
           <label>Name</label>
           <input
+            autoFocus={true}
             name="title"
             onChange={(e) => this.updateTitle(e)}
             type="text"

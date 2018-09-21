@@ -26,7 +26,9 @@ class NotesIndexItem extends React.Component {
         </div>
         {
           this.props.viewId === this.props.note.id ?
-            <Quill note={this.props.note} /> : null  
+            <Quill note={this.props.note} />
+              :
+            null
         }
       </div>
     );
@@ -38,6 +40,7 @@ const msp = (state, ownProps) => {
   return {
     viewId: state.ui.view,
     notes: Object.values(state.entities.notes),
+    topNote: Object.values(state.entities.notes)[0],
     topNbNote: Object.values(state.entities.notes)
                    .filter(note => note.notebook_id === currentNbId)[0],
   };

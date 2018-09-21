@@ -80,13 +80,13 @@ class Quill extends React.Component {
         </header>
         <div className="quill-text-box-container">
           <input
-            autoFocus
             onChange={(e) => this.update(e, "title")}
             name="title"
             type="text"
             value={this.state.title}
             placeholder="Title"/>
           <ReactQuill
+            autoFocus
             value={this.state.body}
             modules={Quill.modules}
             onChange={this.handleChange}/>
@@ -111,17 +111,15 @@ const mdp = dispatch => {
   };
 };
 
-var toolbarOptions = [
+const toolbarOptions = [
 
   [{ 'font': ["roboto", "jean", "comic", "tyler", "elvish"]},
   { 'header': [1, 2, 3, 4, 5, 6, false] }, { 'color': [] }],
-
-
   ['bold', 'italic', 'underline', 'strike','code-block'],
   [{ 'list': 'checked' }, { 'list': 'bullet' }, { 'list': 'ordered'}],
   ['link', 'image', 'video'],
   [{ 'indent': '+1' }, { 'indent': '-1'}, { 'align': [] }],
-  ['clean']                                         // remove formatting button
+  ['clean']
 ];
 
 Quill.modules = {

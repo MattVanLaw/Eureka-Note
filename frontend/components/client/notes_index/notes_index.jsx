@@ -42,7 +42,12 @@ class NotesIndex extends React.Component {
                   onClick={() => this.setState({ display: !this.state.display })}
                   className="toolbar-right">
                   <i className="fas fa-ellipsis-h"></i>
-
+                  {
+                    this.state.display ?
+                    <ShowContextMenu notebook={this.props.notebook}/>
+                      :
+                    null
+                  }
                 </div>
               </div>
             </header>

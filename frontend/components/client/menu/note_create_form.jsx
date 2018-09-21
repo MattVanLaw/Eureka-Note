@@ -23,7 +23,9 @@ class NoteCreateForm extends React.Component {
       <div className="note-create-form-container">
         <form onSubmit={(e) => this.handleSubmit(e, notebook)}
           className="note-create-form">
-          <div className="form-title">Create new note in...<i className="fas fa-times"></i></div>
+          <div className="form-title">Create new note in...
+            <i onClick={this.props.closeModal}
+               className="fas fa-times"></i></div>
           <div className="select-notebook-container">
           {
             this.props.notebooks.map((notebook, key) => {
