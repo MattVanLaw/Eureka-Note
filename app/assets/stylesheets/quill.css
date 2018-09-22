@@ -8,9 +8,11 @@
   position: absolute;
   top: 107px;
   left: 3px;
+  z-index: 5;
 }
 .quill {
-
+  position: absolute;
+  height: 70%;
 }
 .quill .ql-toolbar {
   border: none;
@@ -99,7 +101,7 @@ span.ql-font-elvish {
 .ql-snow.ql-toolbar button[value="checked"]::before {
   content: "✔️";
   position: absolute;
-  top: 68px;
+  top: 15px;
   left: 456px;
 }
 .ql-editor ul[data-checked=true] > li::before,
@@ -127,6 +129,17 @@ svg[viewBox="0 0 18 18"] {
 }
 button[class="ql-clean"] {
   position: absolute;
-  right: 37px;
-  top: 70px;
+  left: 91%;
+  top: 15px;
+}
+.ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+  position: relative;
+  margin-top: -25px;
+  z-index: 6;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  font-size: 1.5em;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  font-size: 1.39em;
 }

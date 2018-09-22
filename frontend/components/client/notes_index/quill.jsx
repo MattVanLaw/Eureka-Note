@@ -86,7 +86,6 @@ class Quill extends React.Component {
             value={this.state.title}
             placeholder="Title"/>
           <ReactQuill
-            autoFocus
             value={this.state.body}
             modules={Quill.modules}
             onChange={this.handleChange}/>
