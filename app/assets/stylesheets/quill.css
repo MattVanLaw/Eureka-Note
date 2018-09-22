@@ -129,7 +129,6 @@ svg[viewBox="0 0 18 18"] {
 }
 button[class="ql-clean"] {
   position: absolute;
-  left: 91%;
   top: 15px;
 }
 .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
@@ -142,4 +141,7 @@ button[class="ql-clean"] {
 }
 .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
   font-size: 1.39em;
+}
+.expand-editor {
+  width: 100vw;
 }

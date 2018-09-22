@@ -88,7 +88,9 @@ class Quill extends React.Component {
           <ReactQuill
             value={this.state.body}
             modules={Quill.modules}
-            onChange={this.handleChange}/>
+            className={`${ this.state.expand ? 'expand-editor' : ''}`}
+            onChange={this.handleChange}>
+          </ReactQuill>
         </div>
         <TaggingBar note={this.props.note} tags={this.props.tags} />
       </section>

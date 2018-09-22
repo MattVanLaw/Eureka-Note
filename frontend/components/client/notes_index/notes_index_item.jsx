@@ -12,6 +12,7 @@ class NotesIndexItem extends React.Component {
     let cleanText = this.props.note.body.replace(/<[^>]+>/g, '');
     if (cleanText.length > 80) cleanText = cleanText.slice(0, 80) + "...";
     const notesPage = this.props.location.pathname === "/client/notes";
+    const notebooksPage = this.props.location.pathname.indexOf("/client/notebooks/") !== -1;
     return(
       <div onClick={() => this.props.receiveView(this.props.note.id)}
            className="notes-index-item-container">
@@ -25,6 +26,20 @@ class NotesIndexItem extends React.Component {
           {formatTime(this.props.note.updated_at)}
         </div>
         {
+          !this.props.nbNotesIds.includes(this.props.viewId)
+          && notebooksPage
+          && this.props.topNbNote.id === this.props.note.id ?
+            <Quill note={this.props.topNbNote} />
+              :
+            null
+        }
+        {
+          notesPage && this.props.topNote.id === this.props.note.id ?
+            <Quill note={this.props.topNote} />
+              :
+            null
+        }
+        {
           this.props.viewId === this.props.note.id ?
             <Quill note={this.props.note} />
               :
@@ -37,12 +52,15 @@ class NotesIndexItem extends React.Component {
 
 const msp = (state, ownProps) => {
   const currentNbId = parseInt(ownProps.match.params.id);
+  const notebookNotes = Object
+                        .values(state.entities.notes)
+                        .filter(note => note.notebook_id === currentNbId)
   return {
     viewId: state.ui.view,
     notes: Object.values(state.entities.notes),
+    nbNotesIds: notebookNotes.map(note => note.id),
     topNote: Object.values(state.entities.notes)[0],
-    topNbNote: Object.values(state.entities.notes)
-                   .filter(note => note.notebook_id === currentNbId)[0],
+    topNbNote: notebookNotes[0],
   };
 };
 
