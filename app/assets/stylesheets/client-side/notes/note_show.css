@@ -92,13 +92,14 @@
   position: fixed;
   bottom:0%;
   width:100%;
+  padding: 0px;
 }
 .tag-footer {
   display: flex;
   align-items: center;
   height: 50px;
   border-top: 1px solid #ececec;
-  padding-left: 20px;
+  padding-left: 15px;
 }
 .tag-footer > * {
   margin-right: 10px;
@@ -116,8 +117,8 @@
   color: #666;
   line-height: 1.67;
   border-color: rgb(216, 216, 216);
-  border-radius: .8em;
-  padding: 3px 7px 3px 12px;
+  border-radius: 1em;
+  padding: 4px 7px 4px 12px;
   text-align: center;
   background: #f0f1f1;
 }

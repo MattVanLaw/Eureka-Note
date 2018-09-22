@@ -13,7 +13,9 @@ class NotebookNotes extends React.Component {
         this.props.notes[0] !== undefined ? this.props.notes.map((note, idx) => (
             <li key={idx}>
               <i className="far fa-file-alt"></i>
-              <Link to="#" className="notebook-show-link">
+              <Link
+                className="notebook-show-link"
+                to={`/client/notebooks/${note.notebook_id}`}>
                 {note.title}
               </Link>
             </li>
