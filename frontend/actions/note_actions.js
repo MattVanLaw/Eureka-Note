@@ -5,62 +5,44 @@ export const RECEIVE_NOTE = "RECEIVE_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
 export const UPDATE_NOTE = "UPDATE_NOTE";
 
-export const fetchNotes = () => dispatch => {
-  return NoteApiUtil
-          .fetchNotes()
-          .then(notes => dispatch(receiveAllNotes(notes)));
-};
+export const fetchNotes = () => dispatch => (
+  NoteApiUtil.fetchNotes()
+             .then(notes => dispatch(receiveAllNotes(notes)))
+);
 
-export const fetchNote = id => dispatch => {
-  return NoteApiUtil
-          .fetchNote(id)
-          .then(note => dispatch(receiveNote(note)));
-};
+export const fetchNote = id => dispatch => (
+  NoteApiUtil.fetchNote(id).then(note => dispatch(receiveNote(note)))
+);
 
-export const updateNote = note => dispatch => {
-  return NoteApiUtil
-          .updateNote(note)
-          .then(note => dispatch(receiveUpdatedNote(note)));
-};
+export const updateNote = note => dispatch => (
+  NoteApiUtil.updateNote(note)
+             .then(note => dispatch(receiveUpdatedNote(note)))
+);
 
-export const createNote = note => dispatch => {
-  return NoteApiUtil
-          .createNote(note)
-          .then(note => {
-            return dispatch(receiveNote(note))
-          });
-};
+export const createNote = note => dispatch => (
+  NoteApiUtil.createNote(note).then(note => dispatch(receiveNote(note)))
+)
 
-export const deleteNote = noteId => dispatch => {
-  return NoteApiUtil
-          .deleteNote(noteId)
-          .then(note => dispatch(removeNote(noteId)));
-}
+export const deleteNote = noteId => dispatch => (
+  NoteApiUtil.deleteNote(noteId).then(note => dispatch(removeNote(noteId)))
+);
 
-const receiveAllNotes = notes => {
-  return {
-    type: RECEIVE_ALL_NOTES,
-    notes,
-  };
-};
+const receiveAllNotes = notes => ({
+  type: RECEIVE_ALL_NOTES,
+  notes,
+});
 
-const receiveUpdatedNote = note => {
-  return {
-    type: UPDATE_NOTE,
-    note,
-  }
-}
+const receiveUpdatedNote = note => ({
+  type: UPDATE_NOTE,
+  note,
+});
 
-const receiveNote = note => {
-  return {
-    type: RECEIVE_NOTE,
-    note,
-  };
-};
+const receiveNote = note => ({
+  type: RECEIVE_NOTE,
+  note,
+});
 
-const removeNote = noteId => {
-  return {
-    type: REMOVE_NOTE,
-    noteId,
-  };
-};
+const removeNote = noteId => ({
+  type: REMOVE_NOTE,
+  noteId,
+});

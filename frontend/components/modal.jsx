@@ -12,7 +12,7 @@ const Modal = ({modal, closeModal}) => {
     return null;
   }
   let component;
-  switch (modal.modal) { //overload payload to give notebook
+  switch (modal.modal) {
     case 'createNotebook':
       component = <NotebookCreateFormContainer />;
       break;
@@ -26,24 +26,26 @@ const Modal = ({modal, closeModal}) => {
       return null;
   }
   return (
-    <div autoFocus={false} className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
+    <div
+      autoFocus={false}
+      className="modal-background"
+      onClick={closeModal}>
+      <div
+        className="modal-child"
+        onClick={e => e.stopPropagation()}>{component}
       </div>
     </div>
   );
 }
 
-const mapStateToProps = state => {
+const msp = ({ ui }) => {
   return {
-    modal: state.ui.modal
+    modal: ui.modal,
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
-};
+const mdp = dispatch => ({
+  closeModal: () => dispatch(closeModal()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(msp, mdp)(Modal);

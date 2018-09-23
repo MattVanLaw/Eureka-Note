@@ -1,24 +1,37 @@
-# README
+<img src="https://raw.githubusercontent.com/MattVanLaw/Eureka-Note/master/app/assets/images/idea-128.ico" width="50px" style="margin: 0px 0px -50px 52px; display: block"/>
+# Eureka!Note
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Summary
+[Eureka!Note](https://eureka-note.herokuapp.com "Eureka! Live") is a single-page, RESTful web application based on Evernote, created with Ruby on Rails and React-Redux.
 
-Things you may want to cover:
+* **Features**
+  * Sign up, log in, and log out
+  * Create, edit, and destroy notebooks and notes
+  * Rich text-editing
+  * Tag Notes
+* Coming soon
+  * Google OmniAuth
+  * Note Search
+  * Filter by Tags
 
-* Ruby version
+## Technologies
+#### Back End
+* Ruby on Rails
+* PostgreSQL (database)
+* AJAX with a JSON API
 
-* System dependencies
+#### Front End
+* [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
+* [React-Quill](https://github.com/zenoamaro/react-quill) (text editing)
+* [BCrypt](https://github.com/codahale/bcrypt-ruby) (authorization)
 
-* Configuration
+## Features
+### User Authentication
+On the back end, Rails, using BCrypt, saves a password digest (not the actual password) to the database. To log in, a user's password is hashed and checked against what is saved.
 
-* Database creation
+### Notes and Notebooks
+The core functionality of Eureka!Note is in creating and editing notes. When a user logs in, they are directed to the All Notes page, a list of every note associated with their account. Through the Notebooks page, users may see a notebook with only its notes. Tags can be added discretely to each individual note. Also, for a more spread out and minimalist view, a note can be expanded to take up the entire window.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Rich Text Editing
+Through [React-Quill](https://github.com/zenoamaro/react-quill), Eureka!Note offers a number of common text-editing tools, such as multiple fonts, text color, bold, italic, underline, checkboxes and their more vanilla friends, ordered and unordered lists, links, image upload, etc.

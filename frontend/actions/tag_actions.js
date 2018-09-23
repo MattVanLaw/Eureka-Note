@@ -6,75 +6,53 @@ export const REMOVE_TAG = "REMOVE_TAG";
 export const RECEIVE_TAGGING = "RECEIVE_TAGGING";
 export const REMOVE_TAGGING = "REMOVE_TAGGING";
 
-export const fetchTags = () => dispatch => {
-  return TagApiUtil
-          .fetchTags()
-          .then(tags => dispatch(receiveAllTags(tags)));
-};
+export const fetchTags = () => dispatch => (
+  TagApiUtil.fetchTags().then(tags => dispatch(receiveAllTags(tags)))
+);
 
-export const fetchTag = id => dispatch => {
-  return TagApiUtil
-          .fetchTag(id)
-          .then(tag => dispatch(receiveTag(tag)));
-};
+export const fetchTag = id => dispatch => (
+  TagApiUtil.fetchTag(id).then(tag => dispatch(receiveTag(tag)))
+);
 
-export const createTag = tag => dispatch => {
-  return TagApiUtil
-          .createTag(tag)
-          .then(tag => {
-            return dispatch(receiveTag(tag));
-          });
-};
+export const createTag = tag => dispatch => (
+  TagApiUtil.createTag(tag).then(tag => dispatch(receiveTag(tag)))
+);
 
-export const deleteTag = tagId => dispatch => {
-  return TagApiUtil
-          .deleteTag(tagId)
-          .then(tag => dispatch(removeTag(tagId)));
-};
+export const deleteTag = tagId => dispatch => (
+  TagApiUtil.deleteTag(tagId).then(tag => dispatch(removeTag(tagId)))
+);
 
-export const addTagging = tagging => dispatch => {
-  return TagApiUtil
-          .addTagging(tagging)
-          .then(newTagging => dispatch(receiveTagging(newTagging)));
-};
+export const addTagging = tagging => dispatch => (
+  TagApiUtil.addTagging(tagging)
+            .then(newTagging => dispatch(receiveTagging(newTagging)))
+);
 
-export const deleteTagging = tagging => dispatch => {
-  return TagApiUtil
-          .deleteTagging(tagging)
-          .then(newTagging => dispatch(removeTagging(tagging)));
-};
+export const deleteTagging = tagging => dispatch => (
+  TagApiUtil.deleteTagging(tagging)
+            .then(newTagging => dispatch(removeTagging(tagging)))
+);
 
-const receiveAllTags = tags => {
-  return {
-    type: RECEIVE_ALL_TAGS,
-    tags,
-  };
-};
+const receiveAllTags = tags => ({
+  type: RECEIVE_ALL_TAGS,
+  tags,
+});
 
-const receiveTag = tag => {
-  return {
-    type: RECEIVE_TAG,
-    tag,
-  }
-}
+const receiveTag = tag => ({
+  type: RECEIVE_TAG,
+  tag,
+});
 
-const removeTag = tagId => {
-  return {
-    type: REMOVE_TAG,
-    tagId,
-  };
-};
+const removeTag = tagId => ({
+  type: REMOVE_TAG,
+  tagId,
+});
 
-const receiveTagging = tagging => {
-  return {
-    type: RECEIVE_TAGGING,
-    tagging
-  };
-};
+const receiveTagging = tagging => ({
+  type: RECEIVE_TAGGING,
+  tagging
+});
 
-const removeTagging = tagging => {
-  return {
+const removeTagging = tagging => ({
     type: REMOVE_TAGGING,
     tagging
-  };
-};
+});

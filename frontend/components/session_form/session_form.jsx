@@ -5,10 +5,12 @@ import { login }   from '../../actions/session_actions';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       username_or_email: "",
       password: "",
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
     this.update = this.update.bind(this);
@@ -64,7 +66,7 @@ class SessionForm extends React.Component {
             <span>or</span>
           </h3>
           <input
-            type="text"
+            type={this.props.inputType}
             placeholder={this.props.placeholder}
             onChange={(e) => this.update(e, "username_or_email")} />
           <input

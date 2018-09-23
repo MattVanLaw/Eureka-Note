@@ -13,6 +13,7 @@
 .quill {
   position: absolute;
   height: 70%;
+  width: calc(100vw - 600px);
 }
 .quill .ql-toolbar {
   border: none;

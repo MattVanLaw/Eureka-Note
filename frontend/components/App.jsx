@@ -1,14 +1,14 @@
-import React               from 'react';
-import SplashContainer   from './splash/splash_container';
-import { Route, Switch }   from 'react-router-dom';
-import LoginFormContainer  from './session_form/login_form_container';
-import SignupFormContainer from './session_form/signup_form_container';
-import Section             from './sections/section';
-import ClientContainer from './client/client_container';
-import NotebookShow from './client/notebooks_show/notebooks_show';
-import NotesIndex from './client/notes_index/notes_index';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from './../util/route_util';
 import Modal from './modal.jsx';
+import NotebookShow from './client/notebooks_show/notebooks_show';
+import NotesIndex from './client/notes_index/notes_index';
+import ClientContainer from './client/client_container';
+import LoginFormContainer from './session_form/login_form_container';
+import SignupFormContainer from './session_form/signup_form_container';
+import Section from './sections/section';
+import SplashContainer from './splash/splash_container';
 
 
 const App = () => (

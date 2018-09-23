@@ -2,23 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { createTag } from './../../../actions/tag_actions';
 import Tag from './tag.jsx';
-// # should allow nested attributes on create
-// # params = { tag: {
-// # name: 'funny', taggings_attributes: [
-// #   { tag_id: 1, note_id: 2 }
-// # ]
-// # }}
+
 class TaggingBar extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       name: "",
-      taggings_attributes: [
-        {
-          note_id: this.props.note.id,
-        }
-      ]
+      taggings_attributes: [{ note_id: this.props.note.id }],
     };
+
     this.update = this.update.bind(this);
   }
 
@@ -36,9 +29,11 @@ class TaggingBar extends React.Component {
       <footer className="tag-footer-container">
         <div className="tag-footer">
           <i className="fas fa-tag"></i>
-          {noteTags.map((tag, key) => {
-            return <Tag key={key} note={this.props.note} tag={tag}/>;
-          })}
+          {
+            noteTags.map((tag, key) => {
+              return <Tag key={key} note={this.props.note} tag={tag}/>;
+            })
+          }
           <input
             type="text"
             value={this.state.name}
@@ -55,10 +50,8 @@ class TaggingBar extends React.Component {
   }
 }
 
-const mdp = dispatch => {
-  return {
-    createTag: tag => dispatch(createTag(tag)),
-  };
-};
+const mdp = dispatch => ({
+  createTag: tag => dispatch(createTag(tag)),
+});
 
 export default connect(null, mdp)(TaggingBar);

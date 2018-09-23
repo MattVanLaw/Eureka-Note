@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import { deleteNote, updateNote } from './../../../actions/note_actions';
 import TaggingBar from './../tags/tagging_bar';
 import ReactQuill from 'react-quill';
-const Font = ReactQuill.Quill.import('formats/font'); // <<<< ReactQuill exports it
-Font.whitelist = ['roboto', 'jean', 'comic', 'tyler', 'elvish'] ; // allow ONLY these fonts and the default
+
+const Font = ReactQuill.Quill.import('formats/font');
+Font.whitelist = ['roboto', 'jean', 'comic', 'tyler', 'elvish'];
 ReactQuill.Quill.register(Font, true);
 
 class Quill extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       title: this.props.note.title,
       body: this.props.note.body,
@@ -18,15 +20,20 @@ class Quill extends React.Component {
       expand: false,
       interval: null,
     }
+
     this.update = this.update.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
+
   componentDidMount() {
     const interval = setInterval((e) => this.props.updateNote(this.state), 10000);
-    this.setState({ interval: interval });
+    this.setState({
+      interval: interval
+    });
   }
+
   componentWillUnmount() {
     this.props.updateNote(this.state);
     clearInterval(this.state.interval);
@@ -103,17 +110,14 @@ const msp = state => {
   return {
     tags: Object.values(state.entities.tags),
   }
-}
-
-const mdp = dispatch => {
-  return {
-    deleteNote: id   => dispatch(deleteNote(id)),
-    updateNote: note => dispatch(updateNote(note)),
-  };
 };
 
-const toolbarOptions = [
+const mdp = dispatch => ({
+  deleteNote: id   => dispatch(deleteNote(id)),
+  updateNote: note => dispatch(updateNote(note)),
+});
 
+const toolbarOptions = [
   [{ 'font': ["roboto", "jean", "comic", "tyler", "elvish"]},
   { 'header': [1, 2, 3, 4, 5, 6, false] }, { 'color': [] }],
   ['bold', 'italic', 'underline', 'strike','code-block'],

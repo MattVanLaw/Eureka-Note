@@ -29,7 +29,7 @@ class NotebooksIndex extends React.Component {
             <div>TITLE</div>
             <div className="header-stats">
               <div>UPDATED</div>
-              <div>CREATED ON</div>
+              <div>CREATED</div>
               <div>ACTIONS</div>
             </div>
           </div>

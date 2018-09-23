@@ -1,12 +1,9 @@
+import Splash from './splash';
 import { connect } from 'react-redux';
 import { logout }  from './../../actions/session_actions';
-import Splash      from './splash';
 
-const msp = (state) => {
-  const user = state.session?
-    state.entities.users[state.session.id]
-    :
-    null;
+const msp = ({entities, session }) => {
+  const user = session ? entities.users[session.id]: null;
   return {
     currentUser: user,
   };

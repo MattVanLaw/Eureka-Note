@@ -13,14 +13,13 @@ const msp = ({ errors }) => {
     otherText: "Sign in",
     otherDek: "Already have an account?",
     placeholder: "Email",
+    inputType: "email",
   };
 };
 
-const mdp = dispatch => {
-  return {
-    processForm: user => dispatch(signup(user)),
-    login: user => dispatch(login(user)),
-  };
-};
+const mdp = dispatch => ({
+  processForm: user => dispatch(signup(user)),
+  login: user => dispatch(login(user)),
+});
 
 export default connect(msp, mdp)(SessionForm);
