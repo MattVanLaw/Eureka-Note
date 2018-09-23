@@ -1,7 +1,6 @@
 class Api::TagsController < ApplicationController
   def index
     @tags = Tag.all.includes(:notes)
-    # .order('name ASC').group_by{ |d| d.name[0] }
   end
 
   def show
@@ -25,6 +24,15 @@ class Api::TagsController < ApplicationController
     @tag = Tag.find(params[:id])
     @tag.destroy
     render :show
+  end
+
+  def add_tagging
+    @tagging = Tagging.new(tag_id: params[:tag_id].to_i, note_id: params[:note_id].to_i)
+    if @tagging.save
+      @tags = Tag.where(user_id: current_user.id)
+    else
+      render json: @tagging.errors.full_messages, status: 422
+    end
   end
 
   def remove_tagging

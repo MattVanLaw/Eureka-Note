@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { createTag } from './../../../actions/tag_actions';
+import { createTag, addTagging } from './../../../actions/tag_actions';
 import Tag from './tag.jsx';
 
 class TaggingBar extends React.Component {
@@ -25,6 +25,8 @@ class TaggingBar extends React.Component {
     const tags = this.props.tags;
     const tag_ids = this.props.note.tag_ids;
     const noteTags = tags.filter(tag => tag_ids.includes(tag.id));
+    const matchingTag = tags.filter(tag => tag.name === this.state.name)[0];
+    const tagExists = !!matchingTag;
     return(
       <footer className="tag-footer-container">
         <div className="tag-footer">
@@ -40,8 +42,12 @@ class TaggingBar extends React.Component {
             onChange={(e) => this.update(e, "name")}
             onKeyPress = {e => {
               if (e.key === 'Enter') {
-                this.props.createTag(this.state);
-                this.setState({ name: ""});
+                tagExists ?
+                  this.props.addTagging({
+                    tag_id: matchingTag.id,
+                    note_id: this.props.note.id,
+                  }) : this.props.createTag(this.state);
+                this.setState({ name: "" });
               }
             }}/>
         </div>
@@ -52,6 +58,7 @@ class TaggingBar extends React.Component {
 
 const mdp = dispatch => ({
   createTag: tag => dispatch(createTag(tag)),
+  addTagging: tagging => dispatch(addTagging(tagging)),
 });
 
 export default connect(null, mdp)(TaggingBar);

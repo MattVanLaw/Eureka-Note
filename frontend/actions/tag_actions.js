@@ -5,6 +5,7 @@ export const RECEIVE_TAG = "RECEIVE_TAG";
 export const REMOVE_TAG = "REMOVE_TAG";
 export const RECEIVE_TAGGING = "RECEIVE_TAGGING";
 export const REMOVE_TAGGING = "REMOVE_TAGGING";
+export const ADD_TAGGING = "ADD_TAGGING";
 
 export const fetchTags = () => dispatch => (
   TagApiUtil.fetchTags().then(tags => dispatch(receiveAllTags(tags)))
@@ -24,7 +25,7 @@ export const deleteTag = tagId => dispatch => (
 
 export const addTagging = tagging => dispatch => (
   TagApiUtil.addTagging(tagging)
-            .then(newTagging => dispatch(receiveTagging(newTagging)))
+            .then(newTagging => dispatch(createTagging(newTagging)))
 );
 
 export const deleteTagging = tagging => dispatch => (
@@ -49,10 +50,15 @@ const removeTag = tagId => ({
 
 const receiveTagging = tagging => ({
   type: RECEIVE_TAGGING,
-  tagging
+  tagging,
+});
+
+const createTagging = tagging => ({
+  type: ADD_TAGGING,
+  tagging,
 });
 
 const removeTagging = tagging => ({
     type: REMOVE_TAGGING,
-    tagging
+    tagging,
 });

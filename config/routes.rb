@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :notes
     resources :tags
     resources :taggings, only: [:create, :destroy]
+
+    post 'tags/add_tagging', to: 'tags#add_tagging'
     delete '/remove_tagging', to: 'tags#remove_tagging'
   end
 end

@@ -12,10 +12,6 @@ export const fetchTag = id => {
   });
 };
 
-export const updateTag = tag => {
-  //nope
-}
-
 export const createTag = tag => {
   return $.ajax({
     method: "POST",
