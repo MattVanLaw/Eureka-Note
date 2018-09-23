@@ -1,7 +1,6 @@
 <img src="https://raw.githubusercontent.com/MattVanLaw/Eureka-Note/master/app/assets/images/idea-128.ico" width="50px" style="margin: 0px 0px -50px 52px; display: block"/>
 # Eureka!Note
-![Splash Page](https://github.com/MattVanLaw/Eureka-Note/blob/master/app/assets/images/splash.png?raw=true)
-[Eureka!Note](https://eureka-note.herokuapp.com "Eureka! Live")
+
 ## Summary
 [Eureka!Note](https://eureka-note.herokuapp.com "Eureka! Live") is a single-page, RESTful web application based on Evernote, created with Ruby on Rails and React-Redux.
 
