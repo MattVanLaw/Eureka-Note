@@ -1,4 +1,3 @@
-<img src="https://raw.githubusercontent.com/MattVanLaw/Eureka-Note/master/app/assets/images/idea-128.ico" width="50px" style="margin: 0px 0px -50px 52px; display: block"/>
 # Eureka!Note
 
 ## Summary
