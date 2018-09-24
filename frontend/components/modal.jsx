@@ -1,11 +1,11 @@
-import React from 'react';
-import { closeModal } from '../actions/modal_actions';
-import { connect } from 'react-redux';
+import React from "react";
+import { closeModal } from "../actions/modal_actions";
+import { connect } from "react-redux";
 import NotebookCreateFormContainer
-from './client/notebooks_index/notebook_form_container';
+  from "./client/notebooks_index/notebook_form_container";
 import NotebookUpdateFormContainer
-from './client/notebooks_index/update_form_container';
-import NoteCreateForm from './client/menu/note_create_form';
+  from "./client/notebooks_index/update_form_container";
+import NoteCreateForm from "./client/menu/note_create_form";
 
 const Modal = ({modal, closeModal}) => {
   if (!modal) {
@@ -13,17 +13,17 @@ const Modal = ({modal, closeModal}) => {
   }
   let component;
   switch (modal.modal) {
-    case 'createNotebook':
-      component = <NotebookCreateFormContainer />;
-      break;
-    case 'updateNotebook':
-      component = <NotebookUpdateFormContainer notebook={modal.notebook}/>;
-      break;
-    case 'createNote':
-      component = <NoteCreateForm notebooks={modal.notebook}/>;
-      break;
-    default:
-      return null;
+  case "createNotebook":
+    component = <NotebookCreateFormContainer />;
+    break;
+  case "updateNotebook":
+    component = <NotebookUpdateFormContainer notebook={modal.notebook}/>;
+    break;
+  case "createNote":
+    component = <NoteCreateForm notebooks={modal.notebook}/>;
+    break;
+  default:
+    return null;
   }
   return (
     <div
@@ -36,7 +36,7 @@ const Modal = ({modal, closeModal}) => {
       </div>
     </div>
   );
-}
+};
 
 const msp = ({ ui }) => {
   return {

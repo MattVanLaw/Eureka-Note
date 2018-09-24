@@ -1,17 +1,16 @@
-import { connect } from 'react-redux';
-import { logout }  from './../../actions/session_actions';
-import Client  from './client';
+import { connect } from "react-redux";
+import { logout }  from "./../../actions/session_actions";
+import Client  from "./client";
 import {
   fetchNotes,
   createNote,
   updateNote,
   deleteNote,
-} from './../../actions/note_actions';
-import { fetchNotebooks } from './../../actions/notebook_actions';
-import { fetchTags } from './../../actions/tag_actions';
-import { formatDateTime, formatTime } from "./../../util/date_util";
+} from "./../../actions/note_actions";
+import { fetchNotebooks } from "./../../actions/notebook_actions";
+import { fetchTags } from "./../../actions/tag_actions";
 
-const msp = ({ entities, session }, ownProps) => {
+const msp = ({ entities, session }) => {
   const user = entities.users[session.id];
   return {
     currentUser: user,

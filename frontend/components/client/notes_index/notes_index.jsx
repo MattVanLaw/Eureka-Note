@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { fetchNote, fetchNotes }
-from './../../../actions/note_actions';
-import NotesIndexItem from './notes_index_item';
-import ShowContextMenu from './../notebooks_show/context_menu';
-import MenuContainer from './../menu/menu_container';
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { fetchNotes } from "./../../../actions/note_actions";
+import NotesIndexItem from "./notes_index_item";
+import ShowContextMenu from "./../notebooks_show/context_menu";
+import MenuContainer from "./../menu/menu_container";
+
 class NotesIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -14,12 +14,15 @@ class NotesIndex extends React.Component {
     };
     this.collapse = this.collapse.bind(this);
   }
+
   componentDidMount() {
     this.props.fetchNotes();
   }
+
   collapse() {
     this.setState({ display: false });
   }
+
   render () {
     const notesLength = this.props.notes.length;
     return(
@@ -44,9 +47,9 @@ class NotesIndex extends React.Component {
                   <i className="fas fa-ellipsis-h"></i>
                   {
                     this.state.display ?
-                    <ShowContextMenu notebook={this.props.notebook}/>
+                      <ShowContextMenu notebook={this.props.notebook}/>
                       :
-                    null
+                      null
                   }
                 </div>
               </div>
@@ -54,7 +57,7 @@ class NotesIndex extends React.Component {
             <section className="note-index-items">
               {
                 this.props.notes.map((note, key) => {
-                  return <NotesIndexItem key={key} note={note} />
+                  return <NotesIndexItem key={key} note={note} />;
                 })
               }
             </section>
@@ -62,19 +65,20 @@ class NotesIndex extends React.Component {
 
         </section>
       </div>
-    )
+    );
   }
 }
 
-const msp = (state, ownProps) => {
+const msp = state => {
   return {
     notes: Object.values(state.entities.notes),
   };
-}
+};
+
 const mdp = dispatch => {
   return {
     fetchNotes: () => dispatch(fetchNotes()),
   };
-}
+};
 
-export default withRouter(connect(msp, mdp)(NotesIndex))
+export default withRouter(connect(msp, mdp)(NotesIndex));

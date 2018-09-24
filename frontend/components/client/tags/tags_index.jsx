@@ -1,5 +1,5 @@
-import React from 'react'
-import MenuContainer from './../menu/menu_container';
+import React from "react";
+import MenuContainer from "./../menu/menu_container";
 
 class TagsIndex extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class TagsIndex extends React.Component {
                     <div className="tag-initial">{tag.name[0]}</div>
                     <div className="tag-index-item">{tag.name}</div>
                   </div>
-                )
+                );
               })
             }
           </div>

@@ -1,6 +1,6 @@
-import Splash from './splash';
-import { connect } from 'react-redux';
-import { logout }  from './../../actions/session_actions';
+import Splash from "./splash";
+import { connect } from "react-redux";
+import { logout }  from "./../../actions/session_actions";
 
 const msp = ({entities, session }) => {
   const user = session ? entities.users[session.id]: null;

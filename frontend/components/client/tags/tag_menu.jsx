@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { deleteTag, deleteTagging } from './../../../actions/tag_actions';
+import React from "react";
+import { connect } from "react-redux";
+import { deleteTag, deleteTagging } from "./../../../actions/tag_actions";
 
 class TagMenu extends React.Component {
   constructor(props) {

@@ -1,9 +1,7 @@
-import React from 'react';
-import { Route, Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import IndexItemMenuContainer from './index_item_menu_container';
-import { fetchNotebooks } from './../../../actions/notebook_actions';
-import NotebookNotes from './notebook_notes';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import IndexItemMenuContainer from "./index_item_menu_container";
+import NotebookNotes from "./notebook_notes";
 
 class NotebooksIndexItem extends React.Component {
   constructor(props) {
@@ -14,11 +12,13 @@ class NotebooksIndexItem extends React.Component {
     };
     this.toggleMenu = this.toggleMenu.bind(this);
   }
+
   toggleMenu() {
     this.setState({
       display: !this.state.display,
     });
   }
+
   render() {
     const createdAt = new Date(this.props.notebook.created_at);
     const createdStr = createdAt.toDateString();
@@ -28,48 +28,48 @@ class NotebooksIndexItem extends React.Component {
     return (
       <div>
 
-      <div className={`notebooks-index-row ${even ? "even-nb" : ''}`}>
-        <div className="notebook-title">
-          <div className="carrot-container">
-            { this.state.carrot ?
+        <div className={`notebooks-index-row ${even ? "even-nb" : ""}`}>
+          <div className="notebook-title">
+            <div className="carrot-container">
+              { this.state.carrot ?
                 <i onClick={() => this.setState({ carrot: false})}
-                   className="fas fa-caret-down"></i>
-                  :
+                  className="fas fa-caret-down"></i>
+                :
                 <i onClick={() => this.setState({ carrot: true})}
-                   className="fas fa-caret-right"></i>
+                  className="fas fa-caret-right"></i>
+              }
+            </div>
+            <Link className="notebook-show-link"
+              to={`/client/notebooks/${this.props.notebook.id}`}>
+              <i className="fas fa-book"></i>
+              {this.props.notebook.title}
+            </Link>
+            <span className="note-count">({this.props.notebook.note_ids.length})</span>
+          </div>
+          <div className="notebook-specs">
+            <div>{updatedStr === "Invalid Date" ? "" : updatedStr.slice(4, updatedStr.length - 5)}</div>
+            <div id="middlest-spec">
+              {createdStr === "Invalid Date" ? "" : createdStr.slice(4, createdStr.length - 5)}
+            </div>
+            <div><i onClick={() => this.toggleMenu()}
+              className="fas fa-ellipsis-h"></i></div>
+          </div>
+        </div>
+        { this.state.carrot ?
+          <NotebookNotes
+            notes={
+              this.props.notes
+                .filter(note => this.props.notebook.note_ids.includes(note.id))
             }
-          </div>
-          <Link className="notebook-show-link"
-            to={`/client/notebooks/${this.props.notebook.id}`}>
-            <i className="fas fa-book"></i>
-            {this.props.notebook.title}
-          </Link>
-          <span className="note-count">({this.props.notebook.note_ids.length})</span>
-        </div>
-        <div className="notebook-specs">
-          <div>{updatedStr === "Invalid Date" ? "" : updatedStr.slice(4, updatedStr.length - 5)}</div>
-          <div id="middlest-spec">
-            {createdStr === "Invalid Date" ? "" : createdStr.slice(4, createdStr.length - 5)}
-          </div>
-          <div><i onClick={() => this.toggleMenu()}
-                  className="fas fa-ellipsis-h"></i></div>
-        </div>
-      </div>
-      { this.state.carrot ?
-        <NotebookNotes
-          notes={
-          this.props.notes
-               .filter(note => this.props.notebook.note_ids.includes(note.id))
-          }
-        /> : null
-      }
-      { this.state.display ?
-        <IndexItemMenuContainer
-          openModal={this.props.openModal}
-          notebookId={this.props.notebook.id}
-          notebook={this.props.notebook}
-        /> : null
-      }
+          /> : null
+        }
+        { this.state.display ?
+          <IndexItemMenuContainer
+            openModal={this.props.openModal}
+            notebookId={this.props.notebook.id}
+            notebook={this.props.notebook}
+          /> : null
+        }
       </div>
     );
   }

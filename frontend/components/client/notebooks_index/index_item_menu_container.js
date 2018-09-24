@@ -1,9 +1,9 @@
-import IndexItemMenu from './index_item_menu';
-import { connect } from 'react-redux';
+import IndexItemMenu from "./index_item_menu";
+import { connect } from "react-redux";
 import {
   updateNotebook,
   deleteNotebook
-} from './../../../actions/notebook_actions';
+} from "./../../../actions/notebook_actions";
 
 const mdp = dispatch => {
   return {

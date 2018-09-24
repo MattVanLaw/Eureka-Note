@@ -24,7 +24,6 @@
 .ql-editor {
   cursor: text;
   line-height: 1.42;
-  height: 100%;
   outline: none;
   overflow-y: auto;
   margin-top: 60px;

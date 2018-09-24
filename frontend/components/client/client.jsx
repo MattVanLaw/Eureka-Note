@@ -1,11 +1,8 @@
-import React    from 'react';
-import { Link } from 'react-router-dom';
-import { Switch } from 'react-router';
-import { AuthRoute, ProtectedRoute } from './../../util/route_util';
-import MenuContainer from './menu/menu_container';
-import NotesIndex from './notes_index/notes_index';
-import NotebooksIndex from './notebooks_index/notebooks_index';
-import TagsIndex from './tags/tags_index';
+import React from "react";
+import { Switch } from "react-router";
+import { ProtectedRoute } from "./../../util/route_util";
+import NotebooksIndex from "./notebooks_index/notebooks_index";
+import TagsIndex from "./tags/tags_index";
 
 class Client extends React.Component {
   constructor(props) {
@@ -26,8 +23,8 @@ class Client extends React.Component {
             exact path="/client/notebooks"
             component={
               () => <NotebooksIndex
-                      notes={this.props.notes}
-                      notebooks={this.props.notebooks} />
+                notes={this.props.notes}
+                notebooks={this.props.notebooks} />
             }
           />
           <ProtectedRoute
@@ -35,7 +32,8 @@ class Client extends React.Component {
             component={() => <TagsIndex tags={this.props.tags}/>}
           />
         </Switch>
-      </header>)
+      </header>
+    );
   }
 }
 

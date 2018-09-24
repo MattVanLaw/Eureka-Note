@@ -1,7 +1,7 @@
 # Eureka!Note
 
 ## Summary
-[Eureka!Note](https://eureka-note.herokuapp.com "Eureka! Live") is a single-page, RESTful web application based on Evernote, created with Ruby on Rails and React-Redux.
+[Eureka!Note](https://eureka-note.herokuapp.com "Eureka! Live") is a single-page, RESTful web application for online note taking, created with Ruby on Rails and React-Redux.
 
 * **Features**
   * Sign up, log in, and log out

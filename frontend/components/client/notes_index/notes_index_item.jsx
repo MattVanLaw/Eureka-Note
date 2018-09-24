@@ -1,21 +1,23 @@
-import React from 'react';
-import { formatDateTime, formatTime } from "./../../../util/date_util";
-import Quill from './quill';
-import { connect } from 'react-redux';
-import { receiveView } from './../../../actions/view_actions';
-import { Route, withRouter } from 'react-router-dom';
+import React from "react";
+import { formatTime } from "./../../../util/date_util";
+import Quill from "./quill";
+import { connect } from "react-redux";
+import { receiveView } from "./../../../actions/view_actions";
+import { withRouter } from "react-router-dom";
+
 class NotesIndexItem extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
-    let cleanText = this.props.note.body.replace(/<[^>]+>/g, '');
+    let cleanText = this.props.note.body.replace(/<[^>]+>/g, "");
     if (cleanText.length > 80) cleanText = cleanText.slice(0, 80) + "...";
     const notesPage = this.props.location.pathname === "/client/notes";
     const notebooksPage = this.props.location.pathname.indexOf("/client/notebooks/") !== -1;
     return(
       <div onClick={() => this.props.receiveView(this.props.note.id)}
-           className="notes-index-item-container">
+        className="notes-index-item-container">
         <div className="notes-index-item-title">
           {this.props.note.title}
         </div>
@@ -30,31 +32,32 @@ class NotesIndexItem extends React.Component {
           && notebooksPage
           && this.props.topNbNote.id === this.props.note.id ?
             <Quill note={this.props.topNbNote} />
-              :
+            :
             null
         }
         {
           notesPage && this.props.topNote.id === this.props.note.id ?
             <Quill note={this.props.topNote} />
-              :
+            :
             null
         }
         {
           this.props.viewId === this.props.note.id ?
             <Quill note={this.props.note} />
-              :
+            :
             null
         }
       </div>
     );
   }
-};
+}
 
 const msp = (state, ownProps) => {
   const currentNbId = parseInt(ownProps.match.params.id);
   const notebookNotes = Object
-                        .values(state.entities.notes)
-                        .filter(note => note.notebook_id === currentNbId)
+    .values(state.entities.notes)
+    .filter(note => note.notebook_id === currentNbId);
+
   return {
     viewId: state.ui.view,
     notes: Object.values(state.entities.notes),

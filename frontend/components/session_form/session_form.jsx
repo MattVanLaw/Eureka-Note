@@ -1,7 +1,7 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-import { Route, Link } from 'react-router-dom';
-import { login }   from '../../actions/session_actions';
+import React from "react";
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -56,12 +56,12 @@ class SessionForm extends React.Component {
             <img className="nav-logo" src={window.lightbulb}/>
           </Link>
           <h1>Eureka!
-          <span className="subhead">Note</span></h1>
+            <span className="subhead">Note</span></h1>
           <div className="logo-dek">
             Exclaim loudly whenever convenient!
           </div>
           <button onClick={(e) => this.handleDemoSubmit(e)}
-                  className="demo-button">Demo</button>
+            className="demo-button">Demo</button>
           <h3 className="form-or">
             <span>or</span>
           </h3>

@@ -1,9 +1,8 @@
-import React from 'react';
-import NotebooksIndexItem from './notebooks_index_item';
-import NotebookFormContainer from './notebook_form_container';
-import { connect } from 'react-redux';
-import { openModal } from './../../../actions/modal_actions';
-import MenuContainer from './../menu/menu_container';
+import React from "react";
+import NotebooksIndexItem from "./notebooks_index_item";
+import { connect } from "react-redux";
+import { openModal } from "./../../../actions/modal_actions";
+import MenuContainer from "./../menu/menu_container";
 
 class NotebooksIndex extends React.Component {
   constructor(props) {
@@ -19,7 +18,7 @@ class NotebooksIndex extends React.Component {
             <h2>My notebook list</h2>
             <div>
               <span
-                onClick={() => this.props.openModal('createNotebook')}
+                onClick={() => this.props.openModal("createNotebook")}
                 className="add-notebook">
                 <i className="fas fa-book"></i> New Notebook
               </span>

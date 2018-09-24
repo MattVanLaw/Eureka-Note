@@ -1,11 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { deleteNote, updateNote } from './../../../actions/note_actions';
-import TaggingBar from './../tags/tagging_bar';
+import React from "react";
+import { connect } from "react-redux";
+import { deleteNote, updateNote } from "./../../../actions/note_actions";
+import TaggingBar from "./../tags/tagging_bar";
 
 class NoteShow extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       title: this.props.note.title,
       body: this.props.note.body,
@@ -13,15 +14,17 @@ class NoteShow extends React.Component {
       openMenu: false,
       expand: false,
       interval: null,
-    }
+    };
+
     this.update = this.update.bind(this);
     this.openMenu = this.openMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
   }
   componentDidMount() {
-    const interval = setInterval((e) => this.props.updateNote(this.state), 10000);
+    const interval = setInterval(() => this.props.updateNote(this.state), 10000);
     this.setState({ interval: interval });
   }
+
   componentWillUnmount() {
     this.props.updateNote(this.state);
     clearInterval(this.state.interval);
@@ -37,15 +40,17 @@ class NoteShow extends React.Component {
       openMenu: true,
     });
   }
+
   closeMenu() {
     this.setState({
       openMenu: false,
     });
   }
+
   render() {
     return (
       <section onClick={(e) => e.stopPropagation()}
-               className={`note-show-container ${ this.state.expand ? 'note-show-expand' : ''}`}>
+        className={`note-show-container ${ this.state.expand ? "note-show-expand" : ""}`}>
         <header className="note-show-header">
           <div className='header-item-container'>
             <i onClick={() => this.setState({ expand: !this.state.expand })}
@@ -87,11 +92,10 @@ class NoteShow extends React.Component {
 }
 
 const msp = state => {
-  const notes = state.entities.notes;
   return {
     tags: Object.values(state.entities.tags),
-  }
-}
+  };
+};
 
 const mdp = dispatch => {
   return {

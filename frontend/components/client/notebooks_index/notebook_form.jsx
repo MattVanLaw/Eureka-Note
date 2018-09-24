@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
 class NotebookForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: "",
-    };
+    this.state = { title: "" };
     this.updateTitle = this.updateTitle.bind(this);
     this.handleAction = this.handleAction.bind(this);
   }
@@ -14,12 +12,14 @@ class NotebookForm extends React.Component {
       title: e.target.value,
       id: this.props.notebook.id || null
     });
-  };
+  }
+
   handleAction(e, state) {
     e.preventDefault();
-    this.props.action(state)
+    this.props.action(state);
     this.props.closeModal();
   }
+
   render() {
     const validTitle = this.state.title.length !== 0;
     return(
@@ -51,7 +51,7 @@ class NotebookForm extends React.Component {
           </button>
         </div>
       </form>
-    )
+    );
   }
 }
 

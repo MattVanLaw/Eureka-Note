@@ -1,15 +1,16 @@
-import React from 'react';
-import UserDropdown from './menu_user_dropdown';
-import { withRouter, NavLink, Link, Redirect, Route } from 'react-router-dom'
-import { connect } from 'react-redux';
+import React from "react";
+import UserDropdown from "./menu_user_dropdown";
+import { NavLink } from "react-router-dom";
 
 
 class Menu extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.state = {
       displayDropdown: false,
     };
+    
     this.displayDropdown = this.displayDropdown.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
@@ -28,7 +29,7 @@ class Menu extends React.Component {
     const path = this.props.location.pathname;
 
     if (path === "/client/notebooks" || path === "/client/notes" || path === "/client/tags") {
-      this.props.openModal('createNote', this.props.notebooks);
+      this.props.openModal("createNote", this.props.notebooks);
     } else {
       this.props.createNote({id: notebookId});
     }
@@ -41,23 +42,22 @@ class Menu extends React.Component {
         <div tabIndex="0" onBlur={ this.closeDropdown } className="user-account">
           <div
             onClick={() => this.displayDropdown()} className="username-container">
-              <span className="initial-container">
-                <span className="initial">
-                  {this.props.currentUser.username[0].toUpperCase()}
-                </span>
+            <span className="initial-container">
+              <span className="initial">
+                {this.props.currentUser.username[0].toUpperCase()}
               </span>
-              <span className="user">{this.props.currentUser.username}</span>
+            </span>
+            <span className="user">{this.props.currentUser.username}</span>
             <img src={window.dropArrow}/>
           </div>
           {
             this.state.displayDropdown ?
-            <UserDropdown
-              currentUser={this.props.currentUser}
-              logout={this.props.logout} /> : null
-            }
+              <UserDropdown
+                currentUser={this.props.currentUser}
+                logout={this.props.logout} /> : null
+          }
         </div>
-        <div className="create-note"
-             onClick={() => this.handleCreate(notebookId)}>
+        <div className="create-note" onClick={() => this.handleCreate(notebookId)}>
 
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="qa-CREATE_NOTE">
             <g fill="none" fillRule="evenodd">
@@ -82,7 +82,7 @@ class Menu extends React.Component {
           </NavLink>
         </div>
       </aside>
-    )
+    );
   }
 }
 

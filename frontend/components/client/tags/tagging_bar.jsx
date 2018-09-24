@@ -1,7 +1,7 @@
-import React from 'react'
-import { connect } from 'react-redux';
-import { createTag, addTagging } from './../../../actions/tag_actions';
-import Tag from './tag.jsx';
+import React from "react";
+import { connect } from "react-redux";
+import { createTag, addTagging } from "./../../../actions/tag_actions";
+import Tag from "./tag.jsx";
 
 class TaggingBar extends React.Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class TaggingBar extends React.Component {
             value={this.state.name}
             onChange={(e) => this.update(e, "name")}
             onKeyPress = {e => {
-              if (e.key === 'Enter') {
+              if (e.key === "Enter") {
                 tagExists ?
                   this.props.addTagging({
                     tag_id: matchingTag[0].id,
@@ -54,10 +54,6 @@ class TaggingBar extends React.Component {
     );
   }
 }
-
-const msp = state => ({
-  tags: Object.values(state.entities.tags),
-});
 
 const mdp = dispatch => ({
   createTag: tag => dispatch(createTag(tag)),

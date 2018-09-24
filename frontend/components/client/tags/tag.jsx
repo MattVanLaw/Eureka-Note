@@ -1,5 +1,5 @@
-import React from 'react'
-import TagMenu from './tag_menu';
+import React from "react";
+import TagMenu from "./tag_menu";
 
 class Tag extends React.Component {
   constructor(props) {
@@ -11,9 +11,10 @@ class Tag extends React.Component {
 
   render () {
     return(
-      <div tabIndex="0"
-           onBlur={() => this.setState({ display: false })}
-           className={`note-tag-item ${ this.state.display ? "selected-tag" : "" }`}>
+      <div 
+        tabIndex="0"
+        onBlur={() => this.setState({ display: false })}
+        className={`note-tag-item ${ this.state.display ? "selected-tag" : "" }`}>
         {this.props.tag.name}
         <img
           className="note-tag-arrow"
@@ -21,12 +22,12 @@ class Tag extends React.Component {
           src={window.dropArrow} />
         {
           this.state.display ?
-          <TagMenu tag={this.props.tag} note={this.props.note}/>
+            <TagMenu tag={this.props.tag} note={this.props.note}/>
             :
-          null
+            null
         }
       </div>
-    )
+    );
   }
 }
 

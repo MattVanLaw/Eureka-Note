@@ -1,13 +1,14 @@
-import React from 'react';
-import { openModal } from './../../../actions/modal_actions';
-import { deleteNotebook } from './../../../actions/notebook_actions';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { openModal } from "./../../../actions/modal_actions";
+import { deleteNotebook } from "./../../../actions/notebook_actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class ShowContextMenu extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return(
       <section onClick={(e) => e.stopPropagation()}
@@ -30,6 +31,6 @@ const mdp = dispatch => {
     deleteNotebook: notebookId => dispatch(deleteNotebook(notebookId)),
     openModal: (string, notebook) => dispatch(openModal(string, notebook)),
   };
-}
+};
 
 export default connect(null, mdp)(ShowContextMenu);

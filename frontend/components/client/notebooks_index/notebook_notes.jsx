@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 class NotebookNotes extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class NotebookNotes extends React.Component {
     return(
       <ul className="notebook-notes">
         {
-        this.props.notes[0] !== undefined ? this.props.notes.map((note, idx) => (
+          this.props.notes[0] !== undefined ? this.props.notes.map((note, idx) => (
             <li key={idx}>
               <i className="far fa-file-alt"></i>
               <Link

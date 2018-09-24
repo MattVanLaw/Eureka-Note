@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { fetchNotebook, fetchNotebooks }
-from './../../../actions/notebook_actions';
-import NotesIndexItem from './../notes_index/notes_index_item';
-import ShowContextMenu from './context_menu';
-import MenuContainer from './../menu/menu_container';
+import React from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { fetchNotebook } from "./../../../actions/notebook_actions";
+import NotesIndexItem from "./../notes_index/notes_index_item";
+import ShowContextMenu from "./context_menu";
+import MenuContainer from "./../menu/menu_container";
+
 class NotebookShow extends React.Component {
   constructor(props) {
     super(props);
@@ -44,9 +44,9 @@ class NotebookShow extends React.Component {
                   <i className="fas fa-ellipsis-h"></i>
                   {
                     this.state.display ?
-                    <ShowContextMenu notebook={this.props.notebook}/>
+                      <ShowContextMenu notebook={this.props.notebook}/>
                       :
-                    null
+                      null
                   }
                 </div>
               </div>
@@ -54,7 +54,7 @@ class NotebookShow extends React.Component {
             <section className="note-index-items">
               {
                 this.props.notes.map((note, key) => {
-                  return <NotesIndexItem key={key} note={note} />
+                  return <NotesIndexItem key={key} note={note} />;
                 })
               }
             </section>
@@ -62,7 +62,7 @@ class NotebookShow extends React.Component {
 
         </section>
       </div>
-    )
+    );
   }
 }
 
@@ -74,13 +74,14 @@ const msp = (state, ownProps) => {
     notebookId: id,
     notebook: notebook,
     notes: Object.values(state.entities.notes)
-                .filter(note => note_ids.includes(note.id)),
+      .filter(note => note_ids.includes(note.id)),
   };
-}
+};
+
 const mdp = dispatch => {
   return {
     fetchNotebook: id => dispatch(fetchNotebook(id)),
   };
-}
+};
 
-export default withRouter(connect(msp, mdp)(NotebookShow))
+export default withRouter(connect(msp, mdp)(NotebookShow));
