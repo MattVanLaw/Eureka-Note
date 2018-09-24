@@ -4,7 +4,8 @@ import {
   REMOVE_NOTE,
   UPDATE_NOTE,
 } from './../actions/note_actions';
-import { RECEIVE_TAG, REMOVE_TAGGING } from './../actions/tag_actions';
+import { RECEIVE_TAG, REMOVE_TAGGING, ADD_TAGGING } from './../actions/tag_actions';
+import { LOGOUT_CURRENT_USER } from './../actions/session_actions';
 import merge from 'lodash/merge';
 
 const NotesReducer = (state = {}, action) => {
@@ -25,13 +26,20 @@ const NotesReducer = (state = {}, action) => {
       const note = newerState[action.tag.note_ids[0]];
       const newNote = note.tag_ids.push(action.tag.id);
       return newerState;
+    case ADD_TAGGING:
+    const newnewState = merge({}, state);
+    const currentNote = newnewState[action.tagging.note_id];
+    currentNote.tag_ids.push(parseInt(action.tagging.tag_id));
+    return newnewState;
     case REMOVE_TAGGING:
       const newestState = merge({}, state);
-      const currentNote = newestState[action.tagging.note_id];
+      const currenterNote = newestState[action.tagging.note_id];
       const tagId = action.tagging.tag_id;
-      const tagIdIdx = currentNote.tag_ids.indexOf(tagId);
-      const newerNote = currentNote.tag_ids.splice(tagIdIdx, 1);
+      const tagIdIdx = currenterNote.tag_ids.indexOf(tagId);
+      const newerNote = currenterNote.tag_ids.splice(tagIdIdx, 1);
       return newestState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }

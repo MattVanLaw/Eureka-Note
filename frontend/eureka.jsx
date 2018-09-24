@@ -20,15 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  //TESTS START
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.login = Util.login;
-  window.signup = Util.signup;
-  window.fetchNotebooks = NBUtil.fetchNotebooks;
-  window.createNotebook = NBUtil.createNotebook;
-  //TESTS END
-
   const root  = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
 });

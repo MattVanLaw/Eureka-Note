@@ -31,7 +31,7 @@ export const addTagging = tagging => {
   return $.ajax({
     method: "POST",
     url: 'api/tags/add_tagging',
-    data: tagging,
+    data: { tagging },
   });
 };
 

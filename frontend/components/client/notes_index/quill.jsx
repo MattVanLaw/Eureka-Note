@@ -27,28 +27,18 @@ class Quill extends React.Component {
     this.closeMenu = this.closeMenu.bind(this);
   }
 
-  componentDidMount() {
-    const interval = setInterval((e) => this.props.updateNote(this.state), 10000);
-    this.setState({
-      interval: interval
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.updateNote(this.state);
-    clearInterval(this.state.interval);
-  }
-
   update(e, field) {
     this.setState({
       [field]: e.target.value,
     });
+    this.props.updateNote(this.state);
   }
 
   handleChange(value) {
     this.setState({
       body: value,
     });
+    this.props.updateNote(this.state);
   }
 
   openMenu() {

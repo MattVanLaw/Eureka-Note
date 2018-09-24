@@ -23,10 +23,12 @@ export const deleteTag = tagId => dispatch => (
   TagApiUtil.deleteTag(tagId).then(tag => dispatch(removeTag(tagId)))
 );
 
-export const addTagging = tagging => dispatch => (
-  TagApiUtil.addTagging(tagging)
-            .then(newTagging => dispatch(createTagging(newTagging)))
-);
+export const addTagging = tagging => dispatch => {
+  return TagApiUtil.addTagging(tagging)
+            .then(newTagging => {
+              return dispatch(createTagging(newTagging))
+            })
+};
 
 export const deleteTagging = tagging => dispatch => (
   TagApiUtil.deleteTagging(tagging)

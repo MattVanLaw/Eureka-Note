@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
       </ul>
     );
   }
-  // method for demo login.
+  
   handleDemoSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, {

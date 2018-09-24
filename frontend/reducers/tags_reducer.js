@@ -5,6 +5,7 @@ import {
   REMOVE_TAGGING,
   RECEIVE_TAGGING,
 } from './../actions/tag_actions';
+import { LOGOUT_CURRENT_USER } from './../actions/session_actions';
 import merge from 'lodash/merge';
 
 const TagsReducer = (state = {}, action) => {
@@ -22,6 +23,8 @@ const TagsReducer = (state = {}, action) => {
       return merge({}, state);
     case RECEIVE_TAGGING:
       return action.tagging.tags;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }

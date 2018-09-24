@@ -60,7 +60,6 @@ class NoteCreateForm extends React.Component {
   }
 }
 
-//need closeModal and createNote in props
 const mdp = dispatch => {
   return {
     createNote: note => dispatch(createNote(note)),

@@ -22,11 +22,10 @@ class TaggingBar extends React.Component {
   }
 
   render () {
-    const tags = this.props.tags;
     const tag_ids = this.props.note.tag_ids;
-    const noteTags = tags.filter(tag => tag_ids.includes(tag.id));
-    const matchingTag = tags.filter(tag => tag.name === this.state.name)[0];
-    const tagExists = !!matchingTag;
+    const noteTags = this.props.tags.filter(tag => tag_ids.includes(tag.id));
+    const matchingTag = this.props.tags.filter(tag => tag.name === this.state.name) || [];
+    const tagExists = matchingTag.length > 0;
     return(
       <footer className="tag-footer-container">
         <div className="tag-footer">
@@ -44,7 +43,7 @@ class TaggingBar extends React.Component {
               if (e.key === 'Enter') {
                 tagExists ?
                   this.props.addTagging({
-                    tag_id: matchingTag.id,
+                    tag_id: matchingTag[0].id,
                     note_id: this.props.note.id,
                   }) : this.props.createTag(this.state);
                 this.setState({ name: "" });
@@ -55,6 +54,10 @@ class TaggingBar extends React.Component {
     );
   }
 }
+
+const msp = state => ({
+  tags: Object.values(state.entities.tags),
+});
 
 const mdp = dispatch => ({
   createTag: tag => dispatch(createTag(tag)),

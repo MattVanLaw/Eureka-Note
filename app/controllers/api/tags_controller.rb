@@ -1,6 +1,6 @@
 class Api::TagsController < ApplicationController
   def index
-    @tags = Tag.all.includes(:notes)
+    @tags = Tag.joins(:notes).where(notes: { author_id: current_user.id } )
   end
 
   def show
@@ -27,9 +27,12 @@ class Api::TagsController < ApplicationController
   end
 
   def add_tagging
-    @tagging = Tagging.new(tag_id: params[:tag_id].to_i, note_id: params[:note_id].to_i)
+    @tagging = Tagging.new(tag_id: tagging_params[:tag_id].to_i, note_id: tagging_params[:note_id].to_i)
     if @tagging.save
-      @tags = Tag.where(user_id: current_user.id)
+      render json: {
+        note_id: tagging_params[:note_id],
+        tag_id: tagging_params[:tag_id]
+      }
     else
       render json: @tagging.errors.full_messages, status: 422
     end

@@ -15,9 +15,9 @@ class IndexItemMenu extends React.Component {
   }
 
   handleEdit() {
-    //open new form modal
     this.props.openModal('updateNotebook', this.props.notebook);
   }
+  
   handleDelete(notebookId) {
     this.toggleDisplay();
     this.props.deleteNotebook(notebookId)
