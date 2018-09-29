@@ -76,12 +76,17 @@ h1 {
 .main-call-to-action {
   margin: auto;
   width: 93%;
+  display: flex;
+  justify-content: center;
   height: inherit;
 }
 
 .main-call-to-action .row {
   display: flex;
-  justify-content: space-between;
+}
+
+.main-call-to-action .row div {
+  margin-right: 85px;
 }
 
 .main-call-to-action img {
