@@ -65,18 +65,20 @@ class SessionForm extends React.Component {
           <h3 className="form-or">
             <span>or</span>
           </h3>
-          <input
-            type={this.props.inputType}
-            placeholder={this.props.placeholder}
-            onChange={(e) => this.update(e, "username_or_email")} />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => this.update(e, "password")} />
-          <button className="submit-button">Continue</button>
-          {this.renderErrors()}
-          <div className="form-footer">{this.props.otherDek}</div>
-          <Link to={this.props.otherLink}>{this.props.otherText}</Link>
+          <form className="inner-form">
+            <input
+              type={this.props.inputType}
+              placeholder={this.props.placeholder}
+              onChange={(e) => this.update(e, "username_or_email")} />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => this.update(e, "password")} />
+            <button type="submit" className="submit-button">Continue</button>
+            {this.renderErrors()}
+            <div className="form-footer">{this.props.otherDek}</div>
+            <Link to={this.props.otherLink}>{this.props.otherText}</Link>
+          </form>
         </form>
       </div>
     );

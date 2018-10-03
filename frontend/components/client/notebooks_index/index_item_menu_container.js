@@ -4,6 +4,7 @@ import {
   updateNotebook,
   deleteNotebook
 } from "./../../../actions/notebook_actions";
+import { withRouter } from "react-router-dom";
 
 const mdp = dispatch => {
   return {
@@ -12,5 +13,5 @@ const mdp = dispatch => {
   };
 };
 
-const IndexItemMenuContainer = connect(null, mdp)(IndexItemMenu);
+const IndexItemMenuContainer = withRouter(connect(null, mdp)(IndexItemMenu));
 export default IndexItemMenuContainer;

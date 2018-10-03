@@ -3,6 +3,7 @@ import { openModal } from "./../../../actions/modal_actions";
 import { deleteNotebook } from "./../../../actions/notebook_actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class ShowContextMenu extends React.Component {
   constructor(props) {
@@ -10,12 +11,18 @@ class ShowContextMenu extends React.Component {
   }
 
   render() {
+    const pathname = this.props.location.pathname;
     return(
       <section onClick={(e) => e.stopPropagation()}
         className="notebook-show-context-menu">
+        {
+          pathname.split('/')[2] === "notebooks" ?
         <div onClick={() => this.props.openModal("updateNotebook", this.props.notebook)}>
           Rename notebook
         </div>
+        :
+        null
+        }
         <Link
           to="/client/notebooks"
           onClick={() => this.props.deleteNotebook(this.props.notebook.id)}>
@@ -33,4 +40,4 @@ const mdp = dispatch => {
   };
 };
 
-export default connect(null, mdp)(ShowContextMenu);
+export default withRouter(connect(null, mdp)(ShowContextMenu));
