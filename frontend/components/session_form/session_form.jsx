@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
             <button type="submit" className="submit-button">Continue</button>
             {this.renderErrors()}
             <div className="form-footer">{this.props.otherDek}</div>
-            <Link to={this.props.otherLink}>{this.props.otherText}</Link>
+            <Link onClick={this.props.clearErrors} to={this.props.otherLink}>{this.props.otherText}</Link>
           </form>
         </form>
       </div>
