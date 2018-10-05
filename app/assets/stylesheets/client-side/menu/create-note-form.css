@@ -83,3 +83,10 @@
 .selected-notebook {
   background-color: #f0f1f1;
 }
+
+.disabled {
+  background-color: transparent;
+  color: #b3b3b3;
+  border: 1px solid #ededed;
+  cursor: default;
+}

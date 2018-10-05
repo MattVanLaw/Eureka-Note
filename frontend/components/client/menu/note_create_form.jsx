@@ -19,6 +19,8 @@ class NoteCreateForm extends React.Component {
   }
 
   render () {
+    console.log(this.state.notebook_id);
+    
     return(
       <div className="note-create-form-container">
         <form onSubmit={(e) => this.handleSubmit(e, notebook)}
@@ -49,8 +51,9 @@ class NoteCreateForm extends React.Component {
             onClick={() => this.props.closeModal()}
             className="cancel-button">Cancel</button>
           <button
+            disabled={this.state.notebook_id === null}
             type="button"
-            className="submit-button"
+            className={`submit-button ${this.state.notebook_id === null ? "disabled" : ""}`}
             onClick={(e) => this.handleSubmit(e, notebook)}>
             Continue
           </button>
