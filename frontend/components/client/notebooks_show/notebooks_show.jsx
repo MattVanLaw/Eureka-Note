@@ -1,11 +1,14 @@
-import React from "react";
+import React, { Component } from 'react'
+import SearchInput, { createFilter } from 'react-search-input';
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { fetchNotebook } from "./../../../actions/notebook_actions";
 import NotesIndexItem from "./../notes_index/notes_index_item";
 import ShowContextMenu from "./context_menu";
 import MenuContainer from "./../menu/menu_container";
+const NOTE_KEYS_TO_FILTERS = ['title', 'body'];
 
+//Take pathname and...if there's a search term like notebooks/85/hey , filter on hey and only load those notes. Change the title, too.
 class NotebookShow extends React.Component {
   constructor(props) {
     super(props);
@@ -13,6 +16,7 @@ class NotebookShow extends React.Component {
       display: false,
     };
     this.collapse = this.collapse.bind(this);
+    this.searched = this.props.location.pathname.split("/").length === 5;
   }
   componentDidMount() {
     this.props.fetchNotebook(this.props.notebookId);
@@ -21,7 +25,18 @@ class NotebookShow extends React.Component {
     this.setState({ display: false });
   }
   render () {
-    const notesLength = this.props.notes.length;
+    const searchTerm = this.props.location.pathname.split("/")[4];
+    
+    const filteredNotes = Object.values(this.props.notes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));
+    
+    let notes;
+    if (this.searched) {
+      notes = filteredNotes;
+    } else {
+      notes = this.props.notes;
+    }
+    const notesLength = notes.length;
+
     return(
       <div>
         <MenuContainer />
@@ -29,12 +44,12 @@ class NotebookShow extends React.Component {
           <div className="index">
             <header className="notebook-show-header">
               <div className="notebook-title">
-                {this.props.notebook.title}
+                {this.searched ? searchTerm : this.props.notebook.title}
               </div>
               <div className="header-toolbar">
                 <div className="toolbar-left">
                   <div className="show-note-count">
-                    {notesLength} {notesLength < 1 ? "Notes" : "Note"}
+                    {notesLength} {notesLength > 1 ? "Notes" : "Note"}
                   </div>
                 </div>
                 <div
@@ -53,7 +68,7 @@ class NotebookShow extends React.Component {
             </header>
             <section className="note-index-items">
               {
-                this.props.notes.map((note, key) => {
+                notes.map((note, key) => {
                   return <NotesIndexItem key={key} note={note} />;
                 })
               }

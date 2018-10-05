@@ -10,6 +10,7 @@ const msp = state => {
   return {
     currentUser: currentUser,
     notebooks: Object.values(state.entities.notebooks),
+    notes: state.entities.notes,
   };
 };
 

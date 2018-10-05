@@ -23,6 +23,7 @@
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [React-Quill](https://github.com/zenoamaro/react-quill) (text editing)
+* [React-Search-Input](https://github.com/enkidevs/react-search-input) (search)
 * [BCrypt](https://github.com/codahale/bcrypt-ruby) (authorization)
 
 ## Features
@@ -42,3 +43,6 @@ Through the Notebooks page, users may see a notebook with only its notes. Tags c
 
 ### Rich Text Editing
 Through [React-Quill](https://github.com/zenoamaro/react-quill), Eureka!Note offers a number of common text-editing tools, such as multiple fonts, text color, bold, italic, underline, checkboxes and their more vanilla friends, ordered and unordered lists, links, image upload, etc.
+
+### Search
+Users can search for a keyword in either note title or body text, via the [React-Search-Input](https://github.com/enkidevs/react-search-input) component.

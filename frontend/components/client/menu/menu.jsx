@@ -1,7 +1,7 @@
 import React from "react";
 import UserDropdown from "./menu_user_dropdown";
 import { NavLink } from "react-router-dom";
-
+import Search from "./searchbar.jsx";
 
 class Menu extends React.Component {
   constructor(props) {
@@ -57,6 +57,7 @@ class Menu extends React.Component {
                 logout={this.props.logout} /> : null
           }
         </div>
+          <Search notes={this.props.notes} pathParts={pathParts}/>
         <div className="create-note" onClick={() => this.handleCreate(notebookId)}>
 
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" id="qa-CREATE_NOTE">

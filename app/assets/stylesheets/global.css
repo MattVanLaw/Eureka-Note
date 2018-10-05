@@ -9,3 +9,7 @@ a {
 ul a {
   color: #00a82d;
 }
+
+.hidden {
+  display: none;
+}
