@@ -25,10 +25,10 @@ class NotebookShow extends React.Component {
     this.setState({ display: false });
   }
   render () {
-    const searchTerm = this.props.location.pathname.split("/")[4];
+    const searchTerm = this.props.location.pathname.split("/")[4] || "";
     
     const filteredNotes = Object.values(this.props.notes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));
-    
+    debugger
     let notes;
     if (this.searched) {
       notes = filteredNotes;
