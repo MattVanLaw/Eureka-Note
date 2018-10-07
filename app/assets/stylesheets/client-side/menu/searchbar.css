@@ -2,6 +2,10 @@
   padding: 14px 13px 0px 13px;
 }
 
+.search-index {
+  display: absolute;
+}
+
 .search-input input {
     position: relative;
     background: #333333;

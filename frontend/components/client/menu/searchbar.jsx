@@ -19,7 +19,7 @@ class Search extends Component {
     const filteredNotes = Object.values(this.props.notes).filter(createFilter(this.state.searchTerm, NOTE_KEYS_TO_FILTERS));
     
     return (
-      <div tabIndex="0" onBlur={() => setTimeout(() => this.setState({ display: false }), 10000)}>
+      <div className="search-index" tabIndex="0" onBlur={() => setTimeout(() => this.setState({ display: false }), 10000)}>
         <SearchInput 
           onClick={() => this.setState({ display: !this.state.display })}
           placeholder='Search all notes...'
@@ -28,7 +28,7 @@ class Search extends Component {
         {filteredNotes.map(note => {
           return (
             <div onClick={() => this.setState({ display: false })}
-            className={`searchbar-note ${this.state.display ? "" : "hidden"}`} key={note.id}>
+            className={`searchbar-note ${this.state.display && this.state.searchTerm !== "" ? "" : "hidden"}`} key={note.id}>
               <Link to={`/client/notebooks/${note.notebook_id}/${this.state.searchTerm}`}>
                 <div className="searchbar-note-title"><strong>{note.title}</strong></div>
                 <div className="searchbar-note-title">{note.body.replace(/<[^>]+>/g, "").slice(0, 50) + "..."}</div>
