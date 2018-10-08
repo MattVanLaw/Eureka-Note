@@ -36,7 +36,8 @@ class NotebookShow extends React.Component {
       notes = this.props.notes;
     }
     const notesLength = notes.length;
-
+    let title = this.props.notebook.title;
+    if (this.props.notebook.title) title = title.length > 24 ? title.slice(0, 25) + "..." : title;
     return(
       <div>
         <MenuContainer />
@@ -44,7 +45,7 @@ class NotebookShow extends React.Component {
           <div className="index">
             <header className="notebook-show-header">
               <div className="notebook-title">
-                {this.searched ? searchTerm : this.props.notebook.title}
+                {this.searched ? searchTerm : title}
               </div>
               <div className="header-toolbar">
                 <div className="toolbar-left">
