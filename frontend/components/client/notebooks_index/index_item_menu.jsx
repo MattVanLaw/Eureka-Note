@@ -3,6 +3,7 @@ import React from "react";
 class IndexItemMenu extends React.Component {
   constructor(props) {
     super(props);
+    debugger
     this.state = { display: false };
     this.handleEdit = this.handleEdit.bind(this);
   }
@@ -25,9 +26,14 @@ class IndexItemMenu extends React.Component {
     return(
       <ul className="index-item-menu">
         <li onClick={() => this.handleEdit()}>Rename notebook</li>
-        <li onClick={() => this.handleDelete(notebookId)}>
-          Delete notebook
-        </li>
+        { 
+          this.props.indexNumber !== 1 ? 
+          <li id="notebook-delete" onClick={() => this.handleDelete(notebookId)}>
+            Delete notebook
+          </li>
+          :
+          null
+        }
       </ul>
     );
   }

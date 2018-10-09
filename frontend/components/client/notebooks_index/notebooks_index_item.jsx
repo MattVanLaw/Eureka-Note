@@ -6,6 +6,7 @@ import NotebookNotes from "./notebook_notes";
 class NotebooksIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    debugger
     this.state = {
       display: false,
       carrot: false,
@@ -65,6 +66,7 @@ class NotebooksIndexItem extends React.Component {
         }
         { this.state.display ?
           <IndexItemMenuContainer
+            indexNumber={this.props.indexNumber}
             openModal={this.props.openModal}
             notebookId={this.props.notebook.id}
             notebook={this.props.notebook}

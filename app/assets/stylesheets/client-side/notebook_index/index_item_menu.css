@@ -10,10 +10,10 @@
   color: #313131;
   cursor: pointer;
 }
-.index-item-menu li:last-child {
+#notebook-delete {
   color: #ff3131
 }
-.index-item-menu li:last-child:hover {
+#notebook-delete:hover {
   color: red;
   -webkit-text-decoration-line: line-through;
   text-decoration-line: line-through;
