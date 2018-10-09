@@ -3,7 +3,6 @@ import React from "react";
 class IndexItemMenu extends React.Component {
   constructor(props) {
     super(props);
-    debugger
     this.state = { display: false };
     this.handleEdit = this.handleEdit.bind(this);
   }
