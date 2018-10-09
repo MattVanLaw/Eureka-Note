@@ -44,7 +44,7 @@ class NotesIndex extends React.Component {
                   tabIndex="0" onBlur={ this.collapse }
                   onClick={() => this.setState({ display: !this.state.display })}
                   className="toolbar-right">
-                  <i className="fas fa-ellipsis-h"></i>
+                  
                   {
                     this.state.display ?
                       <ShowContextMenu notebook={this.props.notebook}/>

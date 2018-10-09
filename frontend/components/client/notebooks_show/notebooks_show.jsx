@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import SearchInput, { createFilter } from 'react-search-input';
+import React from 'react'
+import { createFilter } from 'react-search-input';
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { fetchNotebook } from "./../../../actions/notebook_actions";
@@ -8,7 +8,6 @@ import ShowContextMenu from "./context_menu";
 import MenuContainer from "./../menu/menu_container";
 const NOTE_KEYS_TO_FILTERS = ['title', 'body'];
 
-//Take pathname and...if there's a search term like notebooks/85/hey , filter on hey and only load those notes. Change the title, too.
 class NotebookShow extends React.Component {
   constructor(props) {
     super(props);

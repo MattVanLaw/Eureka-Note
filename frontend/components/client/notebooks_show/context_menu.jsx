@@ -2,12 +2,20 @@ import React from "react";
 import { openModal } from "./../../../actions/modal_actions";
 import { deleteNotebook } from "./../../../actions/notebook_actions";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 
 class ShowContextMenu extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      redirect: false,
+    };
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete() {
+    this.props.deleteNotebook(this.props.notebook.id)
+    this.setState({ redirect: true });
   }
 
   render() {
@@ -23,11 +31,11 @@ class ShowContextMenu extends React.Component {
         :
         null
         }
-        <Link
-          to="/client/notebooks"
-          onClick={() => this.props.deleteNotebook(this.props.notebook.id)}>
+        <div
+          onClick={this.handleDelete}>
           Delete notebook
-        </Link>
+        </div>
+        {this.state.redirect ? <Redirect to="/client/notebooks" /> : null}
       </section>
     );
   }
