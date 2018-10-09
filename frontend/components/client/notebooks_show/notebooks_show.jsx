@@ -52,7 +52,7 @@ class NotebookShow extends React.Component {
                     {notesLength} {notesLength > 1 ? "Notes" : "Note"}
                   </div>
                 </div>
-                <div
+                {this.searched ? null : <div
                   tabIndex="0" onBlur={ this.collapse }
                   onClick={() => this.setState({ display: !this.state.display })}
                   className="toolbar-right">
@@ -63,7 +63,7 @@ class NotebookShow extends React.Component {
                       :
                       null
                   }
-                </div>
+                </div>}
               </div>
             </header>
             <section className="note-index-items">

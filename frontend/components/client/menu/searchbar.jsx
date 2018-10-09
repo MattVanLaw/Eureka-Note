@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import SearchInput, { createFilter } from 'react-search-input';
 import { Link } from 'react-router-dom';
-import NotebookShow from './../notebooks_show/notebooks_show';
 const NOTE_KEYS_TO_FILTERS = ['title', 'body'];
 
 class Search extends Component {
@@ -9,7 +8,7 @@ class Search extends Component {
     super(props);
     
     this.state = {
-      searchTerm: '',
+      searchTerm: ' ',
     };
     this.searchUpdated = this.searchUpdated.bind(this);
   }
