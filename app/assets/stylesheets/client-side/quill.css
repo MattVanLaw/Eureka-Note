@@ -143,5 +143,5 @@ button[class="ql-clean"] {
   font-size: 1.39em;
 }
 .expand-editor {
-  width: 100vw;
+  width: calc(100vw - 242px);
 }
