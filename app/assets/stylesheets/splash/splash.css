@@ -129,6 +129,7 @@ h1 {
 }
 footer {
   position: absolute;
+  box-sizing: border-box;
   bottom: -32px;
   background: white;
   width: 100%;
