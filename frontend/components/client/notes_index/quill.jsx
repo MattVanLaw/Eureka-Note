@@ -28,9 +28,14 @@ class Quill extends React.Component {
   }
 
   update(e, field) {
-    this.props.updateNote(this.state);
     this.setState({
       [field]: e.target.value,
+    });
+    
+    this.props.updateNote({
+      title: e.target.value,
+      body: this.props.note.body,
+      id: this.props.note.id,
     });
   }
 
