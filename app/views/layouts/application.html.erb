@@ -16,6 +16,9 @@
   </head>
 
   <body>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>   
     <%= yield %>
   </body>
 </html>
