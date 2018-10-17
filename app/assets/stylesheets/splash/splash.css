@@ -140,3 +140,26 @@ footer a {
   color: #00a82d;
   font-weight: 400;
 }
+.section-two {
+  position: relative;
+  top: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 870px;
+  justify-content: center;
+}
+.section-two h1 {
+  font-size: 48px;
+  line-height: 64px;
+  margin: auto;
+}
+.row-two {
+  display: flex;
+}
+.row-two p {
+  color: #888b8d;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1.9em;
+}

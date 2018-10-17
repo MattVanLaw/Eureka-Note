@@ -13,12 +13,6 @@ const Section = () => (
         <img className="nav-logo" src={window.heroimg}/>
       </div>
     </div>
-    <footer>
-      <div>This site was coded by
-        <Link to="https://github.com/MattVanLaw"> Matt Van Dyke <i className="fab fa-github"></i>
-        </Link>
-      </div>
-    </footer>
   </section>
 );
 

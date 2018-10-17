@@ -22,7 +22,7 @@ const App = () => (
       <ProtectedRoute path="/client/notebooks/:id" component={NotebookShow}/>
       <ProtectedRoute path="/client/notes" component={NotesIndex}/>
     </nav>
-    <AuthRoute exact path="/" component={Section} />
+    
   </div>
 );
 
