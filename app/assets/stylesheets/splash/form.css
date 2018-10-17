@@ -41,15 +41,15 @@ button {
   border-radius: 7px;
   outline: none;
 }
-.demo-button {
-  height: 42px;
+.form .demo-button {
   border: solid 1px #d0d0d0;
   background-color: #ffffff;
   text-align: center;
-  padding: 2px 140px;
+  padding: 10px 140px;
+  border-radius: 7px;
   font-size: 15px;
   color: #6a6a6a;
-  display: inline-block;
+  cursor: pointer;
 }
 .demo-button:hover {
   background-color: #f8f8f8;
@@ -86,13 +86,15 @@ button {
   background-color: #00a82d;
   font-weight: lighter;
   width: 326px;
-  padding: 2px;
+  padding: 0px 0px;
+  border-radius: 7px;
   color: #FFF;
   line-height: 2.75;
   font-size: 17px;
   margin-top: 7px;
   margin-bottom: 14px;
 }
+
 .form .submit-button:hover {
   background-color: #008925;
 }
@@ -126,4 +128,8 @@ button {
 }
 .inner-form li {
   list-style: none;
+}
+
+#auth-button {
+  padding: 10px 84px;
 }

@@ -60,8 +60,7 @@ class SessionForm extends React.Component {
           <div className="logo-dek">
             Exclaim loudly whenever convenient!
           </div>
-          <button onClick={(e) => this.handleDemoSubmit(e)}
-            className="demo-button">Demo</button>
+          <a className="demo-button" id="auth-button" href="/users/auth/google_oauth2">Continue with Google</a>
           <h3 className="form-or">
             <span>or</span>
           </h3>
@@ -75,6 +74,8 @@ class SessionForm extends React.Component {
               placeholder="Password"
               onChange={(e) => this.update(e, "password")} />
             <button type="submit" className="submit-button">Continue</button>
+            <div onClick={(e) => this.handleDemoSubmit(e)}
+              className="demo-button">Demo</div>
             {this.renderErrors()}
             <div className="form-footer">{this.props.otherDek}</div>
             <Link onClick={this.props.clearErrors} to={this.props.otherLink}>{this.props.otherText}</Link>
