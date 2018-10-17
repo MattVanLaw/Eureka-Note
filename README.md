@@ -9,7 +9,6 @@
   * Rich text-editing
   * Tag Notes
 * Coming soon
-  * Google OmniAuth
   * Note Search
   * Filter by Tags
 
@@ -25,6 +24,7 @@
 * [React-Quill](https://github.com/zenoamaro/react-quill) (text editing)
 * [React-Search-Input](https://github.com/enkidevs/react-search-input) (search)
 * [BCrypt](https://github.com/codahale/bcrypt-ruby) (authorization)
+* [Devise](https://github.com/plataformatec/devise) (omniauth)
 
 ## Features
 ### User Authentication
