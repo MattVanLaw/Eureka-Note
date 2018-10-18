@@ -15,7 +15,7 @@ const App = () => (
     <Modal />
     <nav>
       <ProtectedRoute path="/client" component={ClientContainer} />
-      <Route exact path="/" component={SplashContainer} />
+      <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Switch>
