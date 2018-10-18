@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
           <div className="logo-dek">
             Exclaim loudly whenever convenient!
           </div>
-          <a className="demo-button" id="auth-button" href="/users/auth/google_oauth2">Continue with Google</a>
+          <a className="demo-button" id="auth-button" href="http://eureka.mattvanlaw.io/users/auth/google_oauth2">Continue with Google</a>
           <h3 className="form-or">
             <span>or</span>
           </h3>
