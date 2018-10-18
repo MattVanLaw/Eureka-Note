@@ -12,11 +12,16 @@ class Search extends Component {
     };
     this.searchUpdated = this.searchUpdated.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clear;
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.clear)
   }
 
   render() {
     return (
-      <div className="search-index" tabIndex="0" onBlur={() => setTimeout(() => this.setState({ display: false }), 10000)}>
+      <div className="search-index" tabIndex="0" onBlur={() => this.clear = setTimeout(() => this.setState({ display: false }), 10000)}>
         <form onSubmit={this.handleSubmit}>
         <SearchInput 
           onClick={() => this.setState({ display: !this.state.display })}

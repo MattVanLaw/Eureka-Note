@@ -55,3 +55,6 @@
 .menu-container .mag-lit {
   color: #00a82d;
 }
+.menu-container .mag-lit:hover {
+  color: white;
+}
