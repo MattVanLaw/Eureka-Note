@@ -26,6 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   def new_session_path *args 
-    new_session_path *args
+    new_user_session_path *args
   end
 end
