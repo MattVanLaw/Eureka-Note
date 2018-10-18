@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
   def require_login
     redirect_to new_session_url unless logged_in?
   end
+
+  def new_session_path *args 
+    new_user_session_path *args
+  end
 end
