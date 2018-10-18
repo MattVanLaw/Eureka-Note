@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import SearchInput, { createFilter } from 'react-search-input';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 const NOTE_KEYS_TO_FILTERS = ['title', 'body'];
 
 class Search extends Component {
@@ -8,9 +8,11 @@ class Search extends Component {
     super(props);
     
     this.state = {
-      searchTerm: ' ',
+      searchTerm: '',
+      submitted: false,
     };
     this.searchUpdated = this.searchUpdated.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
@@ -19,25 +21,22 @@ class Search extends Component {
     
     return (
       <div className="search-index" tabIndex="0" onBlur={() => setTimeout(() => this.setState({ display: false }), 10000)}>
+        <form onSubmit={this.handleSubmit}>
+          {this.state.submitted === true ? <Redirect to={`/client/notebooks/${this.state.searchTerm}`} /> : null}
         <SearchInput 
           onClick={() => this.setState({ display: !this.state.display })}
           placeholder='Search all notes...'
           className={`search-input`} 
           onChange={this.searchUpdated}/>
-        {filteredNotes.map(note => {
-          return (
-            <div onClick={() => this.setState({ display: false })}
-            className={`searchbar-note ${this.state.display && this.state.searchTerm !== "" ? "" : "hidden"}`} key={note.id}>
-              <Link to={`/client/notebooks/${note.notebook_id}/${this.state.searchTerm}`}>
-                <div className="searchbar-note-title"><strong>{note.title}</strong></div>
-                <div className="searchbar-note-title">{note.body.replace(/<[^>]+>/g, "").slice(0, 50) + "..."}</div>
-              </Link>
-            </div>
-          )
-        })}
-        
+        </form>
+        <i className={`fas fa-search ${this.state.searchTerm !== "" ? 'mag-lit' : ""}`}></i>
       </div>
     )
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({ submitted: true });
   }
 
   searchUpdated(term) {

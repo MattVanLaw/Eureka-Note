@@ -3,6 +3,7 @@ import { createFilter } from 'react-search-input';
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { fetchNotebook } from "./../../../actions/notebook_actions";
+import { fetchNotes } from './../../../actions/note_actions';
 import NotesIndexItem from "./../notes_index/notes_index_item";
 import ShowContextMenu from "./context_menu";
 import MenuContainer from "./../menu/menu_container";
@@ -15,24 +16,26 @@ class NotebookShow extends React.Component {
       display: false,
     };
     this.collapse = this.collapse.bind(this);
-    this.searched = this.props.location.pathname.split("/").length === 5;
+    this.searched = !parseInt(this.props.match.params.id);
   }
   componentDidMount() {
-    this.props.fetchNotebook(this.props.notebookId);
+    if (this.props.notebookId) this.props.fetchNotebook(this.props.notebookId);
+    else this.props.fetchNotes();
   }
   collapse() {
     this.setState({ display: false });
   }
   render () {
-    const searchTerm = this.props.location.pathname.split("/")[4] || "";
-    
-    const filteredNotes = Object.values(this.props.notes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));
+    const searchTerm = this.props.match.params.id;
+    debugger;
+    const filteredNotes = Object.values(this.props.allNotes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));;
     
     let notes;
     if (this.searched) {
       notes = filteredNotes;
+      debugger
     } else {
-      notes = this.props.notes;
+      notes = this.props.notebookNotes;
     }
     const notesLength = notes.length;
     let title = this.props.notebook.title;
@@ -88,14 +91,16 @@ const msp = (state, ownProps) => {
   return {
     notebookId: id,
     notebook: notebook,
-    notes: Object.values(state.entities.notes)
+    notebookNotes: Object.values(state.entities.notes)
       .filter(note => note_ids.includes(note.id)),
+    allNotes: Object.values(state.entities.notes),
   };
 };
 
 const mdp = dispatch => {
   return {
     fetchNotebook: id => dispatch(fetchNotebook(id)),
+    fetchNotes: () => dispatch(fetchNotes()),
   };
 };
 

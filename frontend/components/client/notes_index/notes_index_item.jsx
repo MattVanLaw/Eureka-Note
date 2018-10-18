@@ -53,7 +53,7 @@ class NotesIndexItem extends React.Component {
 }
 
 const msp = (state, ownProps) => {
-  const currentNbId = parseInt(ownProps.match.params.id);
+  const currentNbId = parseInt(ownProps.match.params.id) || Object.values(state.entities.notes)[0].notebook_id;
   const notebookNotes = Object
     .values(state.entities.notes)
     .filter(note => note.notebook_id === currentNbId);

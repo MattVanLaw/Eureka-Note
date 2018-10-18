@@ -24,6 +24,9 @@
 .search-input input::placeholder {
   color: #9d9d9d;
 }
+.search-input > input:-webkit-search-cancel-button {
+  background: pink;
+}
 
 .searchbar-note {
   padding: 10px;
@@ -38,4 +41,17 @@
 
 .searchbar-note-title {
   color: grey;
+}
+.menu-container .fa-search {
+  position: absolute;
+  padding: 6px;
+  background: #333333;
+  top: 71px;
+  left: 204px;
+  font-size: 15px;
+  opacity: 1;
+  color: #666;
+}
+.menu-container .mag-lit {
+  color: #00a82d;
 }

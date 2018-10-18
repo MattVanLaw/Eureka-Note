@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createFilter } from 'react-search-input';
 import { withRouter } from "react-router";
 import { fetchNotes } from "./../../../actions/note_actions";
 import NotesIndexItem from "./notes_index_item";
@@ -13,6 +14,8 @@ class NotesIndex extends React.Component {
       display: false,
     };
     this.collapse = this.collapse.bind(this);
+    this.searched = !parseInt(this.props.match.params.id);
+    debugger
   }
 
   componentDidMount() {
@@ -24,7 +27,18 @@ class NotesIndex extends React.Component {
   }
 
   render () {
-    const notesLength = this.props.notes.length;
+    const searchTerm = this.props.match.params.id;
+
+    const filteredNotes = Object.values(this.props.allNotes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));
+    debugger;
+    let notes;
+    if (this.searched) {
+      notes = filteredNotes;
+    } else {
+      notes = this.props.notes;
+    }
+    const notesLength = notes.length;
+
     return(
       <div>
         <MenuContainer />
@@ -56,7 +70,7 @@ class NotesIndex extends React.Component {
             </header>
             <section className="note-index-items">
               {
-                this.props.notes.map((note, key) => {
+                notes.map((note, key) => {
                   return <NotesIndexItem key={key} note={note} />;
                 })
               }
