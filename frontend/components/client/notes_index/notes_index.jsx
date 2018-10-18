@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createFilter } from 'react-search-input';
 import { withRouter } from "react-router";
 import { fetchNotes } from "./../../../actions/note_actions";
 import NotesIndexItem from "./notes_index_item";
@@ -15,7 +14,6 @@ class NotesIndex extends React.Component {
     };
     this.collapse = this.collapse.bind(this);
     this.searched = !parseInt(this.props.match.params.id);
-    debugger
   }
 
   componentDidMount() {
@@ -27,18 +25,8 @@ class NotesIndex extends React.Component {
   }
 
   render () {
-    const searchTerm = this.props.match.params.id;
-
-    const filteredNotes = Object.values(this.props.allNotes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));
-    debugger;
-    let notes;
-    if (this.searched) {
-      notes = filteredNotes;
-    } else {
-      notes = this.props.notes;
-    }
+    const notes = this.props.notes;
     const notesLength = notes.length;
-
     return(
       <div>
         <MenuContainer />
@@ -58,7 +46,6 @@ class NotesIndex extends React.Component {
                   tabIndex="0" onBlur={ this.collapse }
                   onClick={() => this.setState({ display: !this.state.display })}
                   className="toolbar-right">
-                  
                   {
                     this.state.display ?
                       <ShowContextMenu notebook={this.props.notebook}/>

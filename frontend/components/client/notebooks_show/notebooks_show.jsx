@@ -16,7 +16,7 @@ class NotebookShow extends React.Component {
       display: false,
     };
     this.collapse = this.collapse.bind(this);
-    this.searched = !parseInt(this.props.match.params.id);
+    this.searched = !!this.props.match.params.term;
   }
   componentDidMount() {
     if (this.props.notebookId) this.props.fetchNotebook(this.props.notebookId);
@@ -26,14 +26,11 @@ class NotebookShow extends React.Component {
     this.setState({ display: false });
   }
   render () {
-    const searchTerm = this.props.match.params.id;
-    debugger;
-    const filteredNotes = Object.values(this.props.allNotes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));;
-    
     let notes;
+    let searchTerm;
     if (this.searched) {
-      notes = filteredNotes;
-      debugger
+      searchTerm = this.props.match.params.term;
+      notes = Object.values(this.props.allNotes).filter(createFilter(searchTerm, NOTE_KEYS_TO_FILTERS));
     } else {
       notes = this.props.notebookNotes;
     }

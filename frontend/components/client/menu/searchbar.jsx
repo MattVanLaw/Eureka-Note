@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import SearchInput, { createFilter } from 'react-search-input';
-import { Link, Redirect } from 'react-router-dom';
-const NOTE_KEYS_TO_FILTERS = ['title', 'body'];
+import SearchInput from 'react-search-input';
+import { withRouter } from 'react-router-dom';
 
 class Search extends Component {
   constructor(props) {
@@ -9,20 +8,16 @@ class Search extends Component {
     
     this.state = {
       searchTerm: '',
-      submitted: false,
+      submitted: 0,
     };
     this.searchUpdated = this.searchUpdated.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render() {
-
-    const filteredNotes = Object.values(this.props.notes).filter(createFilter(this.state.searchTerm, NOTE_KEYS_TO_FILTERS));
-    
     return (
       <div className="search-index" tabIndex="0" onBlur={() => setTimeout(() => this.setState({ display: false }), 10000)}>
         <form onSubmit={this.handleSubmit}>
-          {this.state.submitted === true ? <Redirect to={`/client/notebooks/${this.state.searchTerm}`} /> : null}
         <SearchInput 
           onClick={() => this.setState({ display: !this.state.display })}
           placeholder='Search all notes...'
@@ -36,11 +31,13 @@ class Search extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({ submitted: true });
+    if (this.state.searchTerm.length > 0) {
+      this.props.history.push(`/client/search/${this.state.searchTerm}`);
+    }
   }
 
   searchUpdated(term) {
     this.setState({ searchTerm: term })
   }
 }
-export default Search;
+export default withRouter(Search);
