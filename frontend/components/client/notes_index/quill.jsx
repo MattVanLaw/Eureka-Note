@@ -118,7 +118,6 @@ const toolbarOptions = [
   [{ "list": "checked" }, { "list": "bullet" }, { "list": "ordered"}],
   ["link", "image", "video"],
   [{ "indent": "+1" }, { "indent": "-1"}, { "align": [] }],
-  ["clean"]
 ];
 
 Quill.modules = {

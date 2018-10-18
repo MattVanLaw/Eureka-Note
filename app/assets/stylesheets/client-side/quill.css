@@ -17,9 +17,11 @@
 }
 .quill .ql-toolbar {
   border: none;
+  height: 41px;
   border-bottom: 1px solid #f0f0f0;
   margin: 4px 40px 0 38px;
   padding: 8px 8px 5px 8px;
+  overflow: hidden;
 }
 .ql-editor {
   cursor: text;
