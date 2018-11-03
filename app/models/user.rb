@@ -42,7 +42,7 @@ class User < ApplicationRecord
       )
     end
     user
-end
+  end
 
   def self.find_by_credentials(username_or_email, password)
     user = User.find_by(email: username_or_email) || User.find_by(username: username_or_email)

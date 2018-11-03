@@ -10,19 +10,31 @@ class Api::TagsController < ApplicationController
 
   def create
     @tag = Tag.where(name: tag_params[:name])[0]
-    unless @tag
+    if !@tag
       @tag = Tag.new(tag_params)
-      if @tag.save
+      if @tag.save!
         render :show
       else
         render json: @tag.errors.full_messages, status: 422
+      end
+    else
+      new_tagging = Tagging.new(tag_id: @tag.id.to_i, note_id: tag_params[:taggings_attributes]["0"][:note_id])
+      if new_tagging.save!
+        render :show
+      else 
+        render json: new_tagging.errors.full_messages, status: 422
       end
     end
   end
 
   def destroy
     @tag = Tag.find(params[:id])
-    @tag.destroy
+    note_ids = current_user.notes.map { |note| note.id }
+    
+    t = Tagging.where(tag_id: @tag.id, note_id: note_ids)
+    
+    t.delete if t.length == 1
+    t.delete_all if t.length > 1
     render :show
   end
 
@@ -40,6 +52,7 @@ class Api::TagsController < ApplicationController
 
   def remove_tagging
     @tagging = Tagging.find_by(note_id: tagging_params[:note_id], tag_id: tagging_params[:tag_id])
+    
     if @tagging.destroy
       render json: {
         note_id: tagging_params[:note_id],
