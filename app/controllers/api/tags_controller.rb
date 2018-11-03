@@ -33,7 +33,7 @@ class Api::TagsController < ApplicationController
     
     t = Tagging.where(tag_id: @tag.id, note_id: note_ids)
     
-    t.delete if t.length == 1
+    t.destroy if t.length == 1
     t.delete_all if t.length > 1
     render :show
   end
