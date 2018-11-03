@@ -134,9 +134,13 @@ button[class="ql-clean"] {
   top: 15px;
 }
 .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
-  position: relative;
-  margin-top: -25px;
+  position: fixed;
+  background: none;
+  top: 69px;
   z-index: 6;
+  border: none;
+  padding: 0;
+  box-shadow: none;
 }
 .ql-snow .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
   font-size: 1.5em;
@@ -146,4 +150,14 @@ button[class="ql-clean"] {
 }
 .expand-editor {
   width: 100vw;
+}
+.ql-snow .ql-picker-options .ql-picker-item {
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 15px;
+  width: 107px;
+  background: white;
+  box-shadow: 1px 1px 1px ghostwhite;
 }
