@@ -32,8 +32,7 @@ class Api::TagsController < ApplicationController
     note_ids = current_user.notes.map { |note| note.id }
     
     t = Tagging.where(tag_id: @tag.id, note_id: note_ids)
-    
-    t.destroy if t.length == 1
+    t.first.destroy if t.length == 1
     t.delete_all if t.length > 1
     render :show
   end
