@@ -53,7 +53,9 @@ const createTagging = tagging => ({
   tagging,
 });
 
-const removeTagging = tagging => ({
+const removeTagging = tagging => {
+  return {
   type: REMOVE_TAGGING,
   tagging,
-});
+  }
+};

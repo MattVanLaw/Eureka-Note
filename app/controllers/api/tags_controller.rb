@@ -29,6 +29,7 @@ class Api::TagsController < ApplicationController
 
   def destroy
     @tag = Tag.find(params[:id])
+    
     note_ids = current_user.notes.map { |note| note.id }
     
     t = Tagging.where(tag_id: @tag.id, note_id: note_ids)

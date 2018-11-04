@@ -34,9 +34,9 @@ const NotesReducer = (state = {}, action) => {
     case REMOVE_TAGGING:
       const newestState = merge({}, state);
       const currenterNote = newestState[action.tagging.note_id];
-      const tagId = action.tagging.tag_id;
+      const tagId = parseInt(action.tagging.tag_id);
       const tagIdIdx = currenterNote.tag_ids.indexOf(tagId);
-      const newerNote = currenterNote.tag_ids.splice(tagIdIdx, 1);
+      currenterNote.tag_ids.splice(tagIdIdx, 1);
       return newestState;
     case LOGOUT_CURRENT_USER:
       return {};
